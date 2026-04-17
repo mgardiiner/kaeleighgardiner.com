@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import aboutData from '~/data/about.json'
 
-const { bio, location, availability, education, email, linkedin } = aboutData
+const { bio, photo, location, availability, education, email, linkedin } = aboutData
 </script>
 
 <template>
@@ -9,12 +9,20 @@ const { bio, location, availability, education, email, linkedin } = aboutData
     <div class="max-w-5xl mx-auto">
 
       <!-- Header -->
-      <div class="mb-20">
-        <div class="flex items-center gap-4 mb-6">
-          <span class="w-10 h-px bg-purple-300"></span>
-          <p class="text-xs font-semibold tracking-widest uppercase text-slate-400">About</p>
+      <div class="flex flex-col md:flex-row md:items-end gap-10 mb-20">
+        <div class="flex-1">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="w-10 h-px bg-purple-300"></span>
+            <p class="text-xs font-semibold tracking-widest uppercase text-slate-400">About</p>
+          </div>
+          <h1 class="font-display text-5xl md:text-6xl font-semibold text-slate-900 leading-tight">Kaeleigh Gardiner</h1>
         </div>
-        <h1 class="font-display text-5xl md:text-6xl font-semibold text-slate-900 leading-tight">Kaeleigh Gardiner</h1>
+        <!-- Headshot -->
+        <div v-if="photo" class="shrink-0">
+          <div class="w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden shadow-md border border-purple-100">
+            <img :src="photo" alt="Kaeleigh Gardiner" class="w-full h-full object-cover object-top" />
+          </div>
+        </div>
       </div>
 
       <!-- Bio + Quick facts -->

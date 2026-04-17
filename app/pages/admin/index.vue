@@ -26,6 +26,7 @@ interface Project {
 }
 
 interface About {
+  photo: string
   bio: string[]
   location: string
   availability: string
@@ -213,6 +214,25 @@ async function readFileAsBase64(file: File): Promise<string> {
     reader.onerror = reject
     reader.readAsDataURL(file)
   })
+}
+
+// ── About photo upload ────────────────────────────────────────────────────────
+
+const uploadingPhoto = ref(false)
+
+async function uploadAboutPhoto(file: File) {
+  uploadingPhoto.value = true
+  try {
+    const ext = file.name.split('.').pop() ?? 'jpg'
+    const filename = `headshot-${Date.now()}.${ext}`
+    await githubPutBinary(`public/images/${filename}`, await readFileAsBase64(file), 'chore: update about headshot via admin')
+    about.value.photo = `/images/${filename}`
+  } catch (err: any) {
+    saveStatus.value = 'error'
+    saveMessage.value = `Photo upload failed: ${err.message ?? 'Unknown error'}`
+  } finally {
+    uploadingPhoto.value = false
+  }
 }
 
 // ── Image upload ──────────────────────────────────────────────────────────────
@@ -600,6 +620,27 @@ function handleSave() {
           <template v-else-if="activeSection === 'about'">
             <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8">About Page</h2>
             <div class="space-y-5 mb-10">
+
+              <!-- Headshot -->
+              <div>
+                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Headshot</label>
+                <div class="flex items-start gap-4">
+                  <div v-if="about.photo" class="w-20 h-20 rounded-xl overflow-hidden border border-slate-200 shrink-0">
+                    <img :src="about.photo" alt="Headshot" class="w-full h-full object-cover object-top" />
+                  </div>
+                  <div class="space-y-2">
+                    <label :class="['flex items-center gap-2 w-fit px-4 py-2 rounded-lg border text-sm font-medium cursor-pointer transition-colors', uploadingPhoto ? 'border-slate-200 text-slate-400 bg-slate-50 pointer-events-none' : 'border-purple-200 text-purple-600 hover:bg-purple-50']">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12V4m0 0L8 8m4-4l4 4" />
+                      </svg>
+                      {{ uploadingPhoto ? 'Uploading…' : 'Upload photo' }}
+                      <input type="file" accept="image/*" class="sr-only" :disabled="uploadingPhoto" @change="(e) => { const f = (e.target as HTMLInputElement).files?.[0]; if (f) uploadAboutPhoto(f) }" />
+                    </label>
+                    <button v-if="about.photo" @click="about.photo = ''" class="block text-xs text-red-400 hover:text-red-600 transition-colors">Remove photo</button>
+                  </div>
+                </div>
+              </div>
+
               <div>
                 <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Bio</label>
                 <p class="text-xs text-slate-400 mb-2">Separate paragraphs with a blank line.</p>
