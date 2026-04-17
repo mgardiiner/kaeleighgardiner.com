@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const links = [
-  { label: 'Work',    to: '/work' },
-  { label: 'About',   to: '/about' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Work',       to: '/work' },
+  { label: 'Experience', to: '/experience' },
+  { label: 'About',      to: '/about' },
 ]
 
 const menuOpen = ref(false)
@@ -29,7 +29,7 @@ const menuOpen = ref(false)
           href="mailto:kaeleigh.gardiner@yahoo.ca"
           class="text-sm font-medium px-4 py-2 rounded-full bg-purple-600 text-white hover:bg-purple-700 transition-colors"
         >
-          Say Hello
+          Get in Touch
         </a>
       </nav>
 
