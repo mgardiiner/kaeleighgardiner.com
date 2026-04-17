@@ -8,66 +8,29 @@ const { bio, photo, location, availability, education, email, linkedin } = about
   <div class="pt-28 pb-32 px-6">
     <div class="max-w-5xl mx-auto">
 
-      <!-- Eyebrow -->
-      <div class="flex items-center gap-4 mb-16">
-        <span class="w-10 h-px bg-purple-300"></span>
-        <p class="text-xs font-semibold tracking-widest uppercase text-slate-400">About</p>
+      <!-- Name -->
+      <div class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="w-10 h-px bg-purple-300"></span>
+          <p class="text-xs font-semibold tracking-widest uppercase text-slate-400">About</p>
+        </div>
+        <h1 class="font-display text-5xl md:text-7xl font-semibold text-slate-900 leading-tight">Kaeleigh Gardiner</h1>
       </div>
 
-      <!-- Main layout: photo left, content right -->
-      <div class="grid md:grid-cols-[300px_1fr] gap-16 items-start">
+      <!-- Photo + Bio -->
+      <div class="grid md:grid-cols-[1fr_280px] gap-12 md:gap-16 items-start mb-16">
 
-        <!-- Photo column -->
-        <div class="space-y-8">
-          <div v-if="photo" class="aspect-[3/4] rounded-2xl overflow-hidden bg-purple-50">
-            <img :src="photo" alt="Kaeleigh Gardiner" class="w-full h-full object-cover object-top" />
-          </div>
-          <div v-else class="aspect-[3/4] rounded-2xl bg-purple-50 flex items-center justify-center">
-            <span class="font-display text-5xl font-semibold text-purple-200">KG</span>
-          </div>
-
-          <!-- Quick facts -->
-          <div class="flex flex-col gap-5">
-            <div v-if="location">
-              <p class="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-1">Based in</p>
-              <p class="text-slate-800 font-medium text-sm">{{ location }}</p>
-            </div>
-            <div v-if="availability">
-              <p class="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-1">Availability</p>
-              <div class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
-                <p class="text-slate-800 font-medium text-sm">{{ availability }}</p>
-              </div>
-            </div>
-            <div v-if="education">
-              <p class="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-1">Education</p>
-              <p class="text-slate-800 font-medium text-sm">{{ education.degree }}</p>
-              <p class="text-slate-500 text-xs mt-0.5">{{ education.institution }}</p>
-              <p class="text-slate-400 text-xs">{{ education.years }}</p>
-            </div>
-            <div v-if="linkedin">
-              <p class="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-1">LinkedIn</p>
-              <a :href="linkedin" target="_blank" rel="noopener" class="text-purple-600 font-medium text-sm hover:underline underline-offset-4">View Profile →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Content column -->
+        <!-- Bio -->
         <div>
-          <h1 class="font-display text-5xl md:text-6xl font-semibold text-slate-900 leading-tight mb-10">Kaeleigh Gardiner</h1>
-
-          <div class="space-y-5 mb-10">
-            <p
-              v-for="(paragraph, i) in bio"
-              :key="i"
-              class="text-slate-600 leading-relaxed"
-              :class="{ 'text-xl text-slate-700': i === 0 }"
-            >
-              {{ paragraph }}
-            </p>
-          </div>
-
-          <div class="flex flex-wrap gap-3">
+          <p
+            v-for="(paragraph, i) in bio"
+            :key="i"
+            class="text-slate-600 leading-relaxed mb-5"
+            :class="{ 'text-xl text-slate-700 font-medium': i === 0 }"
+          >
+            {{ paragraph }}
+          </p>
+          <div class="flex flex-wrap gap-3 mt-10">
             <a
               href="/resume.pdf"
               target="_blank"
@@ -87,6 +50,41 @@ const { bio, photo, location, availability, education, email, linkedin } = about
           </div>
         </div>
 
+        <!-- Photo -->
+        <div class="shrink-0">
+          <div v-if="photo" class="w-full aspect-[3/4] rounded-2xl overflow-hidden bg-purple-50">
+            <img :src="photo" alt="Kaeleigh Gardiner" class="w-full h-full object-cover object-top" />
+          </div>
+          <div v-else class="w-full aspect-[3/4] rounded-2xl bg-purple-50 flex items-center justify-center">
+            <span class="font-display text-5xl font-semibold text-purple-200">KG</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick facts strip -->
+      <div class="border-t border-slate-100 pt-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div v-if="location">
+          <p class="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-1">Based in</p>
+          <p class="text-slate-800 font-medium text-sm">{{ location }}</p>
+        </div>
+        <div v-if="availability">
+          <p class="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-1">Availability</p>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+            <p class="text-slate-800 font-medium text-sm">{{ availability }}</p>
+          </div>
+        </div>
+        <div v-if="education">
+          <p class="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-1">Education</p>
+          <p class="text-slate-800 font-medium text-sm">{{ education.degree }}</p>
+          <p class="text-slate-500 text-xs mt-0.5">{{ education.institution }}</p>
+          <p class="text-slate-400 text-xs">{{ education.years }}</p>
+        </div>
+        <div v-if="linkedin">
+          <p class="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-1">LinkedIn</p>
+          <a :href="linkedin" target="_blank" rel="noopener" class="text-purple-600 font-medium text-sm hover:underline underline-offset-4">View Profile →</a>
+        </div>
       </div>
 
     </div>
