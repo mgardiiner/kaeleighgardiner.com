@@ -1,9 +1,7 @@
 <script setup lang="ts">
-const skills = [
-  'User Research', 'Wireframing', 'Prototyping', 'Usability Testing',
-  'Information Architecture', 'Interaction Design', 'Visual Design',
-  'Figma', 'Service Design', 'Accessibility',
-]
+import aboutData from '~/data/about.json'
+
+const { bio, skills } = aboutData
 </script>
 
 <template>
@@ -13,14 +11,13 @@ const skills = [
         <!-- Text -->
         <div>
           <h1 class="font-display text-5xl font-semibold text-slate-900 mb-6">About Me</h1>
-          <p class="text-slate-600 text-lg leading-relaxed mb-5">
-            I'm Kaeleigh, a UX Designer passionate about creating experiences that are both intuitive and meaningful. I believe great design starts with deeply understanding the people you're designing for.
-          </p>
-          <p class="text-slate-600 leading-relaxed mb-5">
-            My work spans government services, enterprise systems, and consumer products — with a consistent focus on clarity, accessibility, and human-centred thinking.
-          </p>
-          <p class="text-slate-600 leading-relaxed mb-10">
-            When I'm not designing, you'll find me illustrating, exploring new tools, or hunting for the perfect coffee shop.
+          <p
+            v-for="(paragraph, i) in bio"
+            :key="i"
+            class="text-slate-600 leading-relaxed mb-5"
+            :class="{ 'text-lg': i === 0 }"
+          >
+            {{ paragraph }}
           </p>
 
           <a
