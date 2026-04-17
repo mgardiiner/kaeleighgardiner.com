@@ -83,16 +83,18 @@ const marqueeDouble = [...marqueeItems, ...marqueeItems]
     </section>
 
     <!-- Marquee -->
-    <div class="border-y border-purple-100 py-4 overflow-hidden bg-white">
-      <div class="marquee-track">
-        <span
-          v-for="(item, i) in marqueeDouble"
-          :key="i"
-          class="inline-flex items-center gap-4 pr-8 text-sm font-medium text-slate-400 whitespace-nowrap"
-        >
-          <span class="w-1.5 h-1.5 rounded-full bg-purple-300 shrink-0"></span>
-          {{ item }}
-        </span>
+    <div class="border-y border-purple-100 py-4 bg-white">
+      <div class="max-w-5xl mx-auto px-6 overflow-hidden">
+        <div class="marquee-track">
+          <span
+            v-for="(item, i) in marqueeDouble"
+            :key="i"
+            class="inline-flex items-center gap-4 pr-8 text-sm font-medium text-slate-400 whitespace-nowrap"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-purple-300 shrink-0"></span>
+            {{ item }}
+          </span>
+        </div>
       </div>
     </div>
 
