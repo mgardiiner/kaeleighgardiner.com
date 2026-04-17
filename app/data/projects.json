@@ -3,7 +3,10 @@
     "title": "Training Coordination Solutions",
     "slug": "training-coordination-solutions",
     "year": "2024",
-    "tags": ["UX Design", "Research"],
+    "tags": [
+      "UX Design",
+      "Research"
+    ],
     "description": "A 16-month co-op project with the Ministry of Transportation's Engagement and Advisory Branch (May–October 2024) — creating a digital registration and tracking system for employee training courses.",
     "thumbnail": "https://cdn.myportfolio.com/7177a98e-d9cd-40fd-85ff-c6c29f4b6eb9/5ce49b48-7c9d-4a6d-b934-781020ed9f73_rwc_65x0x802x602x32.png?h=e036eda9907df6fcc4cf8ba7e5e9bc3c",
     "sections": [
@@ -20,14 +23,17 @@
         "body": "Manage Courses (Training Coordinator View) — A dashboard allowing coordinators to create, manage, and track training courses across the branch.\n\nFind & Register for Courses (Employee View) — An employee-facing interface that lets staff browse available courses and self-register, reducing reliance on managers.\n\nView Employee Training (Manager View) — A read-only reporting view that gives managers visibility into their team's training progress without becoming a bottleneck."
       }
     ],
-    "prevSlug": null,
+    "prevSlug": "illustrations",
     "nextSlug": "highway-corridor-management-system"
   },
   {
     "title": "Highway Corridor Management System",
     "slug": "highway-corridor-management-system",
     "year": "2025",
-    "tags": ["UX Design", "Systems"],
+    "tags": [
+      "UX Design",
+      "Systems"
+    ],
     "description": "A live-phase contribution to the Ontario Ministry of Transportation's system for tracking and managing road work on or near highways across Ontario — May to August 2025.",
     "thumbnail": "https://cdn.myportfolio.com/7177a98e-d9cd-40fd-85ff-c6c29f4b6eb9/88eaa996-e4e6-46be-bd82-e6246a65a610_rwc_58x0x716x537x32.png?h=ecfda9e11056e4396d81dacc979aacad",
     "sections": [
@@ -51,7 +57,10 @@
     "title": "The Citizen POA Court Experience",
     "slug": "citizen-poa-court-experience",
     "year": "2023",
-    "tags": ["UX Design", "Service Design"],
+    "tags": [
+      "UX Design",
+      "Service Design"
+    ],
     "description": "A semester-long group project to redesign the Brantford Provincial Offences Court — improving its atmosphere, navigation, and accessibility as it relocated to a new building.",
     "thumbnail": "https://cdn.myportfolio.com/7177a98e-d9cd-40fd-85ff-c6c29f4b6eb9/ebe77cf3-b650-4275-9185-31cfde93de43_rwc_64x0x748x561x32.png?h=2fed5347513f4cea4605c8b972b2ade9",
     "sections": [
@@ -83,7 +92,9 @@
     "title": "Maker Lab II – SDP2.2",
     "slug": "maker-lab-ii",
     "year": "2023",
-    "tags": ["Product Design"],
+    "tags": [
+      "Product Design"
+    ],
     "description": "A wearable alert bracelet designed to give deaf and hard-of-hearing individuals the freedom to move around their home without worrying about missing an important alarm.",
     "thumbnail": "https://cdn.myportfolio.com/7177a98e-d9cd-40fd-85ff-c6c29f4b6eb9/168d054e-abb7-47ec-9f48-8adf557e09a2_rwc_73x0x1237x928x32.png?h=6956f9d07cfb43464e55a1566793bd5d",
     "sections": [
@@ -107,7 +118,10 @@
     "title": "One Guard",
     "slug": "one-guard",
     "year": "2022",
-    "tags": ["UX Design", "Accessibility"],
+    "tags": [
+      "UX Design",
+      "Accessibility"
+    ],
     "description": "A physical keyboard guard designed to help people with physical or cognitive disabilities learn and use the keyboard — making the experience comfortable for everyone.",
     "thumbnail": "https://cdn.myportfolio.com/7177a98e-d9cd-40fd-85ff-c6c29f4b6eb9/72f6ebed-0e0d-4448-830c-f5e483b4ad5a_rwc_80x0x2224x1668x32.png?h=41073298c99e9ccca4b99fdcf3185a75",
     "sections": [
@@ -131,7 +145,10 @@
     "title": "Logo Designs",
     "slug": "logo-designs",
     "year": "2023",
-    "tags": ["Branding", "Visual Design"],
+    "tags": [
+      "Branding",
+      "Visual Design"
+    ],
     "description": "A collection of logo and brand identity work across school projects, commissioned clients, and competitions — spanning 2023.",
     "thumbnail": "https://cdn.myportfolio.com/7177a98e-d9cd-40fd-85ff-c6c29f4b6eb9/b747c599-c50d-40f4-b078-fe44eaae8184_rwc_0x184x1500x1125x32.png?h=a941423b4af89838957dfa942898b4bb",
     "sections": [
@@ -144,10 +161,12 @@
     "nextSlug": "illustrations"
   },
   {
-    "title": "Illustrations",
+    "title": "Illustrations Test",
     "slug": "illustrations",
     "year": "2023",
-    "tags": ["Illustration"],
+    "tags": [
+      "Illustration"
+    ],
     "description": "A collection of personal and commissioned illustration work from 2023.",
     "thumbnail": "https://cdn.myportfolio.com/7177a98e-d9cd-40fd-85ff-c6c29f4b6eb9/f48217e4-acc8-48e7-9b81-4a025aa2dcdc_rwc_80x0x2224x1668x32.png?h=434af87ba6d738dac9b588b27f1f5415",
     "sections": [
@@ -157,6 +176,6 @@
       }
     ],
     "prevSlug": "logo-designs",
-    "nextSlug": null
+    "nextSlug": "training-coordination-solutions"
   }
 ]
