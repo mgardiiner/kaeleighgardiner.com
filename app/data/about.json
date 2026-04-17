@@ -4,6 +4,15 @@
     "My work spans government services, enterprise systems, and consumer products — with a consistent focus on clarity, accessibility, and human-centred thinking.",
     "When I'm not designing, you'll find me illustrating, exploring new tools, or hunting for the perfect coffee shop."
   ],
+  "location": "Toronto, Canada",
+  "availability": "Open to opportunities",
+  "education": {
+    "degree": "Bachelor of Science in Computer Science",
+    "institution": "Brigham Young University",
+    "years": "2020 – 2024"
+  },
+  "email": "kaeleigh.gardiner@yahoo.ca",
+  "linkedin": "https://www.linkedin.com/in/kaeleighgardiner",
   "skills": [
     "User Research",
     "Wireframing",
@@ -15,5 +24,12 @@
     "Figma",
     "Service Design",
     "Accessibility"
+  ],
+  "testimonials": [
+    {
+      "quote": "Kaeleigh did a great job for us. She was dependable and produced quality work. She also stepped up to take on additional leadership responsibilities for our small group when the opportunity presented itself.",
+      "name": "Mike Jones",
+      "title": "Associate Professor of Computer Science, Brigham Young University"
+    }
   ]
 }

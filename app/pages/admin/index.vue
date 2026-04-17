@@ -4,6 +4,7 @@ definePageMeta({ layout: 'admin' })
 import projectsData from '~/data/projects.json'
 import aboutData from '~/data/about.json'
 import contactData from '~/data/contact.json'
+import experienceData from '~/data/experience.json'
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -26,7 +27,29 @@ interface Project {
 
 interface About {
   bio: string[]
+  location: string
+  availability: string
+  education: { degree: string; institution: string; years: string }
+  email: string
+  linkedin: string
   skills: string[]
+  testimonials: { quote: string; name: string; title: string }[]
+}
+
+interface Testimonial {
+  quote: string
+  name: string
+  title: string
+}
+
+interface Role {
+  title: string
+  company: string
+  type: string
+  startDate: string
+  endDate: string
+  location: string
+  bullets: string[]
 }
 
 interface Contact {
@@ -78,7 +101,7 @@ function logout() {
 
 // ── Nav state ─────────────────────────────────────────────────────────────────
 
-type AdminSection = 'projects' | 'about' | 'contact' | 'resume'
+type AdminSection = 'projects' | 'experience' | 'about' | 'testimonials' | 'resume'
 const activeSection = ref<AdminSection>('projects')
 
 // ── Projects state ───────────────────────────────────────────────────────────
@@ -135,6 +158,26 @@ const skillsText = computed({
 // ── Contact state ─────────────────────────────────────────────────────────────
 
 const contact = ref<Contact>(JSON.parse(JSON.stringify(contactData)))
+
+// ── Experience state ──────────────────────────────────────────────────────────
+
+const roles = ref<Role[]>(JSON.parse(JSON.stringify(experienceData.roles)))
+
+function addRole() {
+  roles.value.push({ title: 'New Role', company: '', type: '', startDate: '', endDate: '', location: '', bullets: [''] })
+}
+
+function removeRole(i: number) {
+  roles.value.splice(i, 1)
+}
+
+function addBullet(role: Role) {
+  role.bullets.push('')
+}
+
+function removeBullet(role: Role, i: number) {
+  role.bullets.splice(i, 1)
+}
 
 // ── Save state ────────────────────────────────────────────────────────────────
 
@@ -242,10 +285,23 @@ async function saveContact() {
   finally { saving.value = false }
 }
 
+async function saveExperience() {
+  saving.value = true; saveStatus.value = 'idle'
+  try {
+    await Promise.all([
+      githubPut('app/data/experience.json', JSON.stringify({ roles: roles.value }, null, 2), 'chore: update experience content via admin'),
+      githubPut('app/data/about.json', JSON.stringify(about.value, null, 2), 'chore: update skills via admin'),
+    ])
+    saveStatus.value = 'success'; saveMessage.value = 'Experience & skills saved. Changes go live after CI deploys.'
+  } catch (err: any) { saveStatus.value = 'error'; saveMessage.value = err.message ?? 'Unknown error' }
+  finally { saving.value = false }
+}
+
 function handleSave() {
   if (activeSection.value === 'projects') saveProjects()
   else if (activeSection.value === 'about') saveAbout()
   else if (activeSection.value === 'contact') saveContact()
+  else if (activeSection.value === 'experience') saveExperience()
 }
 </script>
 
@@ -310,16 +366,23 @@ function handleSave() {
           </div>
 
           <button
+            @click="activeSection = 'experience'"
+            :class="['w-full text-left px-4 py-2 text-sm font-medium transition-colors', activeSection === 'experience' ? 'text-purple-700 bg-purple-50' : 'text-slate-600 hover:bg-slate-50']"
+          >
+            Experience
+          </button>
+          <button
             @click="activeSection = 'about'"
             :class="['w-full text-left px-4 py-2 text-sm font-medium transition-colors', activeSection === 'about' ? 'text-purple-700 bg-purple-50' : 'text-slate-600 hover:bg-slate-50']"
           >
             About
           </button>
+
           <button
-            @click="activeSection = 'contact'"
-            :class="['w-full text-left px-4 py-2 text-sm font-medium transition-colors', activeSection === 'contact' ? 'text-purple-700 bg-purple-50' : 'text-slate-600 hover:bg-slate-50']"
+            @click="activeSection = 'testimonials'"
+            :class="['w-full text-left px-4 py-2 text-sm font-medium transition-colors', activeSection === 'testimonials' ? 'text-purple-700 bg-purple-50' : 'text-slate-600 hover:bg-slate-50']"
           >
-            Contact
+            Testimonials
           </button>
           <button
             @click="activeSection = 'resume'"
@@ -443,20 +506,129 @@ function handleSave() {
             </div>
           </template>
 
+          <!-- ── Experience editor ── -->
+          <template v-else-if="activeSection === 'experience'">
+            <div class="flex items-center justify-between mb-8">
+              <h2 class="font-display text-2xl font-semibold text-slate-900">Experience</h2>
+              <button @click="addRole" class="text-xs text-purple-600 font-medium hover:underline underline-offset-4">+ Add role</button>
+            </div>
+
+            <div class="space-y-6">
+              <div
+                v-for="(role, ri) in roles"
+                :key="ri"
+                class="rounded-xl border border-slate-200 p-6 bg-white space-y-4"
+              >
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Role {{ ri + 1 }}</span>
+                  <button @click="removeRole(ri)" class="text-xs text-red-400 hover:text-red-600 transition-colors">Remove</button>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-slate-500 mb-1">Job Title</label>
+                    <input v-model="role.title" type="text" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-500 mb-1">Company</label>
+                    <input v-model="role.company" type="text" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-500 mb-1">Type (e.g. Co-op, Full-time)</label>
+                    <input v-model="role.type" type="text" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-500 mb-1">Location</label>
+                    <input v-model="role.location" type="text" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-500 mb-1">Start Date</label>
+                    <input v-model="role.startDate" type="text" placeholder="May 2024" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-500 mb-1">End Date</label>
+                    <input v-model="role.endDate" type="text" placeholder="Aug 2025" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <label class="text-xs font-medium text-slate-500">Bullet Points</label>
+                    <button @click="addBullet(role)" class="text-xs text-purple-600 hover:underline underline-offset-4">+ Add bullet</button>
+                  </div>
+                  <div class="space-y-2">
+                    <div v-for="(_, bi) in role.bullets" :key="bi" class="flex gap-2 items-start">
+                      <textarea
+                        v-model="role.bullets[bi]"
+                        rows="2"
+                        class="flex-1 px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400 resize-y"
+                      />
+                      <button @click="removeBullet(role, bi)" class="text-slate-300 hover:text-red-400 transition-colors pt-2 shrink-0">✕</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="border-t border-slate-100 pt-8 mt-8">
+              <div class="flex items-center justify-between mb-4">
+                <label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Skills &amp; Tools</label>
+                <button @click="about.skills.push('')" class="text-xs text-purple-600 font-medium hover:underline underline-offset-4">+ Add skill</button>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <div v-for="(_, si) in about.skills" :key="si" class="flex items-center gap-1 pl-3 pr-1 py-1 rounded-full border border-slate-200 bg-white">
+                  <input
+                    v-model="about.skills[si]"
+                    type="text"
+                    class="text-sm text-slate-700 bg-transparent outline-none w-32"
+                  />
+                  <button @click="about.skills.splice(si, 1)" class="text-slate-300 hover:text-red-400 transition-colors text-xs px-1">✕</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-slate-100 mt-2">
+              <button @click="saveExperience" :disabled="saving" class="px-6 py-2.5 rounded-full bg-purple-600 text-white text-sm font-medium hover:bg-purple-700 transition-colors disabled:opacity-50">
+                {{ saving ? 'Saving…' : 'Save to GitHub' }}
+              </button>
+              <p class="mt-2 text-xs text-slate-400">Changes commit to the repo and go live after CI deploys.</p>
+            </div>
+          </template>
+
           <!-- ── About editor ── -->
           <template v-else-if="activeSection === 'about'">
             <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8">About Page</h2>
-            <div class="space-y-6 mb-10">
+            <div class="space-y-5 mb-10">
               <div>
                 <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Bio</label>
                 <p class="text-xs text-slate-400 mb-2">Separate paragraphs with a blank line.</p>
                 <textarea v-model="bioText" rows="10" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400 resize-y leading-relaxed" />
               </div>
-              <div>
-                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Skills &amp; Tools (comma-separated)</label>
-                <textarea v-model="skillsText" rows="4" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400 resize-y" />
-                <div class="flex flex-wrap gap-2 mt-3">
-                  <span v-for="skill in about.skills" :key="skill" class="px-3 py-1 rounded-full bg-purple-50 border border-purple-100 text-xs text-slate-700">{{ skill }}</span>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Location</label>
+                  <input v-model="about.location" type="text" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Availability</label>
+                  <input v-model="about.availability" type="text" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Education</label>
+                  <div class="space-y-2">
+                    <input v-model="about.education.degree" type="text" placeholder="Degree / Program" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                    <input v-model="about.education.institution" type="text" placeholder="Institution" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                    <input v-model="about.education.years" type="text" placeholder="e.g. 2020 – 2024" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Email</label>
+                  <input v-model="about.email" type="email" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">LinkedIn URL</label>
+                  <input v-model="about.linkedin" type="url" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400 font-mono" />
                 </div>
               </div>
             </div>
@@ -468,33 +640,47 @@ function handleSave() {
             </div>
           </template>
 
-          <!-- ── Contact editor ── -->
-          <template v-else-if="activeSection === 'contact'">
-            <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8">Contact Page</h2>
-            <div class="space-y-5 mb-10">
-              <div>
-                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Heading</label>
-                <input v-model="contact.heading" type="text" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+
+          <!-- ── Testimonials editor ── -->
+          <template v-else-if="activeSection === 'testimonials'">
+            <div class="flex items-center justify-between mb-8">
+              <h2 class="font-display text-2xl font-semibold text-slate-900">Testimonials</h2>
+              <button @click="about.testimonials.push({ quote: '', name: '', title: '' })" class="text-xs text-purple-600 font-medium hover:underline underline-offset-4">+ Add testimonial</button>
+            </div>
+
+            <div class="space-y-5">
+              <div
+                v-for="(t, ti) in about.testimonials"
+                :key="ti"
+                class="rounded-xl border border-slate-200 p-5 bg-white space-y-3"
+              >
+                <div class="flex justify-between items-center">
+                  <span class="text-xs text-slate-400">Testimonial {{ ti + 1 }}</span>
+                  <button @click="about.testimonials.splice(ti, 1)" class="text-xs text-red-400 hover:text-red-600 transition-colors">Remove</button>
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-slate-500 mb-1">Quote</label>
+                  <textarea v-model="t.quote" rows="4" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400 resize-y" />
+                </div>
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block text-xs font-medium text-slate-500 mb-1">Name</label>
+                    <input v-model="t.name" type="text" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-500 mb-1">Title / Role</label>
+                    <input v-model="t.title" type="text" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+                  </div>
+                </div>
               </div>
-              <div>
-                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Subheading</label>
-                <textarea v-model="contact.subheading" rows="3" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400 resize-y" />
-              </div>
-              <div>
-                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Email</label>
-                <input v-model="contact.email" type="email" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
-              </div>
-              <div>
-                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">LinkedIn URL</label>
-                <input v-model="contact.linkedin" type="url" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400 font-mono" />
-              </div>
-              <div>
-                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Footnote</label>
-                <input v-model="contact.footnote" type="text" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:border-purple-400" />
+
+              <div v-if="!about.testimonials.length" class="text-sm text-slate-400">
+                No testimonials yet. <button @click="about.testimonials.push({ quote: '', name: '', title: '' })" class="text-purple-600 hover:underline">Add one.</button>
               </div>
             </div>
-            <div class="pt-4 border-t border-slate-100">
-              <button @click="saveContact" :disabled="saving" class="px-6 py-2.5 rounded-full bg-purple-600 text-white text-sm font-medium hover:bg-purple-700 transition-colors disabled:opacity-50">
+
+            <div class="pt-6 border-t border-slate-100 mt-6">
+              <button @click="saveAbout" :disabled="saving" class="px-6 py-2.5 rounded-full bg-purple-600 text-white text-sm font-medium hover:bg-purple-700 transition-colors disabled:opacity-50">
                 {{ saving ? 'Saving…' : 'Save to GitHub' }}
               </button>
               <p class="mt-2 text-xs text-slate-400">Changes commit to the repo and go live after CI deploys.</p>
