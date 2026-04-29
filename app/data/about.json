@@ -1,4 +1,32 @@
 {
+  "heroEyebrow": "UX DESIGNER · TORONTO, CANADA · OPEN TO ROLES",
+  "heroHeading": "Hi, I'm Kaeleigh.",
+  "heroCopy": "Entry-level UX designer with 16 months of co-op at the Ontario Ministry of Transportation.",
+  "heroStatusLine": "Currently open to entry-level UX roles · 2026",
+  "trustClients": [
+    "Ontario Ministry of Transportation",
+    "Brantford Court",
+    "Wilfrid Laurier University",
+    "Proofpoint"
+  ],
+  "howIWorkHeadline": "Research first.\nIterate from feedback.",
+  "howIWorkSteps": [
+    { "n": "01", "title": "Listen", "desc": "Talk to users and stakeholders. Understand the problem before sketching anything." },
+    { "n": "02", "title": "Make",   "desc": "Wireframes to prototypes. Test early and often, with real people." },
+    { "n": "03", "title": "Refine", "desc": "Synthesize feedback into design decisions backed by evidence." }
+  ],
+  "aboutHeadline": "Designer, researcher, learner.",
+  "aboutCopy": "UX designer based in Toronto, finishing my degree at Wilfrid Laurier and shaping public-sector tools at the Ontario Ministry of Transportation.",
+  "studyingLabel": "UX Design — Laurier '26",
+  "whatIDo": [
+    { "title": "Research",           "desc": "Semi-structured interviews, usability testing, contextual inquiry, synthesis.",     "bg": "bg-sage"  },
+    { "title": "Interaction Design", "desc": "Wireframes, flows, prototypes — desktop and mobile, accessible by default.",        "bg": "bg-sky"   },
+    { "title": "Service & Systems",  "desc": "Mapping the human side of complex workflows in government and enterprise.",         "bg": "bg-cream" }
+  ],
+  "toolsList": ["Figma", "Adobe Photoshop", "Excel", "Azure DevOps", "Miro", "Notion"],
+  "heroSkills": ["Figma", "User Research", "Prototyping", "Wireframing"],
+  "heroCta": { "label": "View My Work", "href": "/projects" },
+  "marqueeItems": ["User Research", "Figma", "Interaction Design", "Prototyping", "Usability Testing", "Service Design", "Wireframing", "Journey Mapping", "Design Systems", "Accessibility", "Information Architecture", "Visual Design", "User Flows", "UX Strategy"],
   "photo": "/images/headshot-1776452795146.png",
   "bio": [
     "I'm Kaeleigh, a UX Designer passionate about creating experiences that are both intuitive and meaningful. I believe great design starts with deeply understanding the people you're designing for.",
@@ -6,7 +34,7 @@
     "When I'm not designing, you'll find me illustrating, exploring new tools, or hunting for the perfect coffee shop."
   ],
   "location": "Toronto, Canada",
-  "availability": "Open to opportunities",
+  "availability": "Open to entry roles",
   "education": {
     "degree": "UX Design",
     "institution": "Wilfred Laurier University",

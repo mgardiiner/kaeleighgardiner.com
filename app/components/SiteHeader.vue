@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const links = [
-  { label: 'Work',       to: '/work' },
+  { label: 'Work',       to: '/projects' },
   { label: 'Experience', to: '/experience' },
   { label: 'About',      to: '/about' },
 ]
@@ -9,9 +9,9 @@ const menuOpen = ref(false)
 </script>
 
 <template>
-  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-purple-100">
-    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-      <NuxtLink to="/" class="font-display text-xl font-semibold text-purple-700 tracking-tight">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur">
+    <div class="px-8 md:px-16 h-20 flex items-center justify-between">
+      <NuxtLink to="/" class="font-script text-[30px] leading-none text-plum-900">
         Kaeleigh Gardiner
       </NuxtLink>
 
@@ -20,20 +20,20 @@ const menuOpen = ref(false)
           v-for="link in links"
           :key="link.to"
           :to="link.to"
-          class="text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors"
-          active-class="text-purple-700"
+          class="text-[15px] font-bold text-plum-900 hover:text-plum-700 transition-colors"
+          active-class="text-plum-700"
         >
           {{ link.label }}
         </NuxtLink>
         <a
           href="mailto:kaeleigh.gardiner@yahoo.ca"
-          class="text-sm font-medium px-4 py-2 rounded-full bg-purple-600 text-white hover:bg-purple-700 transition-colors"
+          class="text-[15px] font-bold px-[26px] py-[13px] rounded-full bg-plum-700 text-white hover:bg-plum-900 transition-colors"
         >
           Get in Touch
         </a>
       </nav>
 
-      <button class="md:hidden p-2 text-slate-600" @click="menuOpen = !menuOpen" aria-label="Toggle menu">
+      <button class="md:hidden p-2 text-plum-900" @click="menuOpen = !menuOpen" aria-label="Toggle menu">
         <svg v-if="!menuOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -43,17 +43,17 @@ const menuOpen = ref(false)
       </button>
     </div>
 
-    <div v-if="menuOpen" class="md:hidden border-t border-purple-100 px-6 py-4 flex flex-col gap-4 bg-white">
+    <div v-if="menuOpen" class="md:hidden px-8 py-4 flex flex-col gap-4 bg-white border-t border-plum-400/30">
       <NuxtLink
         v-for="link in links"
         :key="link.to"
         :to="link.to"
-        class="text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors"
+        class="text-sm font-bold text-plum-900 hover:text-plum-700 transition-colors"
         @click="menuOpen = false"
       >
         {{ link.label }}
       </NuxtLink>
-      <a href="mailto:kaeleigh.gardiner@yahoo.ca" class="text-sm font-medium text-purple-700">
+      <a href="mailto:kaeleigh.gardiner@yahoo.ca" class="text-sm font-bold text-plum-700">
         kaeleigh.gardiner@yahoo.ca
       </a>
     </div>
