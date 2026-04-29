@@ -2,229 +2,152 @@
 import projectsData from '~/data/projects.json'
 import aboutData from '~/data/about.json'
 
-const featured = projectsData.slice(0, 3)
-const testimonials = aboutData.testimonials
-
-const marqueeItems = [
-  'UX Design', 'User Research', 'Prototyping', 'Figma',
-  'Service Design', 'Accessibility', 'Wireframing', 'Usability Testing',
-]
-const marqueeDouble = [...marqueeItems, ...marqueeItems]
+const featured = projectsData.filter((p: any) => p.featured)
 </script>
 
 <template>
   <div>
 
     <!-- Hero -->
-    <section class="relative min-h-screen flex flex-col justify-center px-6 overflow-hidden">
+    <section class="pt-[120px] md:pt-[160px] lg:pt-[180px] pb-16 md:pb-20 px-8 md:px-16 lg:px-32 bg-white relative overflow-hidden">
+      <!-- Purple ambient glow -->
+      <div
+        class="absolute pointer-events-none"
+        style="right: -120px; top: -80px; width: 720px; height: 720px; background: radial-gradient(ellipse at center, rgba(194,181,214,0.38) 0%, transparent 68%); z-index: 0;"
+      ></div>
+      <p class="font-display font-bold text-plum-700 mb-6 uppercase relative z-10" style="font-size: 13px; letter-spacing: 0.18em;">
+        {{ aboutData.heroEyebrow }}
+      </p>
+      <div class="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-20 items-center relative z-10">
 
-      <!-- Grid background -->
-      <div class="pointer-events-none absolute inset-0"
-        style="background-image: linear-gradient(to right, #f3e8ff22 1px, transparent 1px), linear-gradient(to bottom, #f3e8ff22 1px, transparent 1px); background-size: 60px 60px;"
-      />
-
-      <!-- Purple glow -->
-      <div class="pointer-events-none absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-purple-200/40 blur-3xl -translate-y-1/2" />
-
-      <div class="relative max-w-5xl mx-auto w-full pt-20">
-
-        <!-- Eyebrow -->
-        <p class="hero-enter d1 flex items-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-400 mb-6">
-          <span class="w-8 h-px bg-slate-300"></span>
-          UX Designer · Toronto, Canada
-        </p>
-
-        <!-- Name block -->
-        <div class="hero-enter d2 mb-6 -ml-1">
-          <p class="font-display font-semibold text-slate-900 text-6xl md:text-8xl lg:text-[10rem] leading-none">Hi, I'm</p>
-          <!-- Outlined + filled split on "Kaeleigh" -->
-          <p
-            class="font-display font-semibold leading-none text-6xl md:text-8xl lg:text-[10rem] select-none"
-            style="
-              -webkit-text-stroke: 2px #9333ea;
-              color: transparent;
-              background: linear-gradient(90deg, #9333ea 50%, transparent 50%);
-              -webkit-background-clip: text;
-              background-clip: text;
-            "
+        <!-- Copy -->
+        <div>
+          <h1
+            class="font-display font-black text-plum-900 mb-7"
+            style="font-size: clamp(44px, 7.8vw, 112px); font-weight: 900; letter-spacing: -0.03em; line-height: 0.95;"
           >
-            Kaeleigh.
+            {{ aboutData.heroHeading }}
+          </h1>
+          <p class="text-plum-900/70 mb-9" style="font-size: clamp(16px, 2vw, 19px); line-height: 1.55; max-width: 560px;">
+            {{ aboutData.heroCopy }}
           </p>
-        </div>
-
-        <!-- Description + CTA side by side on larger screens -->
-        <div class="hero-enter d3 flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
-          <p class="text-slate-500 text-lg md:text-xl leading-relaxed max-w-md">
-            I design thoughtful, human-centred experiences — from complex government systems to everyday interfaces.
-          </p>
-          <div class="hero-enter d4 flex flex-wrap gap-3 shrink-0">
+          <div class="flex flex-wrap gap-3.5">
             <NuxtLink
-              to="/work"
-              class="px-7 py-3.5 rounded-full bg-purple-600 text-white font-medium hover:bg-purple-700 transition-colors shadow-lg shadow-purple-200"
+              to="/projects"
+              class="inline-block font-display font-semibold px-[30px] py-4 rounded-full bg-plum-700 text-white hover:bg-plum-900 transition-colors"
+              style="font-size: 15px;"
             >
-              View My Work
+              View My Work →
             </NuxtLink>
             <a
-              href="mailto:kaeleigh.gardiner@yahoo.ca"
-              class="px-7 py-3.5 rounded-full border border-slate-200 text-slate-700 font-medium hover:border-purple-300 hover:text-purple-700 transition-colors"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener"
+              class="inline-block font-display font-semibold px-[30px] py-4 rounded-full text-plum-900 hover:bg-plum-50 transition-colors"
+              style="font-size: 15px; border: 1.5px solid #C2B5D6;"
             >
-              Get in Touch
+              Download Résumé
             </a>
+          </div>
+          <div class="flex items-center gap-2.5" style="margin-top: 40px;">
+            <span
+              class="inline-block rounded-full shrink-0"
+              style="width: 8px; height: 8px; background: #22C55E; box-shadow: 0 0 0 4px rgba(34,197,94,0.18);"
+            ></span>
+            <span class="font-display font-semibold text-plum-900" style="font-size: 13px; letter-spacing: 0.04em;">
+              {{ aboutData.heroStatusLine }}
+            </span>
           </div>
         </div>
 
-      </div>
-
-      <!-- Scroll hint -->
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-300">
-        <span class="text-xs tracking-widest uppercase font-medium">Scroll</span>
-        <span class="w-px h-10 bg-gradient-to-b from-slate-300 to-transparent"></span>
+        <!-- Headshot -->
+        <div class="flex justify-center lg:justify-end">
+          <div class="relative w-full" style="max-width: 380px; aspect-ratio: 380 / 480;">
+            <!-- Decorative polygon -->
+            <div
+              class="absolute inset-0 pointer-events-none hidden sm:block"
+              style="
+                background: #533A71;
+                opacity: 0.15;
+                clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+                transform: translate(22px, 22px);
+                border-radius: 16px;
+                z-index: 0;
+              "
+            ></div>
+            <div
+              class="rounded-2xl overflow-hidden bg-plum-25 w-full h-full relative"
+              style="box-shadow: 0 24px 48px rgba(83,58,113,0.15); z-index: 1;"
+            >
+              <img
+                :src="aboutData.photo"
+                alt="Kaeleigh Gardiner"
+                class="w-full h-full object-cover"
+                style="object-position: center 22%;"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Marquee -->
-    <div class="border-y border-purple-100 py-4 bg-white">
-      <div class="max-w-5xl mx-auto px-6 overflow-hidden">
-        <div class="marquee-track">
-          <span
-            v-for="(item, i) in marqueeDouble"
-            :key="i"
-            class="inline-flex items-center gap-4 pr-8 text-sm font-medium text-slate-400 whitespace-nowrap"
-          >
-            <span class="w-1.5 h-1.5 rounded-full bg-purple-300 shrink-0"></span>
-            {{ item }}
-          </span>
-        </div>
-      </div>
+    <!-- Trust strip -->
+    <div class="bg-plum-700 flex items-center justify-between flex-wrap gap-4 px-8 md:px-16 lg:px-32" style="padding-top: 18px; padding-bottom: 18px;">
+      <span
+        v-for="(client, i) in aboutData.trustClients"
+        :key="client"
+        :class="['font-display font-semibold text-plum-50 uppercase', i >= 2 ? 'hidden md:inline' : 'hidden sm:inline']"
+        style="font-size: 13px; letter-spacing: 0.12em;"
+      >{{ client }}</span>
     </div>
 
-    <!-- Selected Work -->
-    <section class="py-24 px-6 bg-white">
-      <div class="max-w-5xl mx-auto">
-
-        <!-- Section header -->
-        <div class="flex items-center justify-between mb-14">
-          <div class="flex items-center gap-4">
-            <span class="w-10 h-px bg-purple-300"></span>
-            <p class="text-xs font-semibold tracking-widest uppercase text-slate-400">Selected Work</p>
-          </div>
-          <NuxtLink to="/work" class="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-slate-900 transition-colors">
-            View all
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </NuxtLink>
+    <!-- Selected work -->
+    <section class="px-8 md:px-16 lg:px-32 py-16 md:py-[120px] bg-white">
+      <div class="flex justify-between items-end mb-10 md:mb-14">
+        <div>
+          <p class="font-display font-bold text-plum-700 mb-3 uppercase" style="font-size: 13px; letter-spacing: 0.18em;">
+            SELECTED WORK · 2023–2025
+          </p>
+          <h2 class="font-serif font-bold text-plum-900" style="font-size: clamp(28px, 4.5vw, 56px);">Recent Projects</h2>
         </div>
+        <NuxtLink to="/projects" class="text-plum-700 hover:text-plum-900 transition-colors font-medium shrink-0 ml-4" style="font-size: 14px;">
+          View all →
+        </NuxtLink>
+      </div>
 
-        <!-- Project rows -->
-        <div class="divide-y divide-slate-100">
-          <NuxtLink
-            v-for="(project, i) in featured"
-            :key="project.slug"
-            :to="`/work/${project.slug}`"
-            class="group flex flex-col sm:flex-row gap-6 sm:gap-10 sm:items-center py-10 first:pt-0 last:pb-0"
-          >
-            <!-- Thumbnail -->
-            <div class="w-full sm:w-52 md:w-64 shrink-0 aspect-[4/3] rounded-xl overflow-hidden bg-purple-50">
-              <img
-                v-if="project.thumbnail"
-                :src="project.thumbnail"
-                :alt="project.title"
-                class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out"
-              />
-              <div v-else class="w-full h-full flex items-center justify-center">
-                <span class="font-display text-3xl font-semibold text-purple-200">KG</span>
-              </div>
-            </div>
-
-            <!-- Content -->
-            <div class="flex-1 min-w-0">
-              <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-4">
-                <span
-                  v-for="tag in project.tags"
-                  :key="tag"
-                  class="text-xs font-medium text-purple-500"
-                >{{ tag }}</span>
-                <span class="text-slate-200 text-xs select-none">·</span>
-                <span class="text-xs text-slate-400">{{ project.year }}</span>
-              </div>
-              <h3 class="font-display text-2xl md:text-3xl font-semibold text-slate-900 leading-snug mb-3 group-hover:text-purple-700 transition-colors duration-200">
-                {{ project.title }}
-              </h3>
-              <p class="text-slate-500 text-sm leading-relaxed line-clamp-2 max-w-lg">{{ project.description }}</p>
-            </div>
-
-            <!-- Arrow indicator -->
-            <div class="shrink-0 hidden sm:flex">
-              <div class="w-11 h-11 rounded-full border border-slate-200 group-hover:border-purple-300 group-hover:bg-purple-50 flex items-center justify-center transition-all duration-200">
-                <svg class="w-4 h-4 text-slate-300 group-hover:text-purple-500 group-hover:translate-x-0.5 transition-all duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </div>
-            </div>
-          </NuxtLink>
-        </div>
-
-        <!-- Mobile view all -->
-        <div class="mt-10 pt-8 border-t border-slate-100 sm:hidden">
-          <NuxtLink to="/work" class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">
-            View all projects
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </NuxtLink>
-        </div>
-
+      <div class="flex flex-col gap-8">
+        <ProjectCardHome
+          v-for="(project, i) in featured"
+          :key="project.slug"
+          :project="project"
+          :index="i"
+        />
       </div>
     </section>
 
-    <!-- Testimonials -->
-    <section v-if="testimonials?.length" class="py-20 px-6 bg-slate-50">
-      <div class="max-w-3xl mx-auto text-center">
-        <div v-for="t in testimonials" :key="t.name">
-          <svg class="w-8 h-8 text-purple-200 mx-auto mb-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-          </svg>
-          <blockquote class="font-display text-2xl md:text-3xl font-semibold text-slate-800 leading-snug mb-10">
-            "{{ t.quote }}"
-          </blockquote>
-          <div class="flex items-center justify-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center shrink-0">
-              <span class="text-purple-500 font-semibold text-sm">{{ t.name.split(' ').map((n: string) => n[0]).join('') }}</span>
-            </div>
-            <div class="text-left">
-              <p class="text-sm font-semibold text-slate-900">{{ t.name }}</p>
-              <p class="text-xs text-slate-500">{{ t.title }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- How I work -->
+    <section class="px-8 md:px-16 lg:px-32 py-16 md:py-[100px] bg-white">
+      <div class="bg-paper rounded-3xl p-8 md:p-16">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 items-start">
 
-    <!-- CTA -->
-    <section class="py-16 px-6 pb-28">
-      <div class="max-w-5xl mx-auto">
-        <div class="relative rounded-3xl overflow-hidden bg-slate-900 px-10 py-20 text-center">
-          <!-- Decorative blobs -->
-          <div class="pointer-events-none absolute -top-20 -left-20 w-72 h-72 rounded-full bg-purple-600/30 blur-3xl" />
-          <div class="pointer-events-none absolute -bottom-20 -right-10 w-64 h-64 rounded-full bg-purple-500/20 blur-3xl" />
-          <!-- Subtle grid -->
-          <div class="pointer-events-none absolute inset-0"
-            style="background-image: linear-gradient(to right, #ffffff08 1px, transparent 1px), linear-gradient(to bottom, #ffffff08 1px, transparent 1px); background-size: 40px 40px;"
-          />
-          <div class="relative">
-            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-purple-400 mb-4">Available for work</p>
-            <h2 class="font-display text-4xl md:text-5xl font-semibold text-white mb-5 leading-tight">
-              Let's Build Something<br class="hidden md:block" /> Meaningful Together
-            </h2>
-            <p class="text-slate-400 text-lg mb-10 max-w-sm mx-auto">Open to full-time roles and freelance projects.</p>
-            <a
-              href="mailto:kaeleigh.gardiner@yahoo.ca"
-              class="inline-block px-9 py-4 rounded-full bg-purple-600 text-white font-medium hover:bg-purple-500 transition-colors shadow-lg shadow-purple-900/50"
-            >
-              Get in Touch
-            </a>
+          <!-- Heading -->
+          <div>
+            <p class="font-display font-bold text-plum-700 uppercase mb-3.5" style="font-size: 13px; letter-spacing: 0.18em;">HOW I WORK</p>
+            <h3
+              class="font-serif font-bold text-plum-900"
+              style="font-size: clamp(26px, 3vw, 36px); font-weight: 700; line-height: 1.15; white-space: pre-line;"
+            >{{ aboutData.howIWorkHeadline }}</h3>
           </div>
+
+          <!-- Steps -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div v-for="step in aboutData.howIWorkSteps" :key="step.n">
+              <p class="font-serif italic text-plum-400 mb-2" style="font-size: 28px; font-weight: 400; line-height: 1;">{{ step.n }}</p>
+              <p class="font-display font-bold text-plum-900 mb-2" style="font-size: 17px;">{{ step.title }}</p>
+              <p class="text-plum-900/70" style="font-size: 14px; line-height: 1.6;">{{ step.desc }}</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
