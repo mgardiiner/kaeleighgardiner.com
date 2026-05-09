@@ -196,7 +196,7 @@
     "title": "Maker Lab II – SDP2.2",
     "slug": "maker-lab-ii",
     "year": "2023",
-    "dateRange": "Jan 2023 - Apr 2023",
+    "dateRange": "Jan 2023 — Apr 2023",
     "company": "Wilfrid Laurier University",
     "tags": [
       "Product Design"
@@ -261,7 +261,7 @@
     "title": "One Guard",
     "slug": "one-guard",
     "year": "2022",
-    "dateRange": "2022",
+    "dateRange": "Sept 2022 — Dec 2022",
     "company": "Wilfrid Laurier University",
     "tags": [
       "UX Design",
@@ -272,16 +272,16 @@
     "description": "A physical keyboard guard designed to help people with physical or cognitive disabilities learn and use the keyboard — making the experience comfortable for everyone.",
     "featured": false,
     "cardStyle": "white",
-    "thumbnail": "/images/projects/one-guard-1776452172539.png",
+    "thumbnail": "/images/projects/one-guard-1778360698457.png",
     "heroGradient": {
       "from": "#A799B7",
       "to": "#533A71"
     },
     "tools": [
       {
-        "name": "Figma",
+        "name": "Word",
         "icon": "/images/tools/figma.png",
-        "colorKey": "purple"
+        "colorKey": "green"
       }
     ],
     "challenge": "",
