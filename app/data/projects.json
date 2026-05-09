@@ -86,7 +86,7 @@
     "bg": "plum",
     "description": "A live-phase contribution to the Ontario Ministry of Transportation's system for tracking and managing road work on or near highways across Ontario — May to August 2025.",
     "featured": true,
-    "cardStyle": "white",
+    "cardStyle": "plum",
     "thumbnail": "/images/projects/highway-corridor-management-system-1778356224478.png",
     "heroGradient": {
       "from": "#B96668",
@@ -100,8 +100,18 @@
       },
       {
         "name": "DevOps",
-        "icon": "/images/tools/devops.png",
+        "icon": "/images/tools/tool-devops-1778358188389.png",
+        "colorKey": "yellow"
+      },
+      {
+        "name": "Teams",
+        "icon": "/images/tools/tool-teams-1778358205903.png",
         "colorKey": "blue"
+      },
+      {
+        "name": "Slack",
+        "icon": "/images/tools/tool-slack-1778358221011.png",
+        "colorKey": "orange"
       }
     ],
     "challenge": "",
