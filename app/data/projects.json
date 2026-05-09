@@ -143,7 +143,7 @@
     "title": "The Citizen POA Court Experience",
     "slug": "citizen-poa-court-experience",
     "year": "2023",
-    "dateRange": "2023",
+    "dateRange": "Jan 2023 — Apr 2023",
     "company": "Brantford Provincial Offences Court",
     "tags": [
       "UX Design",
@@ -157,7 +157,7 @@
     "description": "A semester-long group project to redesign the Brantford Provincial Offences Court — improving its atmosphere, navigation, and accessibility as it relocated to a new building.",
     "featured": true,
     "cardStyle": "plum",
-    "thumbnail": "/images/projects/citizen-poa-court-experience-1776452161987.png",
+    "thumbnail": "/images/projects/citizen-poa-court-experience-1778358597491.png",
     "heroGradient": {
       "from": "#FFF6D0",
       "to": "#FFD04E"
@@ -167,12 +167,22 @@
         "name": "Figma",
         "icon": "/images/tools/figma.png",
         "colorKey": "purple"
+      },
+      {
+        "name": "Teams",
+        "icon": "/images/tools/tool-teams-1778358630329.png",
+        "colorKey": "blue"
+      },
+      {
+        "name": "Word",
+        "icon": "/images/tools/tool-word-1778358660652.png",
+        "colorKey": "green"
       }
     ],
-    "challenge": "The Brantford Official Provincial Court was moving buildings and needed to be redesigned to improve the atmosphere, navigation, and accessibility for citizens attending court. A major constraint the team faced was a lack of access to specific project documentation — including guidelines, expansion goals, floor plans, and budgets — which shaped our research approach.",
-    "backgroundInfo": "Two research methods were employed: semi-structured interviews examining court processes, people, and spaces — and secondary research through literature reviews.\n\nKey Findings: Participants preferred a clear, linear path between the lobby, waiting area, and courtroom. Users expected check-in assistance at the main entry point. Bathrooms should be located near the lobby for accessibility. Cool tones were perceived as more professional; warm tones felt more welcoming and were generally preferred.",
+    "challenge": "How might we redesign the courthouse experience to create a more welcoming, accessible, and supportive environment that reduces confusion, frustration, and anxiety for first-time and returning visitors?",
+    "backgroundInfo": "Our team partnered with the City of Brantford to redesign the citizen’s courthouse experience. Our design proposal aims to create a space which is more welcoming, intuitive, and accessible to citizens, both new to the system and repeated visitors. Our objective was to help provide a more comfortable and understandable experience while providing the support systems needed to help citizens reach a successful outcome from their court experience. Over 4 months, we researched, designed, and tested the space used by experienced courthouse visitors. The project consisted of several design iterations, research, and testing deliverables to keep the process on track and gain feedback.",
     "insights": "",
-    "role": "Kaeleigh — Research, Design, and Recruitment for User Testing\nJade — Project Management, Generative Research, and Design\nAbi — Design, Research, and Writing\nUmar — Recruitment for User Testing\nPrab — Research\nMohammed — Communication",
+    "role": "​​​​​​​Research  - Created surveys to understand feeling and usability testing to understand the users journey \n\nDesign  - Created wireframes and the 3d model for the court space\n\nCommunication - Lead communicator with users with sending out emails and setting up meetings",
     "prototypes": [],
     "extraSections": [
       {
