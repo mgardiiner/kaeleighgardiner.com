@@ -357,14 +357,14 @@
     "description": "A collection of personal and commissioned illustration work from 2023.",
     "featured": false,
     "cardStyle": "white",
-    "thumbnail": "/images/projects/illustrations-1776452190559.png",
+    "thumbnail": "/images/projects/illustrations-1778360979465.png",
     "heroGradient": {
       "from": "#A799B7",
       "to": "#533A71"
     },
     "tools": [
       {
-        "name": "Photoshop",
+        "name": "Adobe Illustrator",
         "icon": "/images/tools/ps.png",
         "colorKey": "orange"
       }
