@@ -164,11 +164,6 @@
     },
     "tools": [
       {
-        "name": "Figma",
-        "icon": "/images/tools/figma.png",
-        "colorKey": "purple"
-      },
-      {
         "name": "Teams",
         "icon": "/images/tools/tool-teams-1778358630329.png",
         "colorKey": "blue"
