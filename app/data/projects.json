@@ -9,15 +9,15 @@
       "UX Design",
       "Research"
     ],
-    "tag": "GOVERNMENT · ENTERPRISE",
-    "stat": "–60%",
-    "statLabel": "manual workload",
+    "tag": "GOVERNMENT · INTERNAL",
+    "stat": "3",
+    "statLabel": "workflows",
     "meta": "2024 · 16 mo · UX Design + Research",
     "bg": "tint",
     "description": "A 16-month co-op project with the Ministry of Transportation's Engagement and Advisory Branch — creating a digital registration and tracking system for employee training courses.",
     "featured": true,
     "cardStyle": "plum",
-    "thumbnail": "/images/projects/training-coordination-solutions-1778356197888.png",
+    "thumbnail": "/images/projects/training-coordination-solutions-1778356869136.png",
     "heroGradient": {
       "from": "#A799B7",
       "to": "#533A71"
@@ -25,17 +25,22 @@
     "tools": [
       {
         "name": "Figma",
-        "icon": "/images/tools/figma.png",
+        "icon": "/images/tools/tool-figma-1778356938846.png",
         "colorKey": "purple"
       },
       {
-        "name": "Excel",
+        "name": "Word",
         "icon": "/images/tools/excel.png",
         "colorKey": "green"
       },
       {
-        "name": "DevOps",
-        "icon": "/images/tools/devops.png",
+        "name": "Slack",
+        "icon": "/images/tools/tool-slack-1778356978308.png",
+        "colorKey": "orange"
+      },
+      {
+        "name": "Teams",
+        "icon": "/images/tools/tool-teams-1778357009778.png",
         "colorKey": "blue"
       }
     ],
