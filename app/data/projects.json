@@ -213,16 +213,37 @@
     },
     "tools": [
       {
-        "name": "Figma",
-        "icon": "/images/tools/figma.png",
-        "colorKey": "purple"
+        "name": "Word",
+        "icon": "/images/tools/tool-word-1778360172876.png",
+        "colorKey": "green"
+      },
+      {
+        "name": "Arduino",
+        "icon": "/images/tools/tool-arduino-1778360237082.png",
+        "colorKey": "blue"
       }
     ],
     "challenge": "",
     "backgroundInfo": "The project addresses accessibility for deaf and hard-of-hearing individuals by creating a wearable alert device. The bracelet provides visual, auditory, and haptic (vibration) feedback when an alarm sounds — giving users the freedom to move around their home without worrying about missing something important.\n\nThe prototype successfully produced a sound with a light vibration when something was within a certain distance, though it didn't fully integrate all intended features due to challenges with component integration and finding the appropriate code.",
     "insights": "",
     "role": "",
-    "prototypes": [],
+    "prototypes": [
+      {
+        "title": "App Design",
+        "caption": "",
+        "image": "/images/projects/maker-lab-ii-proto1-1778360405555.png"
+      },
+      {
+        "title": "Bracelet Design",
+        "caption": "",
+        "image": "/images/projects/maker-lab-ii-proto2-1778360440662.png"
+      },
+      {
+        "title": "Arduino Testing",
+        "caption": "",
+        "image": "/images/projects/maker-lab-ii-proto3-1778360461794.png"
+      }
+    ],
     "extraSections": [
       {
         "heading": "Design & Build",
