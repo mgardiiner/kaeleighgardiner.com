@@ -244,7 +244,7 @@ const saving     = ref(false)
 const saveStatus = ref<'idle' | 'success' | 'error'>('idle')
 const saveMessage = ref('')
 
-const ADMIN_COMMITTER = { name: 'Admin', email: 'matthew_gardiner@hotmail.com' }
+const ADMIN_COMMITTER = { name: 'Kgardiner15', email: 'kaeleigh.gardiner@yahoo.ca' }
 
 async function githubPut(filePath: string, content: string, msg: string) {
   const base = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}`
