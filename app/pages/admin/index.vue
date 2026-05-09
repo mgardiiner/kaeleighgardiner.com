@@ -244,13 +244,15 @@ const saving     = ref(false)
 const saveStatus = ref<'idle' | 'success' | 'error'>('idle')
 const saveMessage = ref('')
 
+const ADMIN_COMMITTER = { name: 'Admin', email: 'matthew_gardiner@hotmail.com' }
+
 async function githubPut(filePath: string, content: string, msg: string) {
   const base = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}`
   const headers = { Authorization: `Bearer ${token.value}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' }
   const headRes = await fetch(base, { headers })
   const sha = headRes.ok ? (await headRes.json()).sha : undefined
   const encoded = btoa(unescape(encodeURIComponent(content)))
-  const res = await fetch(base, { method: 'PUT', headers, body: JSON.stringify({ message: msg, content: encoded, sha }) })
+  const res = await fetch(base, { method: 'PUT', headers, body: JSON.stringify({ message: msg, content: encoded, sha, committer: ADMIN_COMMITTER, author: ADMIN_COMMITTER }) })
   if (!res.ok) { const e = await res.json(); throw new Error(e.message || res.statusText) }
 }
 
@@ -259,7 +261,7 @@ async function githubPutBinary(filePath: string, base64: string, msg: string) {
   const headers = { Authorization: `Bearer ${token.value}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' }
   const headRes = await fetch(base, { headers })
   const sha = headRes.ok ? (await headRes.json()).sha : undefined
-  const res = await fetch(base, { method: 'PUT', headers, body: JSON.stringify({ message: msg, content: base64, sha }) })
+  const res = await fetch(base, { method: 'PUT', headers, body: JSON.stringify({ message: msg, content: base64, sha, committer: ADMIN_COMMITTER, author: ADMIN_COMMITTER }) })
   if (!res.ok) { const e = await res.json(); throw new Error(e.message || res.statusText) }
 }
 
