@@ -122,17 +122,17 @@
       {
         "title": "Update a Submission",
         "caption": "One of 9 screens created to update and track a submission. These pages are used to upload files relating to each permit. Every permit has a unique number for tracking.",
-        "image": ""
+        "image": "/images/projects/highway-corridor-management-system-proto1-1778358355544.png"
       },
       {
         "title": "Application Database",
         "caption": "A master view used to keep track of all permits and their associated information. Users can click an application number to open the full permit detail page.",
-        "image": ""
+        "image": "/images/projects/highway-corridor-management-system-proto2-1778358361115.png"
       },
       {
         "title": "Manage Payment of Permits",
         "caption": "A receipt page that appears after a transaction within a permit. Displays all relevant information and the total paid. Names are blurred and other details use placeholders.",
-        "image": ""
+        "image": "/images/projects/highway-corridor-management-system-proto3-1778358365922.png"
       }
     ],
     "extraSections": [],
