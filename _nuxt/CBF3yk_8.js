@@ -1,0 +1,1 @@
+import{u as s,o,c as t,P as r}from"./CeHUTwNU.js";const a={class:"h-screen overflow-hidden"},l={__name:"admin",setup(n){return s({bodyAttrs:{style:"overflow: hidden;"}}),(e,d)=>(o(),t("div",a,[r(e.$slots,"default")]))}};export{l as default};
