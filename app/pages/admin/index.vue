@@ -570,10 +570,10 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
           <template v-if="activeSection === 'homepage'">
             <div class="flex items-center justify-between mb-8">
               <h2 class="font-display font-bold text-2xl text-slate-900">Homepage</h2>
-              <a href="/" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors shrink-0">
+              <button @click="showPreview = true" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 Preview
-              </a>
+              </button>
             </div>
 
             <!-- Hero copy -->
@@ -1039,11 +1039,6 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
                 <button @click="removeProject(activeProject.slug)" class="px-6 py-2.5 rounded-full border border-red-200 text-red-500 text-sm font-medium hover:bg-red-50 transition-colors ml-auto">Delete Project</button>
               </div>
 
-              <AdminPreviewModal
-                v-if="showPreview"
-                :project="activeProject"
-                @close="showPreview = false"
-              />
               <p class="mt-2 text-xs text-slate-400">Changes commit to the repo and go live after CI deploys.</p>
             </div>
             <div v-else class="text-slate-400 text-sm">No projects yet. <button @click="addProject" class="text-plum-700 hover:underline">Add one.</button></div>
@@ -1054,10 +1049,10 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
             <div class="flex items-center justify-between mb-8">
               <h2 class="font-display font-bold text-2xl text-slate-900">Experience</h2>
               <div class="flex items-center gap-3">
-                <a href="/experience" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors">
+                <button @click="showPreview = true" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                   Preview
-                </a>
+                </button>
                 <button @click="addRole" class="text-xs text-plum-700 font-medium hover:underline underline-offset-4">+ Add role</button>
               </div>
             </div>
@@ -1113,10 +1108,10 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
           <template v-else-if="activeSection === 'about'">
             <div class="flex items-center justify-between mb-8">
               <h2 class="font-display font-bold text-2xl text-slate-900">About Page</h2>
-              <a href="/about" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors shrink-0">
+              <button @click="showPreview = true" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 Preview
-              </a>
+              </button>
             </div>
 
             <!-- Headshot -->
@@ -1226,10 +1221,10 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
             <div class="flex items-center justify-between mb-8">
               <h2 class="font-display font-bold text-2xl text-slate-900">Testimonials</h2>
               <div class="flex items-center gap-3">
-                <a href="/about" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors">
+                <button @click="showPreview = true" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                   Preview
-                </a>
+                </button>
                 <button @click="about.testimonials.push({ quote: '', name: '', title: '' })" class="text-xs text-plum-700 font-medium hover:underline underline-offset-4">+ Add</button>
               </div>
             </div>
@@ -1257,10 +1252,10 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
           <template v-else-if="activeSection === 'contact'">
             <div class="flex items-center justify-between mb-8">
               <h2 class="font-display font-bold text-2xl text-slate-900">Contact Page</h2>
-              <a href="/contact" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors shrink-0">
+              <button @click="showPreview = true" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 Preview
-              </a>
+              </button>
             </div>
             <div class="space-y-5">
               <div><label :class="labelCls">Heading</label><input v-model="contact.heading" type="text" :class="inputCls" /></div>
@@ -1299,5 +1294,17 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
         </div>
       </main>
     </div>
+
+    <AdminPreviewModal
+      v-if="showPreview"
+      :section="activeSection"
+      :project="activeProject"
+      :about="about"
+      :roles="roles"
+      :contact="contact"
+      :projects="projects"
+      @close="showPreview = false"
+    />
+
   </div>
 </template>
