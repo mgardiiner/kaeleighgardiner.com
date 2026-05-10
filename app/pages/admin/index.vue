@@ -183,13 +183,13 @@ const GRADIENT_PRESETS = [
   { label: 'Sage', from: '#C8DDD4', to: '#5B8C75' },
 ]
 const CHIP_COLORS = [
-  { label: 'Charcoal', value: '#242424', dot: '#242424' },
-  { label: 'Maroon',   value: '#330000', dot: '#330000' },
-  { label: 'Orange',   value: 'orange',  dot: '#FFF0D9' },
-  { label: 'Purple',   value: 'purple',  dot: '#F0E7FC' },
-  { label: 'Blue',     value: 'blue',    dot: '#E7F4FC' },
-  { label: 'Green',    value: 'green',   dot: '#E7FFE4' },
-  { label: 'Yellow',   value: 'yellow',  dot: '#FCFFD2' },
+  { label: 'Charcoal (#242424)', value: '#242424', dot: '#242424' },
+  { label: 'Maroon (#330000)',   value: '#330000', dot: '#330000' },
+  { label: 'Orange (#FFF0D9)',   value: 'orange',  dot: '#FFF0D9' },
+  { label: 'Purple (#F0E7FC)',   value: 'purple',  dot: '#F0E7FC' },
+  { label: 'Blue (#E7F4FC)',     value: 'blue',    dot: '#E7F4FC' },
+  { label: 'Green (#E7FFE4)',    value: 'green',   dot: '#E7FFE4' },
+  { label: 'Yellow (#FCFFD2)',   value: 'yellow',  dot: '#FCFFD2' },
 ]
 function chipDot(key: string) {
   return CHIP_COLORS.find(c => c.value === key)?.dot ?? key
