@@ -183,9 +183,17 @@ const GRADIENT_PRESETS = [
   { label: 'Sage', from: '#C8DDD4', to: '#5B8C75' },
 ]
 const CHIP_COLORS = [
-  { label: 'Charcoal (#242424)', value: '#242424' },
-  { label: 'Maroon (#330000)',   value: '#330000'  },
+  { label: 'Charcoal', value: '#242424', dot: '#242424' },
+  { label: 'Maroon',   value: '#330000', dot: '#330000' },
+  { label: 'Orange',   value: 'orange',  dot: '#FFF0D9' },
+  { label: 'Purple',   value: 'purple',  dot: '#F0E7FC' },
+  { label: 'Blue',     value: 'blue',    dot: '#E7F4FC' },
+  { label: 'Green',    value: 'green',   dot: '#E7FFE4' },
+  { label: 'Yellow',   value: 'yellow',  dot: '#FCFFD2' },
 ]
+function chipDot(key: string) {
+  return CHIP_COLORS.find(c => c.value === key)?.dot ?? key
+}
 const BG_OPTIONS  = [
   { label: 'Tint (plum-25)', value: 'tint' },
   { label: 'Plum', value: 'plum' },
@@ -822,7 +830,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
                               @click="openColorPicker === ti ? openColorPicker = null : openColorPicker = ti"
                               :class="[inputCls, 'flex items-center gap-2 w-full text-left']"
                             >
-                              <span class="w-3 h-3 rounded-full shrink-0 border border-black/10" :style="{ backgroundColor: tool.colorKey }" />
+                              <span class="w-3 h-3 rounded-full shrink-0 border border-black/10" :style="{ backgroundColor: chipDot(tool.colorKey) }" />
                               <span class="flex-1">{{ CHIP_COLORS.find(c => c.value === tool.colorKey)?.label ?? tool.colorKey }}</span>
                               <svg class="w-3 h-3 text-slate-400 shrink-0" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </button>
@@ -834,7 +842,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
                                 @click="tool.colorKey = c.value; openColorPicker = null"
                                 :class="['flex items-center gap-2 w-full px-3 py-2 text-xs hover:bg-slate-50 transition-colors', tool.colorKey === c.value ? 'bg-plum-50 font-medium' : '']"
                               >
-                                <span class="w-3 h-3 rounded-full shrink-0 border border-black/10" :style="{ backgroundColor: c.value }" />
+                                <span class="w-3 h-3 rounded-full shrink-0 border border-black/10" :style="{ backgroundColor: c.dot }" />
                                 {{ c.label }}
                               </button>
                             </div>
