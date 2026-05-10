@@ -1,6 +1,6 @@
 <template>
   <footer class="bg-plum-900 text-plum-400 px-8 md:px-16 pt-[60px] pb-10">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+    <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
       <div>
         <p class="font-script text-[28px] leading-none text-plum-50 mb-1.5">Kaeleigh Gardiner</p>
         <p class="text-sm">UX Designer · Toronto, Canada</p>

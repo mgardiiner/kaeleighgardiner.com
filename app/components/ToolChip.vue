@@ -12,11 +12,14 @@ const bgMap: Record<string, string> = {
   green:  'bg-chip-green',
   yellow: 'bg-chip-yellow',
 }
+
+const isHex = (k: string) => /^#[0-9a-fA-F]{3,6}$/.test(k)
 </script>
 
 <template>
   <div
-    :class="['w-[65px] h-[65px] rounded-[10px] flex items-center justify-center shrink-0', bgMap[colorKey] ?? 'bg-chip-purple']"
+    :class="['w-[65px] h-[65px] rounded-[10px] flex items-center justify-center shrink-0', isHex(colorKey) ? '' : (bgMap[colorKey] ?? 'bg-chip-purple')]"
+    :style="isHex(colorKey) ? { backgroundColor: colorKey } : {}"
     :title="name"
   >
     <img v-if="icon" :src="icon" :alt="name" class="w-9 h-9 object-contain" />

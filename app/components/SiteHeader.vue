@@ -10,7 +10,7 @@ const menuOpen = ref(false)
 
 <template>
   <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur">
-    <div class="px-8 md:px-16 h-20 flex items-center justify-between">
+    <div class="px-8 md:px-16 h-20 flex items-center justify-between max-w-[1440px] mx-auto">
       <NuxtLink to="/" class="font-script text-[30px] leading-none text-plum-900">
         Kaeleigh Gardiner
       </NuxtLink>

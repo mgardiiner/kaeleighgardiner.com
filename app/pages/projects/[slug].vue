@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import projectsData from '~/data/projects.json'
+import { renderHtml } from '~/utils/renderHtml'
 
 const route = useRoute()
 const project = projectsData.find((p: any) => p.slug === route.params.slug) as any
@@ -11,6 +12,9 @@ if (!project) {
 const heroImage = project.heroImage || project.thumbnail
 const gradientFrom = project.heroGradient?.from ?? '#A799B7'
 const gradientTo   = project.heroGradient?.to   ?? '#533A71'
+const stripeColor  = gradientTo
+
+const isCaseStudy = project.pageLayout === 'case-study'
 
 const moreProjects = projectsData.filter((p: any) => p.slug !== project.slug).slice(0, 3)
 </script>
@@ -19,12 +23,11 @@ const moreProjects = projectsData.filter((p: any) => p.slug !== project.slug).sl
   <div>
 
     <!-- 1. Hero band -->
-    <ProjectHeroBand :title="project.title" :year="project.year" :stripe-color="gradientFrom" />
+    <ProjectHeroBand :title="project.title" :year="project.year" :stripe-color="stripeColor" />
 
     <!-- 2. Gradient screenshot band -->
     <div
-      class="w-full flex items-center justify-center px-6"
-      style="min-height: 800px;"
+      class="w-full flex items-center justify-center px-6 min-h-[320px] md:min-h-[560px] lg:min-h-[800px]"
       :style="{ background: `linear-gradient(180deg, ${gradientFrom} 0%, ${gradientTo} 91%)` }"
     >
       <img
@@ -49,53 +52,99 @@ const moreProjects = projectsData.filter((p: any) => p.slug !== project.slug).sl
     <!-- 4. Challenge (conditional) -->
     <ProjectChallenge :challenge="project.challenge ?? ''" />
 
-    <!-- 5. Background Information -->
-    <section v-if="project.backgroundInfo" class="bg-white px-6 py-[100px]">
-      <div class="max-w-5xl mx-auto">
-        <h2 class="font-display font-bold text-plum-900 mb-[55px]" style="font-size: 32px; line-height: 1.25;">
-          Background Information
-        </h2>
-        <div class="text-slate-600 text-[18px] leading-[35px] max-w-[1184px] space-y-6">
-          <p v-for="(para, i) in project.backgroundInfo.split('\n\n')" :key="i">{{ para }}</p>
+    <!-- ── CASE STUDY LAYOUT ────────────────────────────────────── -->
+    <template v-if="isCaseStudy">
+
+      <!-- 5. Design Process -->
+      <ProjectDesignProcess :steps="project.designProcess ?? []" />
+
+      <!-- 6. Background Information -->
+      <section v-if="project.backgroundInfo" class="bg-white px-6 py-16 md:py-[100px]">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="font-display font-bold text-plum-900 mb-[55px]" style="font-size: 32px; line-height: 1.25;">
+            Background Information
+          </h2>
+          <div class="prose-content text-slate-600 text-[18px] leading-[35px] max-w-[1184px]" v-html="renderHtml(project.backgroundInfo)" />
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 6. Discovery and Insights -->
-    <section v-if="project.insights" class="px-6 py-[100px]" style="background: #FCFBFB;">
-      <div class="max-w-5xl mx-auto">
-        <h2 class="font-display font-bold text-plum-900 mb-[55px]" style="font-size: 32px; line-height: 1.25;">
-          Discovery and Insights
-        </h2>
-        <div class="text-slate-600 text-[18px] leading-[35px] max-w-[1184px] space-y-6">
-          <p v-for="(para, i) in project.insights.split('\n\n')" :key="i">{{ para }}</p>
+      <!-- 7. Research Methods -->
+      <ProjectSplitSection
+        v-if="project.researchMethods?.body || project.researchMethods?.image"
+        heading="Research Methods"
+        :body="project.researchMethods?.body ?? ''"
+        :image="project.researchMethods?.image ?? ''"
+        :image-right="true"
+      />
+
+      <!-- 8. Analysis and Results -->
+      <ProjectSplitSection
+        v-if="project.analysisResults?.body || project.analysisResults?.image"
+        heading="Analysis and Results"
+        :body="project.analysisResults?.body ?? ''"
+        :image="project.analysisResults?.image ?? ''"
+        :image-right="false"
+        style="background: #fff;"
+      />
+
+      <!-- 9. Wireframes and Prototypes -->
+      <ProjectWireframes :wireframes="project.wireframes ?? []" :body="project.wireframesBody ?? ''" />
+
+      <!-- 10. Final Prototype -->
+      <ProjectPrototypes
+        :prototypes="project.prototypes ?? []"
+        :layout="project.prototypeLayout ?? 'grid'"
+        heading="Final Prototype"
+      />
+
+    </template>
+
+    <!-- ── STANDARD LAYOUT ─────────────────────────────────────── -->
+    <template v-else>
+
+      <!-- 5. Background Information -->
+      <section v-if="project.backgroundInfo" class="bg-white px-6 py-16 md:py-[100px]">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="font-display font-bold text-plum-900 mb-[55px]" style="font-size: 32px; line-height: 1.25;">
+            Background Information
+          </h2>
+          <div class="prose-content text-slate-600 text-[18px] leading-[35px] max-w-[1184px]" v-html="renderHtml(project.backgroundInfo)" />
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 7. Prototypes -->
-    <ProjectPrototypes :prototypes="project.prototypes ?? []" />
+      <!-- 6. Discovery and Insights -->
+      <section v-if="project.insights" class="px-6 py-16 md:py-[100px]" style="background: #FCFBFB;">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="font-display font-bold text-plum-900 mb-[55px]" style="font-size: 32px; line-height: 1.25;">
+            Discovery and Insights
+          </h2>
+          <div class="prose-content text-slate-600 text-[18px] leading-[35px] max-w-[1184px]" v-html="renderHtml(project.insights)" />
+        </div>
+      </section>
 
-    <!-- 8. Extra sections (fallback) -->
+      <!-- 7. Prototypes -->
+      <ProjectPrototypes :prototypes="project.prototypes ?? []" :layout="project.prototypeLayout ?? 'alternating'" />
+
+    </template>
+
+    <!-- Extra sections (both layouts) -->
     <template v-if="project.extraSections?.length">
       <section
         v-for="(section, i) in project.extraSections"
         :key="section.heading"
-        class="px-6 py-[100px]"
+        class="px-6 py-16 md:py-[100px]"
         :class="i % 2 === 0 ? 'bg-white' : 'bg-paper'"
       >
         <div class="max-w-5xl mx-auto">
           <h2 class="font-display font-bold text-plum-900 mb-[55px]" style="font-size: 32px; line-height: 1.25;">
             {{ section.heading }}
           </h2>
-          <div class="text-slate-600 text-[18px] leading-[35px] max-w-[1184px] space-y-6">
-            <p v-for="(para, pi) in section.body.split('\n\n')" :key="pi">{{ para }}</p>
-          </div>
+          <div class="prose-content text-slate-600 text-[18px] leading-[35px] max-w-[1184px]" v-html="renderHtml(section.body)" />
         </div>
       </section>
     </template>
 
-    <!-- 9. More projects -->
+    <!-- More projects -->
     <section class="py-20 px-6 bg-paper">
       <div class="max-w-5xl mx-auto">
         <div class="flex items-end justify-between mb-12">
@@ -113,7 +162,6 @@ const moreProjects = projectsData.filter((p: any) => p.slug !== project.slug).sl
             </svg>
           </NuxtLink>
         </div>
-
         <div class="grid sm:grid-cols-3 gap-6">
           <NuxtLink
             v-for="p in moreProjects"

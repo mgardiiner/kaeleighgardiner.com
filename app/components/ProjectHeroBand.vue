@@ -13,7 +13,7 @@ const scaleY = (W * 1.1) / 686
 </script>
 
 <template>
-  <section class="relative bg-white overflow-hidden" style="height: 600px; min-height: 480px;">
+  <section class="relative bg-white overflow-hidden" style="min-height: 380px;">
     <!-- Stripe field — 3 horizontal parallelograms, tilt 30°, opacity 0.5 -->
     <svg
       class="absolute pointer-events-none"
@@ -30,26 +30,29 @@ const scaleY = (W * 1.1) / 686
       />
     </svg>
 
-    <!-- Breadcrumb -->
-    <div
-      class="hero-enter d1 absolute flex items-center font-display font-medium text-plum-700"
-      style="left: 163px; top: 170px; gap: 10px; font-size: 14px; letter-spacing: 0.04em;"
-    >
-      <NuxtLink
-        to="/projects"
-        class="hover:text-plum-900 transition-colors"
-        style="text-decoration: underline; text-underline-offset: 4px;"
-      >Work</NuxtLink>
-      <span>/</span>
-      <span v-if="year">{{ year }}</span>
-    </div>
+    <!-- Content -->
+    <div class="relative z-10 px-6 md:px-16 lg:px-[163px] pt-[110px] md:pt-[150px] lg:pt-[170px] pb-12 md:pb-16 lg:pb-[180px]">
+      <!-- Breadcrumb -->
+      <div
+        class="hero-enter d1 flex items-center font-display font-medium text-plum-700 mb-4"
+        style="gap: 10px; font-size: 14px; letter-spacing: 0.04em;"
+      >
+        <NuxtLink
+          to="/projects"
+          class="hover:text-plum-900 transition-colors"
+          style="text-decoration: underline; text-underline-offset: 4px;"
+        >Work</NuxtLink>
+        <span>/</span>
+        <span v-if="year">{{ year }}</span>
+      </div>
 
-    <!-- Project title -->
-    <h1
-      class="hero-enter d2 absolute font-display font-bold text-plum-900 leading-none m-0"
-      style="left: 163px; top: 211px; width: 1100px; font-size: clamp(48px, 7vw, 96px); letter-spacing: -0.02em;"
-    >
-      {{ title }}
-    </h1>
+      <!-- Project title -->
+      <h1
+        class="hero-enter d2 font-display font-bold text-plum-900 leading-none m-0 max-w-[1100px]"
+        style="font-size: clamp(36px, 7vw, 96px); letter-spacing: -0.02em;"
+      >
+        {{ title }}
+      </h1>
+    </div>
   </section>
 </template>

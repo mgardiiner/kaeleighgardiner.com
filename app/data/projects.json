@@ -3,18 +3,18 @@
     "title": "Training Coordination Solutions",
     "slug": "training-coordination-solutions",
     "year": "2024",
-    "dateRange": "May 2024 – Oct 2024",
+    "dateRange": "May 2024 \u2013 Oct 2024",
     "company": "Ontario Ministry of Transportation",
     "tags": [
       "UX Design",
       "Research"
     ],
-    "tag": "GOVERNMENT · INTERNAL",
+    "tag": "GOVERNMENT \u00b7 INTERNAL",
     "stat": "3",
     "statLabel": "workflows",
-    "meta": "2024 · 16 mo · UX Design + Research",
+    "meta": "2024 \u00b7 16 mo \u00b7 UX Design + Research",
     "bg": "tint",
-    "description": "A 16-month co-op project with the Ministry of Transportation's Engagement and Advisory Branch — creating a digital registration and tracking system for employee training courses.",
+    "description": "A 16-month co-op project with the Ministry of Transportation's Engagement and Advisory Branch \u2014 creating a digital registration and tracking system for employee training courses.",
     "featured": true,
     "cardStyle": "plum",
     "thumbnail": "/images/projects/training-coordination-solutions-1778356869136.png",
@@ -45,13 +45,13 @@
       }
     ],
     "challenge": "How might we help training coordinators by reducing the time-consuming, complex, and manual nature of their current workflow?",
-    "backgroundInfo": "The Training Coordination Solutions project was developed to address the growing complexity of managing employee training across the Ontario Ministry of Transportation's Engagement and Advisory Branch. Training coordinators were responsible for organizing, registering, and tracking dozens of courses across the branch — all while managing multiple disconnected systems and fielding requests through email.\n\nThe ministry's existing process placed coordinators at the centre of every action: employees couldn't register themselves, managers had to relay requests, and there was no single source of truth for tracking who was enrolled in what. This created a significant administrative burden and introduced frequent errors and delays.\n\nThe goal of this project was to design a digital system that would streamline the end-to-end training workflow — empowering employees to self-register, reducing the coordinator's manual workload, and giving managers clear visibility into their team's training progress.",
-    "insights": "During the discovery phase, we conducted workshops and semi-structured interviews with the three core user groups: Business Service Analysts (BSAs) acting as training coordinators, managers who relay training requests, and employees who attend courses.\n\nKey insights that shaped the design direction:\n\nCoordinators spent a disproportionate amount of time on manual data entry and status chasing — tasks that could be automated or delegated. Employees had no direct visibility into what courses were available or when they were offered. Managers acted as unnecessary middlemen, forwarding requests they had no capacity to track. LearnON, the existing platform, was poorly adopted because it didn't reflect the branch's actual workflow.\n\nThese findings led us to redesign the registration model around employee self-service, with coordinators shifting into an oversight role rather than an operational one.",
-    "role": "User Research — Led discovery workshops and interviews with Business Service Analysts (BSAs), managers, and employees.\n\nUX Design — Designed prototypes for three distinct user types: training coordinator, employee, and manager.\n\nUsability Testing — Facilitated three testing phases with BSAs and managers, iterating on feedback each round.\n\nProcess Improvement — Co-created a streamlined, employee-driven registration model to reduce coordinator workload.",
+    "backgroundInfo": "The Training Coordination Solutions project was developed to address the growing complexity of managing employee training across the Ontario Ministry of Transportation's Engagement and Advisory Branch. Training coordinators were responsible for organizing, registering, and tracking dozens of courses across the branch \u2014 all while managing multiple disconnected systems and fielding requests through email.\n\nThe ministry's existing process placed coordinators at the centre of every action: employees couldn't register themselves, managers had to relay requests, and there was no single source of truth for tracking who was enrolled in what. This created a significant administrative burden and introduced frequent errors and delays.\n\nThe goal of this project was to design a digital system that would streamline the end-to-end training workflow \u2014 empowering employees to self-register, reducing the coordinator's manual workload, and giving managers clear visibility into their team's training progress.",
+    "insights": "During the discovery phase, we conducted workshops and semi-structured interviews with the three core user groups: Business Service Analysts (BSAs) acting as training coordinators, managers who relay training requests, and employees who attend courses.\n\nKey insights that shaped the design direction:\n\nCoordinators spent a disproportionate amount of time on manual data entry and status chasing \u2014 tasks that could be automated or delegated. Employees had no direct visibility into what courses were available or when they were offered. Managers acted as unnecessary middlemen, forwarding requests they had no capacity to track. LearnON, the existing platform, was poorly adopted because it didn't reflect the branch's actual workflow.\n\nThese findings led us to redesign the registration model around employee self-service, with coordinators shifting into an oversight role rather than an operational one.",
+    "role": "User Research \u2014 Led discovery workshops and interviews with Business Service Analysts (BSAs), managers, and employees.\n\nUX Design \u2014 Designed prototypes for three distinct user types: training coordinator, employee, and manager.\n\nUsability Testing \u2014 Facilitated three testing phases with BSAs and managers, iterating on feedback each round.\n\nProcess Improvement \u2014 Co-created a streamlined, employee-driven registration model to reduce coordinator workload.",
     "prototypes": [
       {
         "title": "Manage Courses (Training Coordinator View)",
-        "caption": "A dashboard allowing coordinators to create, manage, and track training courses across the branch. Coordinators can view enrollment numbers, manage waitlists, and export records — all from a single interface.",
+        "caption": "A dashboard allowing coordinators to create, manage, and track training courses across the branch. Coordinators can view enrollment numbers, manage waitlists, and export records \u2014 all from a single interface.",
         "image": "/images/projects/training-coordination-solutions-proto1-1777496676356.png"
       },
       {
@@ -61,30 +61,43 @@
       },
       {
         "title": "View Employee Training (Manager View)",
-        "caption": "A read-only reporting view that gives managers clear visibility into their team's training progress, upcoming sessions, and completion records — without becoming a bottleneck in the registration process.",
+        "caption": "A read-only reporting view that gives managers clear visibility into their team's training progress, upcoming sessions, and completion records \u2014 without becoming a bottleneck in the registration process.",
         "image": "/images/projects/training-coordination-solutions-proto3-1777496691668.png"
       }
     ],
     "extraSections": [],
     "prevSlug": "illustrations",
-    "nextSlug": "highway-corridor-management-system"
+    "nextSlug": "highway-corridor-management-system",
+    "prototypeLayout": "alternating",
+    "pageLayout": "standard",
+    "designProcess": [],
+    "researchMethods": {
+      "body": "",
+      "image": ""
+    },
+    "analysisResults": {
+      "body": "",
+      "image": ""
+    },
+    "wireframes": [],
+    "wireframesBody": ""
   },
   {
     "title": "Highway Corridor Management System",
     "slug": "highway-corridor-management-system",
     "year": "2025",
-    "dateRange": "May 2025 – Aug 2025",
+    "dateRange": "May 2025 \u2013 Aug 2025",
     "company": "Ontario Ministry of Transportation",
     "tags": [
       "UX Design",
       "Systems"
     ],
-    "tag": "GOVERNMENT · SYSTEMS",
+    "tag": "GOVERNMENT \u00b7 SYSTEMS",
     "stat": "9",
     "statLabel": "screens shipped",
-    "meta": "2025 · 4 mo · UX Design",
+    "meta": "2025 \u00b7 4 mo \u00b7 UX Design",
     "bg": "plum",
-    "description": "A live-phase contribution to the Ontario Ministry of Transportation's system for tracking and managing road work on or near highways across Ontario — May to August 2025.",
+    "description": "A live-phase contribution to the Ontario Ministry of Transportation's system for tracking and managing road work on or near highways across Ontario \u2014 May to August 2025.",
     "featured": true,
     "cardStyle": "plum",
     "thumbnail": "/images/projects/highway-corridor-management-system-1778356224478.png",
@@ -115,9 +128,9 @@
       }
     ],
     "challenge": "",
-    "backgroundInfo": "The Highway Corridor Management System (HCMS) was built to make it easier for the Ontario Ministry of Transportation to manage construction and development near highways. Before HCMS, applications and reviews were handled across emails, spreadsheets, and separate systems — causing confusion and delays.\n\nThe new system brings everything into one place, making the process smoother, faster, and easier to track. It also helps ensure that all projects comply with safety standards and planning requirements.",
+    "backgroundInfo": "The Highway Corridor Management System (HCMS) was built to make it easier for the Ontario Ministry of Transportation to manage construction and development near highways. Before HCMS, applications and reviews were handled across emails, spreadsheets, and separate systems \u2014 causing confusion and delays.\n\nThe new system brings everything into one place, making the process smoother, faster, and easier to track. It also helps ensure that all projects comply with safety standards and planning requirements.",
     "insights": "",
-    "role": "Wireframes — Designed and updated screens based on client feedback across both desktop and mobile views.\n\nWorkshops — Presented ideas and walked developers and clients through designs in collaborative working sessions.\n\nUser Stories — Worked through DevOps to gather and post information onto wireframes to support development handoff.",
+    "role": "Wireframes \u2014 Designed and updated screens based on client feedback across both desktop and mobile views.\n\nWorkshops \u2014 Presented ideas and walked developers and clients through designs in collaborative working sessions.\n\nUser Stories \u2014 Worked through DevOps to gather and post information onto wireframes to support development handoff.",
     "prototypes": [
       {
         "title": "Update a Submission",
@@ -137,13 +150,26 @@
     ],
     "extraSections": [],
     "prevSlug": "training-coordination-solutions",
-    "nextSlug": "citizen-poa-court-experience"
+    "nextSlug": "citizen-poa-court-experience",
+    "prototypeLayout": "alternating",
+    "pageLayout": "standard",
+    "designProcess": [],
+    "researchMethods": {
+      "body": "",
+      "image": ""
+    },
+    "analysisResults": {
+      "body": "",
+      "image": ""
+    },
+    "wireframes": [],
+    "wireframesBody": ""
   },
   {
     "title": "The Citizen POA Court Experience",
     "slug": "citizen-poa-court-experience",
     "year": "2023",
-    "dateRange": "Jan 2023 — Apr 2023",
+    "dateRange": "Jan 2023 \u2014 Apr 2023",
     "company": "Brantford Provincial Offences Court",
     "tags": [
       "UX Design",
@@ -152,9 +178,9 @@
     "tag": "SERVICE DESIGN",
     "stat": "6",
     "statLabel": "person team led",
-    "meta": "2023 · 1 sem · Service Design",
+    "meta": "2023 \u00b7 1 sem \u00b7 Service Design",
     "bg": "plum",
-    "description": "A semester-long group project to redesign the Brantford Provincial Offences Court — improving its atmosphere, navigation, and accessibility as it relocated to a new building.",
+    "description": "A semester-long group project to redesign the Brantford Provincial Offences Court \u2014 improving its atmosphere, navigation, and accessibility as it relocated to a new building.",
     "featured": true,
     "cardStyle": "plum",
     "thumbnail": "/images/projects/citizen-poa-court-experience-1778358597491.png",
@@ -175,14 +201,30 @@
       }
     ],
     "challenge": "How might we redesign the courthouse experience to create a more welcoming, accessible, and supportive environment that reduces confusion, frustration, and anxiety for first-time and returning visitors?",
-    "backgroundInfo": "Our team partnered with the City of Brantford to redesign the citizen’s courthouse experience. Our design proposal aims to create a space which is more welcoming, intuitive, and accessible to citizens, both new to the system and repeated visitors. Our objective was to help provide a more comfortable and understandable experience while providing the support systems needed to help citizens reach a successful outcome from their court experience. Over 4 months, we researched, designed, and tested the space used by experienced courthouse visitors. The project consisted of several design iterations, research, and testing deliverables to keep the process on track and gain feedback.",
+    "backgroundInfo": "Our team partnered with the City of Brantford to redesign the citizen\u2019s courthouse experience. Our design proposal aims to create a space which is more welcoming, intuitive, and accessible to citizens, both new to the system and repeated visitors. Our objective was to help provide a more comfortable and understandable experience while providing the support systems needed to help citizens reach a successful outcome from their court experience. Over 4 months, we researched, designed, and tested the space used by experienced courthouse visitors. The project consisted of several design iterations, research, and testing deliverables to keep the process on track and gain feedback.",
     "insights": "",
-    "role": "​​​​​​​Research  - Created surveys to understand feeling and usability testing to understand the users journey \n\nDesign  - Created wireframes and the 3d model for the court space\n\nCommunication - Lead communicator with users with sending out emails and setting up meetings",
-    "prototypes": [],
+    "role": "\u200b\u200b\u200b\u200b\u200b\u200b\u200bResearch \u00a0- Created surveys to understand feeling and usability testing to understand the users journey \n\nDesign \u00a0- Created wireframes and the 3d model for the court space\n\nCommunication\u00a0- Lead communicator with users with sending out emails and setting up meetings",
+    "prototypes": [
+      {
+        "title": "First Time Courtroom Experience",
+        "caption": "Wireframe of the initial onboarding flow guiding citizens through what to expect on their first visit to a POA courtroom.",
+        "image": "/images/projects/citizen-poa-court-experience-1776452161987.png"
+      },
+      {
+        "title": "Last Time Courtroom Experience",
+        "caption": "Prototype showing the end-of-process flow, including resolution screens and next-step guidance for citizens completing their court experience.",
+        "image": "/images/projects/citizen-poa-court-experience-1778358597491.png"
+      },
+      {
+        "title": "Final Prototype",
+        "caption": "High-fidelity prototype consolidating research findings into a refined experience across all key citizen touchpoints.",
+        "image": "/images/projects/highway-corridor-management-system-proto1-1778358355544.png"
+      }
+    ],
     "extraSections": [
       {
         "heading": "Final Design",
-        "body": "Atmosphere — Warm-toned wood for walls and furniture, with cooler blue accents for balance — combining welcome with professionalism.\n\nNavigation & Wayfinding — Clear signage and information boards throughout, with a logical linear layout guiding citizens from entry to courtroom.\n\nAccessibility — Improved seating accessibility throughout the space, with accessible bathrooms positioned near the lobby.\n\nProposed Services — Mediation services, legal assistance, and victim support — though full exploration was limited by delays in receiving client documentation."
+        "body": "Atmosphere \u2014 Warm-toned wood for walls and furniture, with cooler blue accents for balance \u2014 combining welcome with professionalism.\n\nNavigation & Wayfinding \u2014 Clear signage and information boards throughout, with a logical linear layout guiding citizens from entry to courtroom.\n\nAccessibility \u2014 Improved seating accessibility throughout the space, with accessible bathrooms positioned near the lobby.\n\nProposed Services \u2014 Mediation services, legal assistance, and victim support \u2014 though full exploration was limited by delays in receiving client documentation."
       },
       {
         "heading": "Reflection",
@@ -190,13 +232,72 @@
       }
     ],
     "prevSlug": "highway-corridor-management-system",
-    "nextSlug": "maker-lab-ii"
+    "nextSlug": "maker-lab-ii",
+    "prototypeLayout": "grid",
+    "pageLayout": "case-study",
+    "designProcess": [
+      {
+        "n": "1",
+        "title": "Research",
+        "desc": "Conducted surveys, interviews, and observational studies with first-time and repeat courthouse visitors."
+      },
+      {
+        "n": "2",
+        "title": "Analysis",
+        "desc": "Synthesized findings into personas, journey maps, and key insight themes to guide design decisions."
+      },
+      {
+        "n": "3",
+        "title": "Design",
+        "desc": "Created wireframes, spatial layouts, and a 3D model of the proposed courthouse experience."
+      },
+      {
+        "n": "4",
+        "title": "Testing",
+        "desc": "Ran usability testing sessions and iterated the design based on structured participant feedback."
+      }
+    ],
+    "researchMethods": {
+      "body": "To understand the citizen experience, our team conducted surveys, contextual interviews, and observational studies at the existing courthouse. We engaged with both first-time and repeat visitors to identify common pain points, emotional responses, and navigational challenges.\n\nOur research revealed that citizens frequently felt lost, anxious, and unsupported upon entering the courthouse. Lack of clear wayfinding, limited seating, and an absence of visible support services were the primary drivers of a negative experience.",
+      "image": "/images/projects/citizen-poa-court-experience-1776452161987.png"
+    },
+    "analysisResults": {
+      "body": "Insights from our research were synthesized into personas and journey maps representing distinct citizen archetypes \u2014 the first-time offender, the repeat visitor, and the support-seeker.\n\nKey themes emerged around three areas: environmental anxiety driven by an unfamiliar and formal atmosphere, navigational confusion due to poor signage and layout, and a lack of access to legal and emotional support services.",
+      "image": "/images/projects/citizen-poa-court-experience-1778358597491.png"
+    },
+    "wireframes": [
+      {
+        "title": "Entry and Reception",
+        "image": "/images/projects/citizen-poa-court-experience-1776452161987.png"
+      },
+      {
+        "title": "Waiting Area",
+        "image": "/images/projects/citizen-poa-court-experience-1778358597491.png"
+      },
+      {
+        "title": "Courtroom Layout",
+        "image": "/images/projects/highway-corridor-management-system-proto1-1778358355544.png"
+      },
+      {
+        "title": "Support Services Zone",
+        "image": "/images/projects/highway-corridor-management-system-proto2-1778358361115.png"
+      },
+      {
+        "title": "Wayfinding System",
+        "image": "/images/projects/highway-corridor-management-system-proto3-1778358365922.png"
+      },
+      {
+        "title": "Signage and Navigation",
+        "image": "/images/projects/citizen-poa-court-experience-1776452161987.png"
+      }
+    ],
+    "wireframesBody": ""
   },
   {
-    "title": "Maker Lab II – SDP2.2",
+    "title": "Maker Lab II \u2013 SDP2.2",
     "slug": "maker-lab-ii",
     "year": "2023",
-    "dateRange": "Jan 2023 — Apr 2023",
+    "dateRange": "Jan 2023 \u2014 Apr 2023",
     "company": "Wilfrid Laurier University",
     "tags": [
       "Product Design"
@@ -224,7 +325,7 @@
       }
     ],
     "challenge": "",
-    "backgroundInfo": "The project addresses accessibility for deaf and hard-of-hearing individuals by creating a wearable alert device. The bracelet provides visual, auditory, and haptic (vibration) feedback when an alarm sounds — giving users the freedom to move around their home without worrying about missing something important.\n\nThe prototype successfully produced a sound with a light vibration when something was within a certain distance, though it didn't fully integrate all intended features due to challenges with component integration and finding the appropriate code.",
+    "backgroundInfo": "The project addresses accessibility for deaf and hard-of-hearing individuals by creating a wearable alert device. The bracelet provides visual, auditory, and haptic (vibration) feedback when an alarm sounds \u2014 giving users the freedom to move around their home without worrying about missing something important.\n\nThe prototype successfully produced a sound with a light vibration when something was within a certain distance, though it didn't fully integrate all intended features due to challenges with component integration and finding the appropriate code.",
     "insights": "",
     "role": "",
     "prototypes": [
@@ -247,21 +348,34 @@
     "extraSections": [
       {
         "heading": "Design & Build",
-        "body": "Components used: Arduino Uno, breadboard, LED, wires, resistors, sensors, and a sound machine. The team encountered challenges in finding appropriate code for all components and struggled with integration between hardware elements.\n\nAlert Feedback Modes:\n- Visual — LED light response\n- Auditory — sound output\n- Haptic — vibration feedback"
+        "body": "Components used: Arduino Uno, breadboard, LED, wires, resistors, sensors, and a sound machine. The team encountered challenges in finding appropriate code for all components and struggled with integration between hardware elements.\n\nAlert Feedback Modes:\n- Visual \u2014 LED light response\n- Auditory \u2014 sound output\n- Haptic \u2014 vibration feedback"
       },
       {
         "heading": "Future Vision",
-        "body": "An interactive app that allows users to connect their devices — such as their fire alarm and doorbell — to the customized bracelet. Despite the unmet initial goals, the project was a valued learning experience in hardware prototyping, accessibility design, and collaborative iteration."
+        "body": "An interactive app that allows users to connect their devices \u2014 such as their fire alarm and doorbell \u2014 to the customized bracelet. Despite the unmet initial goals, the project was a valued learning experience in hardware prototyping, accessibility design, and collaborative iteration."
       }
     ],
     "prevSlug": "citizen-poa-court-experience",
-    "nextSlug": "one-guard"
+    "nextSlug": "one-guard",
+    "prototypeLayout": "alternating",
+    "pageLayout": "standard",
+    "designProcess": [],
+    "researchMethods": {
+      "body": "",
+      "image": ""
+    },
+    "analysisResults": {
+      "body": "",
+      "image": ""
+    },
+    "wireframes": [],
+    "wireframesBody": ""
   },
   {
     "title": "One Guard",
     "slug": "one-guard",
     "year": "2022",
-    "dateRange": "Sept 2022 — Dec 2022",
+    "dateRange": "Sept 2022 \u2014 Dec 2022",
     "company": "Wilfrid Laurier University",
     "tags": [
       "UX Design",
@@ -269,7 +383,7 @@
     ],
     "tag": "ACCESSIBILITY",
     "bg": "plum",
-    "description": "A physical keyboard guard designed to help people with physical or cognitive disabilities learn and use the keyboard — making the experience comfortable for everyone.",
+    "description": "A physical keyboard guard designed to help people with physical or cognitive disabilities learn and use the keyboard \u2014 making the experience comfortable for everyone.",
     "featured": false,
     "cardStyle": "white",
     "thumbnail": "/images/projects/one-guard-1778360698457.png",
@@ -285,22 +399,35 @@
       }
     ],
     "challenge": "",
-    "backgroundInfo": "The One Guard is a way for people to easily use the keyboard. Whether you have a physical, cognitive, or no disability — the One Guard is meant to make your experience with the keyboard nice and easy.",
+    "backgroundInfo": "The One Guard is a way for people to easily use the keyboard. Whether you have a physical, cognitive, or no disability \u2014 the One Guard is meant to make your experience with the keyboard nice and easy.",
     "insights": "",
     "role": "",
     "prototypes": [],
     "extraSections": [
       {
         "heading": "Design Process",
-        "body": "The team initially used cardboard for prototyping but found it wasn't accurate and was too flimsy to be practical. They pivoted to hot glue as the primary structural material, with additional components to improve accessibility and usability.\n\nMaterials:\n- Hot glue — primary structural material\n- Zip ties — to attach the guard to the keyboard\n- Zip lock bags — to help attach the braille elements\n- Little gems — used as braille indicators\n- Stickers — to add colour coding to the keys"
+        "body": "The team initially used cardboard for prototyping but found it wasn't accurate and was too flimsy to be practical. They pivoted to hot glue as the primary structural material, with additional components to improve accessibility and usability.\n\nMaterials:\n- Hot glue \u2014 primary structural material\n- Zip ties \u2014 to attach the guard to the keyboard\n- Zip lock bags \u2014 to help attach the braille elements\n- Little gems \u2014 used as braille indicators\n- Stickers \u2014 to add colour coding to the keys"
       },
       {
         "heading": "Reflection",
-        "body": "In the end, the team was proud of what was accomplished. This project helped illustrate what it's like to work in a group where everyone brings their own skills toward a common goal — particularly when that goal centres around meaningful accessibility outcomes."
+        "body": "In the end, the team was proud of what was accomplished. This project helped illustrate what it's like to work in a group where everyone brings their own skills toward a common goal \u2014 particularly when that goal centres around meaningful accessibility outcomes."
       }
     ],
     "prevSlug": "maker-lab-ii",
-    "nextSlug": "logo-designs"
+    "nextSlug": "logo-designs",
+    "prototypeLayout": "alternating",
+    "pageLayout": "standard",
+    "designProcess": [],
+    "researchMethods": {
+      "body": "",
+      "image": ""
+    },
+    "analysisResults": {
+      "body": "",
+      "image": ""
+    },
+    "wireframes": [],
+    "wireframesBody": ""
   },
   {
     "title": "Logo Designs",
@@ -314,7 +441,7 @@
     ],
     "tag": "BRANDING",
     "bg": "plum",
-    "description": "A collection of logo and brand identity work across school projects, commissioned clients, and competitions — spanning 2023.",
+    "description": "A collection of logo and brand identity work across school projects, commissioned clients, and competitions \u2014 spanning 2023.",
     "featured": false,
     "cardStyle": "plum",
     "thumbnail": "/images/projects/logo-designs-1776452183824.png",
@@ -335,13 +462,26 @@
       }
     ],
     "challenge": "",
-    "backgroundInfo": "UXDSA Sticker Design Competition — Winning design submitted to the UXDSA Sticker Design Competition.\n\nOh Baby — A commissioned logo design created for a client.\n\n@Island_of_jumanji — Instagram logo created for the account @Island_of_jumanji.\n\nThe 4 Elements — A logo design created for a school project.\n\nUnited Cafe — Logo created for a school project in high school.\n\nJessie's Teaching Corner — Logo design for Jessie's Teaching Corner.\n\nKillbear Provincial Park — Three sweater designs created for Killbear Provincial Park.",
+    "backgroundInfo": "UXDSA Sticker Design Competition \u2014 Winning design submitted to the UXDSA Sticker Design Competition.\n\nOh Baby \u2014 A commissioned logo design created for a client.\n\n@Island_of_jumanji \u2014 Instagram logo created for the account @Island_of_jumanji.\n\nThe 4 Elements \u2014 A logo design created for a school project.\n\nUnited Cafe \u2014 Logo created for a school project in high school.\n\nJessie's Teaching Corner \u2014 Logo design for Jessie's Teaching Corner.\n\nKillbear Provincial Park \u2014 Three sweater designs created for Killbear Provincial Park.",
     "insights": "",
     "role": "",
     "prototypes": [],
     "extraSections": [],
     "prevSlug": "one-guard",
-    "nextSlug": "illustrations"
+    "nextSlug": "illustrations",
+    "prototypeLayout": "alternating",
+    "pageLayout": "standard",
+    "designProcess": [],
+    "researchMethods": {
+      "body": "",
+      "image": ""
+    },
+    "analysisResults": {
+      "body": "",
+      "image": ""
+    },
+    "wireframes": [],
+    "wireframesBody": ""
   },
   {
     "title": "Illustrations",
@@ -376,6 +516,19 @@
     "prototypes": [],
     "extraSections": [],
     "prevSlug": "logo-designs",
-    "nextSlug": "training-coordination-solutions"
+    "nextSlug": "training-coordination-solutions",
+    "prototypeLayout": "alternating",
+    "pageLayout": "standard",
+    "designProcess": [],
+    "researchMethods": {
+      "body": "",
+      "image": ""
+    },
+    "analysisResults": {
+      "body": "",
+      "image": ""
+    },
+    "wireframes": [],
+    "wireframesBody": ""
   }
 ]

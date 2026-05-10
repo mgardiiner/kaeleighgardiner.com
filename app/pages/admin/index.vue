@@ -25,6 +25,22 @@ interface Prototype {
   image: string
 }
 
+interface DesignStep {
+  n: string
+  title: string
+  desc: string
+}
+
+interface SplitSection {
+  body: string
+  image: string
+}
+
+interface Wireframe {
+  title: string
+  image: string
+}
+
 interface Project {
   title: string
   slug: string
@@ -49,6 +65,13 @@ interface Project {
   backgroundInfo: string
   insights: string
   prototypes: Prototype[]
+  prototypeLayout: 'alternating' | 'grid' | 'stacked'
+  pageLayout: 'standard' | 'case-study'
+  designProcess: DesignStep[]
+  researchMethods: SplitSection
+  analysisResults: SplitSection
+  wireframes: Wireframe[]
+  wireframesBody: string
   extraSections: Section[]
   prevSlug: string | null
   nextSlug: string | null
@@ -159,7 +182,10 @@ const GRADIENT_PRESETS = [
   { label: 'Gold', from: '#FFF6D0', to: '#FFD04E' },
   { label: 'Sage', from: '#C8DDD4', to: '#5B8C75' },
 ]
-const CHIP_COLORS = ['orange', 'purple', 'blue', 'green', 'yellow']
+const CHIP_COLORS = [
+  { label: 'Charcoal (#242424)', value: '#242424' },
+  { label: 'Maroon (#330000)',   value: '#330000'  },
+]
 const BG_OPTIONS  = [
   { label: 'Tint (plum-25)', value: 'tint' },
   { label: 'Plum', value: 'plum' },
@@ -204,7 +230,7 @@ function tagsString(p: Project) { return p.tags.join(', ') }
 function updateTags(p: Project, v: string) { p.tags = v.split(',').map(t => t.trim()).filter(Boolean) }
 function addExtraSection(p: Project) { p.extraSections.push({ heading: 'New Section', body: '' }) }
 function removeExtraSection(p: Project, i: number) { p.extraSections.splice(i, 1) }
-function addTool(p: Project) { p.tools.push({ name: '', icon: '', colorKey: 'purple' }) }
+function addTool(p: Project) { p.tools.push({ name: '', icon: '', colorKey: '#242424' }) }
 function removeTool(p: Project, i: number) { p.tools.splice(i, 1) }
 function ensurePrototypes(p: Project) { while (p.prototypes.length < 3) p.prototypes.push({ title: '', caption: '', image: '' }) }
 
@@ -281,6 +307,11 @@ const uploadingImage    = ref(false)
 const uploadingHero     = ref(false)
 const uploadingToolIcon: Record<number, boolean> = reactive({})
 const uploadingProtoImg: Record<number, boolean> = reactive({})
+const uploadingWireframeImg: Record<number, boolean> = reactive({})
+const uploadingResearchImg = ref(false)
+const uploadingAnalysisImg = ref(false)
+const openColorPicker = ref<number | null>(null)
+const showPreview = ref(false)
 
 async function uploadAboutPhoto(file: File) {
   uploadingPhoto.value = true
@@ -337,6 +368,44 @@ async function uploadProtoImage(project: Project, pi: number, file: File) {
   } catch (err: any) { saveStatus.value = 'error'; saveMessage.value = `Upload failed: ${err.message}` }
   finally { uploadingProtoImg[pi] = false }
 }
+
+async function uploadResearchImage(project: Project, file: File) {
+  uploadingResearchImg.value = true
+  try {
+    const ext = file.name.split('.').pop() ?? 'png'
+    const filename = `${project.slug}-research-${Date.now()}.${ext}`
+    await githubPutBinary(`public/images/projects/${filename}`, await readFileAsBase64(file), `chore: upload research image for ${project.slug}`)
+    project.researchMethods.image = `/images/projects/${filename}`
+  } catch (err: any) { saveStatus.value = 'error'; saveMessage.value = `Upload failed: ${err.message}` }
+  finally { uploadingResearchImg.value = false }
+}
+
+async function uploadAnalysisImage(project: Project, file: File) {
+  uploadingAnalysisImg.value = true
+  try {
+    const ext = file.name.split('.').pop() ?? 'png'
+    const filename = `${project.slug}-analysis-${Date.now()}.${ext}`
+    await githubPutBinary(`public/images/projects/${filename}`, await readFileAsBase64(file), `chore: upload analysis image for ${project.slug}`)
+    project.analysisResults.image = `/images/projects/${filename}`
+  } catch (err: any) { saveStatus.value = 'error'; saveMessage.value = `Upload failed: ${err.message}` }
+  finally { uploadingAnalysisImg.value = false }
+}
+
+async function uploadWireframeImage(project: Project, wi: number, file: File) {
+  uploadingWireframeImg[wi] = true
+  try {
+    const ext = file.name.split('.').pop() ?? 'png'
+    const filename = `${project.slug}-wf${wi + 1}-${Date.now()}.${ext}`
+    await githubPutBinary(`public/images/projects/${filename}`, await readFileAsBase64(file), `chore: upload wireframe for ${project.slug}`)
+    project.wireframes[wi].image = `/images/projects/${filename}`
+  } catch (err: any) { saveStatus.value = 'error'; saveMessage.value = `Upload failed: ${err.message}` }
+  finally { uploadingWireframeImg[wi] = false }
+}
+
+function addDesignStep(p: Project) { p.designProcess.push({ n: String(p.designProcess.length + 1), title: '', desc: '' }) }
+function removeDesignStep(p: Project, si: number) { p.designProcess.splice(si, 1) }
+function addWireframe(p: Project) { p.wireframes.push({ title: '', image: '' }) }
+function removeWireframe(p: Project, wi: number) { p.wireframes.splice(wi, 1) }
 
 // ── Resume ────────────────────────────────────────────────────────────────────
 
@@ -514,7 +583,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
               </div>
               <div>
                 <label :class="labelCls">Sub-copy</label>
-                <textarea v-model="about.heroCopy" rows="2" :class="inputCls + ' resize-y'" />
+                <RichTextEditor v-model="about.heroCopy" />
               </div>
               <div>
                 <label :class="labelCls">Status Line</label>
@@ -593,7 +662,19 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
           <!-- ── PROJECTS ── -->
           <template v-else-if="activeSection === 'projects'">
             <div v-if="activeProject">
-              <h2 class="font-display font-bold text-2xl text-slate-900 mb-8">{{ activeProject.title }}</h2>
+              <div class="flex items-start justify-between mb-8">
+                <h2 class="font-display font-bold text-2xl text-slate-900">{{ activeProject.title }}</h2>
+                <button
+                  @click="showPreview = true"
+                  class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors shrink-0 ml-4"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  Preview
+                </button>
+              </div>
 
               <div class="space-y-5 mb-10">
 
@@ -606,7 +687,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
                 </div>
                 <div><label :class="labelCls">Company</label><input v-model="activeProject.company" type="text" :class="inputCls" /></div>
                 <div><label :class="labelCls">Tags (comma-separated)</label><input :value="tagsString(activeProject)" @input="updateTags(activeProject, ($event.target as HTMLInputElement).value)" type="text" :class="inputCls" /></div>
-                <div><label :class="labelCls">Short Description</label><textarea v-model="activeProject.description" rows="3" :class="inputCls + ' resize-y'" /></div>
+                <div><label :class="labelCls">Short Description</label><RichTextEditor v-model="activeProject.description" /></div>
 
                 <!-- Featured + Card Style -->
                 <div class="grid grid-cols-2 gap-6 pt-2">
@@ -627,6 +708,20 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
                       </label>
                     </div>
                   </div>
+                </div>
+
+                <!-- Page Layout -->
+                <div>
+                  <label :class="labelCls">Page Layout</label>
+                  <div class="flex gap-3 mt-1">
+                    <button
+                      v-for="opt in [{ value: 'standard', label: 'Standard' }, { value: 'case-study', label: 'Case Study' }]"
+                      :key="opt.value"
+                      @click="activeProject.pageLayout = opt.value as 'standard' | 'case-study'"
+                      :class="['px-4 py-2 rounded-lg border text-xs font-medium transition-colors', activeProject.pageLayout === opt.value ? 'border-plum-700 bg-plum-700 text-white' : 'border-slate-200 text-slate-500 hover:border-plum-400']"
+                    >{{ opt.label }}</button>
+                  </div>
+                  <p class="text-xs text-slate-400 mt-1.5">Case Study adds Design Process, Research Methods, Analysis & Results, and Wireframes sections.</p>
                 </div>
 
                 <!-- Homepage Card Meta -->
@@ -715,7 +810,29 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
                         <div><label class="block text-xs text-slate-500 mb-1">Name</label><input v-model="tool.name" type="text" :class="inputCls" /></div>
                         <div>
                           <label class="block text-xs text-slate-500 mb-1">Color</label>
-                          <select v-model="tool.colorKey" :class="inputCls"><option v-for="c in CHIP_COLORS" :key="c" :value="c">{{ c }}</option></select>
+                          <div class="relative">
+                            <button
+                              type="button"
+                              @click="openColorPicker === ti ? openColorPicker = null : openColorPicker = ti"
+                              :class="[inputCls, 'flex items-center gap-2 w-full text-left']"
+                            >
+                              <span class="w-3 h-3 rounded-full shrink-0 border border-black/10" :style="{ backgroundColor: tool.colorKey }" />
+                              <span class="flex-1">{{ CHIP_COLORS.find(c => c.value === tool.colorKey)?.label ?? tool.colorKey }}</span>
+                              <svg class="w-3 h-3 text-slate-400 shrink-0" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                            <div v-if="openColorPicker === ti" class="absolute z-10 top-full mt-1 left-0 right-0 bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden">
+                              <button
+                                v-for="c in CHIP_COLORS"
+                                :key="c.value"
+                                type="button"
+                                @click="tool.colorKey = c.value; openColorPicker = null"
+                                :class="['flex items-center gap-2 w-full px-3 py-2 text-xs hover:bg-slate-50 transition-colors', tool.colorKey === c.value ? 'bg-plum-50 font-medium' : '']"
+                              >
+                                <span class="w-3 h-3 rounded-full shrink-0 border border-black/10" :style="{ backgroundColor: c.value }" />
+                                {{ c.label }}
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div>
@@ -730,33 +847,146 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
                   </div>
                 </div>
 
+                <!-- ── CASE STUDY FIELDS ───────────────────────────── -->
+                <template v-if="activeProject.pageLayout === 'case-study'">
+                  <div class="rounded-xl border-2 border-plum-200 bg-plum-50 p-5 space-y-5">
+                    <h3 class="text-xs font-semibold text-plum-700 uppercase tracking-wider">Case Study Sections</h3>
+
+                    <!-- Design Process -->
+                    <div>
+                      <div class="flex items-center justify-between mb-3">
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider">Design Process Steps</label>
+                        <button @click="addDesignStep(activeProject)" :disabled="activeProject.designProcess.length >= 6" class="text-xs text-plum-700 font-medium hover:underline underline-offset-4 disabled:opacity-40">+ Add step</button>
+                      </div>
+                      <div class="space-y-3">
+                        <div v-for="(step, si) in activeProject.designProcess" :key="si" class="rounded-lg border border-slate-200 p-3 bg-white space-y-2">
+                          <div class="flex items-center justify-between">
+                            <span class="text-xs text-slate-400">Step {{ si + 1 }}</span>
+                            <button @click="removeDesignStep(activeProject, si)" class="text-xs text-red-400 hover:text-red-600">Remove</button>
+                          </div>
+                          <div class="grid grid-cols-[60px_1fr] gap-2">
+                            <div><label class="block text-xs text-slate-500 mb-1">No.</label><input v-model="step.n" type="text" :class="inputCls + ' font-mono'" placeholder="1" /></div>
+                            <div><label class="block text-xs text-slate-500 mb-1">Title</label><input v-model="step.title" type="text" :class="inputCls" /></div>
+                          </div>
+                          <div><label class="block text-xs text-slate-500 mb-1">Description</label><RichTextEditor v-model="step.desc" /></div>
+                        </div>
+                        <p v-if="!activeProject.designProcess.length" class="text-sm text-slate-400">No steps yet. Click "+ Add step" to add them.</p>
+                      </div>
+                    </div>
+
+                    <!-- Research Methods -->
+                    <div>
+                      <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-3">Research Methods</label>
+                      <div class="rounded-lg border border-slate-200 p-3 bg-white space-y-3">
+                        <div><label class="block text-xs text-slate-500 mb-1">Body</label><RichTextEditor v-model="activeProject.researchMethods.body" /></div>
+                        <div>
+                          <label class="block text-xs text-slate-500 mb-1">Image</label>
+                          <label :class="['flex items-center gap-2 w-fit px-3 py-1.5 rounded-lg border text-xs font-medium cursor-pointer transition-colors', uploadingResearchImg ? 'border-slate-200 text-slate-400 pointer-events-none' : 'border-plum-400 text-plum-700 hover:bg-plum-50']">
+                            {{ uploadingResearchImg ? 'Uploading…' : (activeProject.researchMethods.image ? 'Replace image' : 'Upload image') }}
+                            <input type="file" accept="image/*" class="sr-only" @change="(e) => { const f = (e.target as HTMLInputElement).files?.[0]; if (f) uploadResearchImage(activeProject, f) }" />
+                          </label>
+                          <div v-if="activeProject.researchMethods.image" class="mt-2 space-y-1">
+                            <p class="text-xs font-mono text-slate-400 break-all">{{ activeProject.researchMethods.image }}</p>
+                            <button @click="activeProject.researchMethods.image = ''" class="text-xs text-red-400 hover:text-red-600">Remove</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Analysis and Results -->
+                    <div>
+                      <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-3">Analysis and Results</label>
+                      <div class="rounded-lg border border-slate-200 p-3 bg-white space-y-3">
+                        <div><label class="block text-xs text-slate-500 mb-1">Body</label><RichTextEditor v-model="activeProject.analysisResults.body" /></div>
+                        <div>
+                          <label class="block text-xs text-slate-500 mb-1">Image</label>
+                          <label :class="['flex items-center gap-2 w-fit px-3 py-1.5 rounded-lg border text-xs font-medium cursor-pointer transition-colors', uploadingAnalysisImg ? 'border-slate-200 text-slate-400 pointer-events-none' : 'border-plum-400 text-plum-700 hover:bg-plum-50']">
+                            {{ uploadingAnalysisImg ? 'Uploading…' : (activeProject.analysisResults.image ? 'Replace image' : 'Upload image') }}
+                            <input type="file" accept="image/*" class="sr-only" @change="(e) => { const f = (e.target as HTMLInputElement).files?.[0]; if (f) uploadAnalysisImage(activeProject, f) }" />
+                          </label>
+                          <div v-if="activeProject.analysisResults.image" class="mt-2 space-y-1">
+                            <p class="text-xs font-mono text-slate-400 break-all">{{ activeProject.analysisResults.image }}</p>
+                            <button @click="activeProject.analysisResults.image = ''" class="text-xs text-red-400 hover:text-red-600">Remove</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Wireframes -->
+                    <div>
+                      <div class="flex items-center justify-between mb-3">
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider">Wireframes and Prototypes</label>
+                        <button @click="addWireframe(activeProject)" :disabled="activeProject.wireframes.length >= 6" class="text-xs text-plum-700 font-medium hover:underline underline-offset-4 disabled:opacity-40">+ Add wireframe</button>
+                      </div>
+                      <div class="mb-3">
+                        <label class="block text-xs text-slate-500 mb-1">Body Text <span class="font-normal text-slate-400">(shown above images)</span></label>
+                        <RichTextEditor v-model="activeProject.wireframesBody" placeholder="Describe your wireframe process here…" />
+                      </div>
+                      <div class="space-y-3">
+                        <div v-for="(wf, wi) in activeProject.wireframes" :key="wi" class="rounded-lg border border-slate-200 p-3 bg-white space-y-2">
+                          <div class="flex items-center justify-between">
+                            <span class="text-xs text-slate-400">Wireframe {{ wi + 1 }}</span>
+                            <button @click="removeWireframe(activeProject, wi)" class="text-xs text-red-400 hover:text-red-600">Remove</button>
+                          </div>
+                          <div><label class="block text-xs text-slate-500 mb-1">Title</label><input v-model="wf.title" type="text" :class="inputCls" /></div>
+                          <div>
+                            <label class="block text-xs text-slate-500 mb-1">Image</label>
+                            <label :class="['flex items-center gap-2 w-fit px-3 py-1.5 rounded-lg border text-xs font-medium cursor-pointer transition-colors', uploadingWireframeImg[wi] ? 'border-slate-200 text-slate-400 pointer-events-none' : 'border-plum-400 text-plum-700 hover:bg-plum-50']">
+                              {{ uploadingWireframeImg[wi] ? 'Uploading…' : (wf.image ? 'Replace image' : 'Upload image') }}
+                              <input type="file" accept="image/*" class="sr-only" @change="(e) => { const f = (e.target as HTMLInputElement).files?.[0]; if (f) uploadWireframeImage(activeProject, wi, f) }" />
+                            </label>
+                            <div v-if="wf.image" class="mt-2 space-y-1">
+                              <p class="text-xs font-mono text-slate-400 break-all">{{ wf.image }}</p>
+                              <button @click="wf.image = ''" class="text-xs text-red-400 hover:text-red-600">Remove</button>
+                            </div>
+                          </div>
+                        </div>
+                        <p v-if="!activeProject.wireframes.length" class="text-sm text-slate-400">No wireframes yet. Click "+ Add wireframe".</p>
+                      </div>
+                    </div>
+
+                  </div>
+                </template>
+                <!-- ────────────────────────────────────────────────── -->
+
                 <!-- Role -->
-                <div><label :class="labelCls">My Role</label><textarea v-model="activeProject.role" rows="5" :class="inputCls + ' resize-y'" placeholder="User Research — Led discovery workshops…&#10;&#10;UX Design — Designed prototypes…" /></div>
+                <div><label :class="labelCls">My Role</label><RichTextEditor v-model="activeProject.role" placeholder="User Research — Led discovery workshops…" /></div>
 
                 <!-- Challenge -->
                 <div>
                   <label :class="labelCls">Challenge Statement</label>
                   <p class="text-xs text-slate-400 mb-1.5">Shown as a large centered statement. Leave blank to hide.</p>
-                  <textarea v-model="activeProject.challenge" rows="3" :class="inputCls + ' resize-y'" />
+                  <RichTextEditor v-model="activeProject.challenge" />
                 </div>
 
                 <!-- Background Info -->
-                <div><label :class="labelCls">Background Information</label><textarea v-model="activeProject.backgroundInfo" rows="6" :class="inputCls + ' resize-y'" /></div>
+                <div><label :class="labelCls">Background Information</label><RichTextEditor v-model="activeProject.backgroundInfo" /></div>
 
                 <!-- Insights -->
-                <div><label :class="labelCls">Discovery and Insights</label><textarea v-model="activeProject.insights" rows="6" :class="inputCls + ' resize-y'" /></div>
+                <div><label :class="labelCls">Discovery and Insights</label><RichTextEditor v-model="activeProject.insights" /></div>
 
                 <!-- Prototypes -->
                 <div>
                   <div class="flex items-center justify-between mb-3">
-                    <label :class="labelCls.replace('mb-1.5','')">Prototypes</label>
+                    <label :class="labelCls.replace('mb-1.5','')">{{ activeProject.pageLayout === 'case-study' ? 'Final Prototype' : 'Prototypes' }}</label>
                     <button @click="ensurePrototypes(activeProject)" :disabled="activeProject.prototypes.length >= 3" class="text-xs text-plum-700 font-medium hover:underline underline-offset-4 disabled:opacity-40 disabled:no-underline">+ Fill 3 slots</button>
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-xs text-slate-500 mb-1">Layout</label>
+                    <div class="flex gap-3">
+                      <button
+                        v-for="opt in [{ value: 'alternating', label: 'Alternating' }, { value: 'grid', label: 'Grid' }, { value: 'stacked', label: 'Stacked' }]"
+                        :key="opt.value"
+                        @click="activeProject.prototypeLayout = opt.value as 'alternating' | 'grid' | 'stacked'"
+                        :class="['px-4 py-2 rounded-lg border text-xs font-medium transition-colors', activeProject.prototypeLayout === opt.value ? 'border-plum-700 bg-plum-700 text-white' : 'border-slate-200 text-slate-500 hover:border-plum-400']"
+                      >{{ opt.label }}</button>
+                    </div>
                   </div>
                   <div class="space-y-4">
                     <div v-for="(proto, pi) in activeProject.prototypes.slice(0,3)" :key="pi" class="rounded-xl border border-slate-200 p-4 bg-white space-y-3">
                       <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Prototype {{ pi + 1 }}</p>
                       <div><label class="block text-xs text-slate-500 mb-1">Title</label><input v-model="proto.title" type="text" :class="inputCls" /></div>
-                      <div><label class="block text-xs text-slate-500 mb-1">Caption</label><textarea v-model="proto.caption" rows="3" :class="inputCls + ' resize-y'" /></div>
+                      <div><label class="block text-xs text-slate-500 mb-1">Caption</label><RichTextEditor v-model="proto.caption" /></div>
                       <div>
                         <label class="block text-xs text-slate-500 mb-1">Image</label>
                         <label :class="['flex items-center gap-2 w-fit px-3 py-1.5 rounded-lg border text-xs font-medium cursor-pointer transition-colors', uploadingProtoImg[pi] ? 'border-slate-200 text-slate-400 pointer-events-none' : 'border-plum-400 text-plum-700 hover:bg-plum-50']">
@@ -786,7 +1016,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
                     </div>
                     <div class="space-y-3">
                       <div><label class="block text-xs font-medium text-slate-500 mb-1">Heading</label><input v-model="section.heading" type="text" :class="inputCls" /></div>
-                      <div><label class="block text-xs font-medium text-slate-500 mb-1">Body</label><textarea v-model="section.body" rows="6" :class="inputCls + ' resize-y font-mono leading-relaxed'" /></div>
+                      <div><label class="block text-xs font-medium text-slate-500 mb-1">Body</label><RichTextEditor v-model="section.body" /></div>
                     </div>
                   </div>
                   <p v-if="!activeProject.extraSections.length" class="text-xs text-slate-400">No extra sections.</p>
@@ -794,10 +1024,20 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
 
               </div>
 
-              <div class="pt-4 border-t border-slate-100 flex items-center gap-4">
+              <div class="pt-4 border-t border-slate-100 flex items-center gap-3 flex-wrap">
                 <button @click="saveProjects" :disabled="saving" class="px-6 py-2.5 rounded-full bg-plum-700 text-white text-sm font-medium hover:bg-plum-900 transition-colors disabled:opacity-50">{{ saving ? 'Saving…' : 'Save to GitHub' }}</button>
-                <button @click="removeProject(activeProject.slug)" class="px-6 py-2.5 rounded-full border border-red-200 text-red-500 text-sm font-medium hover:bg-red-50 transition-colors">Delete Project</button>
+                <button @click="showPreview = true" class="flex items-center gap-2 px-6 py-2.5 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                  Preview
+                </button>
+                <button @click="removeProject(activeProject.slug)" class="px-6 py-2.5 rounded-full border border-red-200 text-red-500 text-sm font-medium hover:bg-red-50 transition-colors ml-auto">Delete Project</button>
               </div>
+
+              <AdminPreviewModal
+                v-if="showPreview"
+                :project="activeProject"
+                @close="showPreview = false"
+              />
               <p class="mt-2 text-xs text-slate-400">Changes commit to the repo and go live after CI deploys.</p>
             </div>
             <div v-else class="text-slate-400 text-sm">No projects yet. <button @click="addProject" class="text-plum-700 hover:underline">Add one.</button></div>
@@ -883,7 +1123,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
             <div :class="cardCls + ' mb-6'">
               <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider">About Hero</h3>
               <div><label :class="labelCls">Page Headline</label><input v-model="about.aboutHeadline" type="text" :class="inputCls" placeholder="Designer, researcher, learner." /></div>
-              <div><label :class="labelCls">Sub-copy</label><textarea v-model="about.aboutCopy" rows="3" :class="inputCls + ' resize-y'" /></div>
+              <div><label :class="labelCls">Sub-copy</label><RichTextEditor v-model="about.aboutCopy" /></div>
             </div>
 
             <!-- Quick facts -->
@@ -901,7 +1141,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
             <div :class="cardCls + ' mb-6'">
               <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Bio</h3>
               <p class="text-xs text-slate-400 -mt-2">Separate paragraphs with a blank line.</p>
-              <textarea v-model="bioText" rows="10" :class="inputCls + ' resize-y leading-relaxed'" />
+              <RichTextEditor v-model="bioText" />
             </div>
 
             <!-- Education -->
@@ -975,7 +1215,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
                   <span class="text-xs text-slate-400">Testimonial {{ ti + 1 }}</span>
                   <button @click="about.testimonials.splice(ti, 1)" class="text-xs text-red-400 hover:text-red-600">Remove</button>
                 </div>
-                <div><label class="block text-xs font-medium text-slate-500 mb-1">Quote</label><textarea v-model="t.quote" rows="4" :class="inputCls + ' resize-y'" /></div>
+                <div><label class="block text-xs font-medium text-slate-500 mb-1">Quote</label><RichTextEditor v-model="t.quote" /></div>
                 <div class="grid sm:grid-cols-2 gap-3">
                   <div><label class="block text-xs font-medium text-slate-500 mb-1">Name</label><input v-model="t.name" type="text" :class="inputCls" /></div>
                   <div><label class="block text-xs font-medium text-slate-500 mb-1">Title / Role</label><input v-model="t.title" type="text" :class="inputCls" /></div>

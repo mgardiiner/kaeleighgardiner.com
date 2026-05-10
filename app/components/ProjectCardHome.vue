@@ -22,18 +22,16 @@ const panelClass = computed(() => PANEL_PALETTE[props.index % PANEL_PALETTE.leng
 <template>
   <NuxtLink
     :to="`/projects/${project.slug}`"
-    class="block rounded-3xl overflow-hidden shadow-card-home hover:shadow-[0_16px_80px_rgba(112,144,176,0.18)] transition-all duration-200 group"
-    style="min-height: 524px;"
+    class="block rounded-3xl overflow-hidden shadow-card-home hover:shadow-[0_16px_80px_rgba(112,144,176,0.18)] transition-all duration-200 group min-h-[400px] md:min-h-[524px]"
   >
     <div
-      class="grid min-h-[524px]"
+      class="grid min-h-[400px] md:min-h-[524px]"
       :class="index % 2 === 0 ? 'md:grid-cols-[1.2fr_1fr]' : 'md:grid-cols-[1fr_1.2fr]'"
     >
       <!-- Copy side -->
       <div
-        class="flex flex-col justify-center bg-white order-2"
+        class="flex flex-col justify-center bg-white order-2 p-6 md:p-10 lg:p-[56px]"
         :class="index % 2 === 0 ? 'md:order-1' : 'md:order-2'"
-        style="padding: 56px;"
       >
         <p v-if="project.tag" class="font-bold text-plum-700 mb-3.5" style="font-size: 11px; letter-spacing: 0.16em;">
           {{ project.tag }}
@@ -65,14 +63,13 @@ const panelClass = computed(() => PANEL_PALETTE[props.index % PANEL_PALETTE.leng
 
       <!-- Image side -->
       <div
-        class="flex items-center justify-center order-1"
+        class="flex items-center justify-center order-1 p-5 md:p-8 lg:p-[40px]"
         :class="[
           index % 2 === 0 ? 'md:order-2' : 'md:order-1',
           panelClass
         ]"
-        style="padding: 40px; min-height: 360px;"
       >
-        <div class="w-full bg-white rounded-[8px] shadow-card-img overflow-hidden flex items-center justify-center" style="height: 280px;">
+        <div class="w-full bg-white rounded-[8px] shadow-card-img overflow-hidden flex items-center justify-center h-[200px] md:h-[280px]">
           <img
             v-if="project.thumbnail"
             :src="project.thumbnail"

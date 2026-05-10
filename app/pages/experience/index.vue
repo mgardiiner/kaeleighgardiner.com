@@ -55,7 +55,7 @@ const { roles } = experienceData
     </div>
 
     <!-- Education -->
-    <div class="px-8 md:px-16 lg:px-32 pb-[100px]">
+    <div class="px-8 md:px-16 lg:px-32 pb-16 md:pb-[100px]">
       <h2 class="font-serif font-bold text-plum-900 mt-20 mb-6" style="font-size: 36px; font-weight: 700;">Education</h2>
       <div
         class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 md:gap-14 py-9"
