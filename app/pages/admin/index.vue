@@ -552,15 +552,10 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
           <button v-if="activeSection !== 'resume'" @click="handleSave" :disabled="saving" class="w-full px-4 py-2 rounded-full bg-plum-700 text-white text-sm font-medium hover:bg-plum-900 transition-colors disabled:opacity-50">
             {{ saving ? 'Saving…' : 'Save to GitHub' }}
           </button>
-          <a
-            :href="activeSection === 'projects' && activeProject ? `/projects/${activeProject.slug}` : activeSection === 'about' || activeSection === 'testimonials' ? '/about' : activeSection === 'experience' ? '/experience' : activeSection === 'contact' ? '/contact' : '/'"
-            target="_blank"
-            rel="noopener"
-            class="w-full flex items-center justify-center gap-1.5 px-4 py-2 rounded-full border border-slate-200 text-slate-500 text-sm hover:bg-slate-50 transition-colors"
-          >
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-            Preview page
-          </a>
+          <button v-if="activeSection !== 'resume'" @click="showPreview = true" class="w-full flex items-center justify-center gap-1.5 px-4 py-2 rounded-full border border-slate-200 text-slate-500 text-sm hover:bg-slate-50 transition-colors">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+            Preview
+          </button>
           <button @click="logout" class="w-full px-4 py-2 rounded-full border border-slate-200 text-slate-500 text-sm hover:bg-slate-50 transition-colors">Log out</button>
         </div>
       </aside>
@@ -576,13 +571,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
 
           <!-- ── HOMEPAGE ── -->
           <template v-if="activeSection === 'homepage'">
-            <div class="flex items-center justify-between mb-8">
-              <h2 class="font-display font-bold text-2xl text-slate-900">Homepage</h2>
-              <button @click="showPreview = true" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors shrink-0">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-                Preview
-              </button>
-            </div>
+            <h2 class="font-display font-bold text-2xl text-slate-900 mb-8">Homepage</h2>
 
             <!-- Hero copy -->
             <div :class="cardCls + ' mb-6'">
@@ -676,19 +665,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
           <!-- ── PROJECTS ── -->
           <template v-else-if="activeSection === 'projects'">
             <div v-if="activeProject">
-              <div class="flex items-start justify-between mb-8">
-                <h2 class="font-display font-bold text-2xl text-slate-900">{{ activeProject.title }}</h2>
-                <button
-                  @click="showPreview = true"
-                  class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors shrink-0 ml-4"
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
-                  Preview
-                </button>
-              </div>
+              <h2 class="font-display font-bold text-2xl text-slate-900 mb-8">{{ activeProject.title }}</h2>
 
               <div class="space-y-5 mb-10">
 
@@ -1040,10 +1017,6 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
 
               <div class="pt-4 border-t border-slate-100 flex items-center gap-3 flex-wrap">
                 <button @click="saveProjects" :disabled="saving" class="px-6 py-2.5 rounded-full bg-plum-700 text-white text-sm font-medium hover:bg-plum-900 transition-colors disabled:opacity-50">{{ saving ? 'Saving…' : 'Save to GitHub' }}</button>
-                <button @click="showPreview = true" class="flex items-center gap-2 px-6 py-2.5 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                  Preview
-                </button>
                 <button @click="removeProject(activeProject.slug)" class="px-6 py-2.5 rounded-full border border-red-200 text-red-500 text-sm font-medium hover:bg-red-50 transition-colors ml-auto">Delete Project</button>
               </div>
 
@@ -1056,13 +1029,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
           <template v-else-if="activeSection === 'experience'">
             <div class="flex items-center justify-between mb-8">
               <h2 class="font-display font-bold text-2xl text-slate-900">Experience</h2>
-              <div class="flex items-center gap-3">
-                <button @click="showPreview = true" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-                  Preview
-                </button>
-                <button @click="addRole" class="text-xs text-plum-700 font-medium hover:underline underline-offset-4">+ Add role</button>
-              </div>
+              <button @click="addRole" class="text-xs text-plum-700 font-medium hover:underline underline-offset-4">+ Add role</button>
             </div>
             <div class="space-y-6">
               <div v-for="(role, ri) in roles" :key="ri" class="rounded-xl border border-slate-200 p-6 bg-white space-y-4">
@@ -1114,13 +1081,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
 
           <!-- ── ABOUT ── -->
           <template v-else-if="activeSection === 'about'">
-            <div class="flex items-center justify-between mb-8">
-              <h2 class="font-display font-bold text-2xl text-slate-900">About Page</h2>
-              <button @click="showPreview = true" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors shrink-0">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-                Preview
-              </button>
-            </div>
+            <h2 class="font-display font-bold text-2xl text-slate-900 mb-8">About Page</h2>
 
             <!-- Headshot -->
             <div :class="cardCls + ' mb-6'">
@@ -1228,13 +1189,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
           <template v-else-if="activeSection === 'testimonials'">
             <div class="flex items-center justify-between mb-8">
               <h2 class="font-display font-bold text-2xl text-slate-900">Testimonials</h2>
-              <div class="flex items-center gap-3">
-                <button @click="showPreview = true" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-                  Preview
-                </button>
-                <button @click="about.testimonials.push({ quote: '', name: '', title: '' })" class="text-xs text-plum-700 font-medium hover:underline underline-offset-4">+ Add</button>
-              </div>
+              <button @click="about.testimonials.push({ quote: '', name: '', title: '' })" class="text-xs text-plum-700 font-medium hover:underline underline-offset-4">+ Add</button>
             </div>
             <div class="space-y-5">
               <div v-for="(t, ti) in about.testimonials" :key="ti" class="rounded-xl border border-slate-200 p-5 bg-white space-y-3">
@@ -1258,13 +1213,7 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
 
           <!-- ── CONTACT ── -->
           <template v-else-if="activeSection === 'contact'">
-            <div class="flex items-center justify-between mb-8">
-              <h2 class="font-display font-bold text-2xl text-slate-900">Contact Page</h2>
-              <button @click="showPreview = true" class="flex items-center gap-2 px-4 py-2 rounded-full border border-plum-400 text-plum-700 text-sm font-medium hover:bg-plum-50 transition-colors shrink-0">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-                Preview
-              </button>
-            </div>
+            <h2 class="font-display font-bold text-2xl text-slate-900 mb-8">Contact Page</h2>
             <div class="space-y-5">
               <div><label :class="labelCls">Heading</label><input v-model="contact.heading" type="text" :class="inputCls" /></div>
               <div><label :class="labelCls">Subheading</label><textarea v-model="contact.subheading" rows="2" :class="inputCls + ' resize-y'" /></div>
