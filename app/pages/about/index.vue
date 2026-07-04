@@ -13,7 +13,7 @@ import aboutData from '~/data/about.json'
         <div>
           <p class="font-display font-bold text-plum-700 mb-4 uppercase" style="font-size: 13px; letter-spacing: 0.18em;">About</p>
           <h1 class="font-serif font-bold text-plum-900" style="font-size: clamp(44px, 5.2vw, 72px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05;">
-            Designer, researcher, <span class="italic text-plum-700">learner.</span>
+            Designer, Researcher, <span class="italic text-plum-700">Learner.</span>
           </h1>
           <p class="text-plum-900/75 mt-8" style="font-size: 18px; line-height: 1.65; max-width: 520px;">
             {{ aboutData.aboutCopy }}
