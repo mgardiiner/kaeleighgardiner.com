@@ -9,6 +9,7 @@ const props = defineProps<{
   prototypes: Prototype[]
   layout?: 'alternating' | 'grid' | 'stacked'
   heading?: string
+  prototypeUrl?: string
 }>()
 
 import { renderHtml } from '~/utils/renderHtml'
@@ -21,9 +22,23 @@ const lightboxSrc = ref<string | null>(null)
 <template>
   <section v-if="items.length" class="bg-white px-6 py-16 md:py-[100px]">
     <div class="max-w-5xl mx-auto">
-      <h2 class="font-display font-bold text-plum-900 mb-[60px]" style="font-size: 32px; line-height: 1.25;">
-        {{ sectionHeading }}
-      </h2>
+      <div class="mb-[60px]">
+        <h2 class="font-display font-bold text-plum-900" style="font-size: 32px; line-height: 1.25;">
+          {{ sectionHeading }}
+        </h2>
+        <a
+          v-if="prototypeUrl"
+          :href="prototypeUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full bg-plum-700 text-white font-medium text-[15px] hover:bg-plum-900 transition-colors shadow-sm"
+        >
+          View interactive prototype
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          </svg>
+        </a>
+      </div>
 
       <!-- Alternating layout -->
       <div v-if="layout === 'alternating'" class="flex flex-col gap-16">
@@ -67,8 +82,6 @@ const lightboxSrc = ref<string | null>(null)
         </div>
       </div>
 
-      <ImageLightbox v-if="lightboxSrc" :src="lightboxSrc" @close="lightboxSrc = null" />
-
       <!-- Stacked layout -->
       <div v-else class="flex flex-col gap-16">
         <div v-for="(proto, i) in items" :key="i">
@@ -82,6 +95,8 @@ const lightboxSrc = ref<string | null>(null)
           </div>
         </div>
       </div>
+
+      <ImageLightbox v-if="lightboxSrc" :src="lightboxSrc" @close="lightboxSrc = null" />
 
     </div>
   </section>

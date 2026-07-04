@@ -607,14 +607,14 @@ const cardCls  = 'rounded-xl border border-slate-200 bg-white p-6 space-y-4'
             <!-- Trust strip -->
             <div :class="cardCls + ' mb-6'">
               <div class="flex items-center justify-between">
-                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Trust Strip Clients</h3>
-                <button @click="about.trustClients.push('')" class="text-xs text-plum-700 font-medium hover:underline underline-offset-4">+ Add</button>
+                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Skills Strip</h3>
+                <button @click="about.heroSkills.push('')" class="text-xs text-plum-700 font-medium hover:underline underline-offset-4">+ Add</button>
               </div>
               <p class="text-xs text-slate-400 -mt-2">First 2 show on tablet, all on desktop.</p>
               <div class="space-y-2">
-                <div v-for="(_, ci) in about.trustClients" :key="ci" class="flex gap-2 items-center">
-                  <input v-model="about.trustClients[ci]" type="text" :class="'flex-1 ' + inputCls" placeholder="Client name" />
-                  <button @click="about.trustClients.splice(ci, 1)" class="text-slate-300 hover:text-red-400 shrink-0 transition-colors">✕</button>
+                <div v-for="(_, ci) in about.heroSkills" :key="ci" class="flex gap-2 items-center">
+                  <input v-model="about.heroSkills[ci]" type="text" :class="'flex-1 ' + inputCls" placeholder="Skill" />
+                  <button @click="about.heroSkills.splice(ci, 1)" class="text-slate-300 hover:text-red-400 shrink-0 transition-colors">✕</button>
                 </div>
               </div>
             </div>

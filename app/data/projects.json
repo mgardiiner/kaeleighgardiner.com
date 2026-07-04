@@ -1,5 +1,115 @@
 [
   {
+    "title": "Grand River Council on Aging",
+    "slug": "grand-river-council-on-aging",
+    "prototypeUrl": "https://www.figma.com/proto/KKJXZsTwNPtrhQVLMbnU7k/Final-Design?node-id=1-13238&starting-point-node-id=1%3A13238&scaling=contain&content-scaling=responsive",
+    "year": "2026",
+    "dateRange": "Sept 2025 – April 2026",
+    "company": "Grand River Council on Aging",
+    "tags": [
+      "UX Design",
+      "Research",
+      "Accessibility"
+    ],
+    "tag": "CAPSTONE · UX RESEARCH",
+    "stat": "",
+    "statLabel": "",
+    "meta": "2026 · Capstone · Research + IA",
+    "bg": "tint",
+    "description": "A capstone redesign of the Grand River Council on Aging's web experience — making age-friendly resources easier to find, trust, and act on for adults planning for their future in Brantford and Brant County.",
+    "featured": true,
+    "capstone": true,
+    "cardStyle": "plum",
+    "thumbnail": "/images/projects/grcoa-desktop.png",
+    "heroGradient": {
+      "from": "#7FB8C9",
+      "to": "#2E6B85"
+    },
+    "tools": [
+      {
+        "name": "Figma",
+        "icon": "/images/tools/figma-app.svg",
+        "colorKey": "purple"
+      },
+      {
+        "name": "Lyssna",
+        "icon": "/images/tools/lyssna.svg",
+        "colorKey": "blue"
+      }
+    ],
+    "challenge": "How might we design an intuitive, scalable digital solution that meets the needs of today's 45-year-olds while evolving to support them — and their community — in crafting an age-friendly future over the next 20 years?",
+    "backgroundInfo": "The Grand River Council on Aging (GRCOA) is a non-profit dedicated to building age-friendly communities across Brantford and Brant County, organizing its work around eight pillars such as transportation and social participation. The problem wasn't a lack of resources — it was awareness. Many of the GRCOA's supports go underused simply because the people who need them don't know they exist.\n\nOur primary users were adults aged 45–55+ who are just starting to think about their future, with a secondary audience of 20–40 year-olds who will age into these systems next. The existing website made it hard for either group to get what they came for: confusing navigation, text-heavy pages, no search, and content scattered across disconnected pages.\n\nOver our capstone, our team redesigned the GRCOA web experience end-to-end and explored blue-sky features to help the organization scale over the next twenty years. Our solution focused on four areas:\n\n- New information architecture — clearer navigation, menus, content grouping, and labelling\n- Visual & interaction design — a clean, responsive design system with recognizable patterns\n- Accessibility — improvements for cognitive, vision, and motor-related needs\n- Scaling features — blue-sky exploration of a mobile app, an AI chatbot, and social / skills programs",
+    "insights": "",
+    "role": "This was a ten-person capstone, and I contributed across the full design process.\n\nResearch — Helped plan and run contextual inquiries and moderated usability testing, then synthesized findings into archetypes and journey maps.\n\nInformation Architecture — Contributed to the card-sort analysis and the new site structure, labelling, and navigation.\n\nInteraction & Visual Design — Diverged and iterated wireframes and high-fidelity screens as part of our shared prototype.\n\nAccessibility — Applied accessible design standards throughout and helped audit the final designs.\n\nClient Communication — Acted as the team's lead communicator with the client, coordinating meetings and keeping the GRCOA aligned throughout the project.",
+    "prototypes": [
+      {
+        "title": "Redesigned Website",
+        "caption": "A clean, responsive redesign built on a new information architecture — reworked navigation, grouped content, full-site search, and clearer visual hierarchy across core pages like Resources & Services, Events, Volunteering, and Community Planning.",
+        "image": "/images/projects/grcoa-desktop.png"
+      },
+      {
+        "title": "Responsive Mobile Web",
+        "caption": "The same components and layouts scaled to smaller viewports, so people arriving on a phone get the full experience — without the screen-scaling and navigation issues that affected the original site.",
+        "image": "/images/projects/grcoa-mobile-web.png"
+      },
+      {
+        "title": "Native Mobile App — Blue-Sky Concept",
+        "caption": "A forward-looking concept for what a dedicated app could add: custom collections of saved resources, personalized recommendations, AI-assisted search, and social features that help people connect around events and volunteering.",
+        "image": "/images/projects/grcoa-mobile-app.png"
+      }
+    ],
+    "extraSections": [
+      {
+        "heading": "Designing for Accessibility",
+        "body": "Accessibility was a first-class goal, not an afterthought. We audited the final designs against a heuristic tool — built by a teammate — that blends AODA, WCAG, the Nielsen Norman heuristics, and senior-friendly design standards.\n\nThe designs scored well across general accessibility, visuals, typography, copy, inclusion, and motion, with content at 94%. The audit also pointed to concrete next steps we carried forward: clearer form constraints and a review step before submitting the volunteer application, a more self-explanatory label than 'Community Planning,' contextual help for complex components like the events calendar, and the ability to save progress mid-form."
+      },
+      {
+        "heading": "Scaling GRCOA: What's Next",
+        "body": "Beyond the website, we handed off a roadmap for how the GRCOA can keep growing:\n\n- Social & skills-exchange programs — mentorship matching and skills-exchange events that turn one-off visitors into an engaged community, connecting archetypes like the Value Seeker and the Socializer.\n- Social media strategy — a practical Instagram and Facebook playbook, with post cadence, engagement tactics, and reusable post, story, and reel concepts to reach both younger and older audiences.\n- Developer-ready handoff — annotated high-fidelity screens with spacing, states, and a documented design system so a future team can build the vision."
+      }
+    ],
+    "prevSlug": "illustrations",
+    "nextSlug": "training-coordination-solutions",
+    "prototypeLayout": "alternating",
+    "pageLayout": "case-study",
+    "designProcess": [
+      {
+        "n": "1",
+        "title": "Discover",
+        "desc": "Contextual inquiries, an open card sort, and a competitive scan to learn how people 45+ find and trust community resources."
+      },
+      {
+        "n": "2",
+        "title": "Synthesize",
+        "desc": "Turned research into four archetypes, journey maps, and a new information architecture grounded in users' mental models."
+      },
+      {
+        "n": "3",
+        "title": "Design & Test",
+        "desc": "Diverged wireframes, converged on a shared prototype, and ran two rounds of moderated usability testing from mid- to high-fidelity."
+      },
+      {
+        "n": "4",
+        "title": "Hand Off",
+        "desc": "Delivered annotated high-fidelity screens, a design system, an accessibility audit, and a roadmap for scaling the platform."
+      }
+    ],
+    "researchMethods": {
+      "body": "We grounded every design decision in research with people in the GRCOA's target age range (40–55+), screened in advance for age, location, and background.\n\nContextual inquiries — 20 participants walked us through the live GRCOA site and their usual process for evaluating a community resource for the first time, thinking aloud as they went. These hour-long sessions surfaced motivations, habits, pain points, and how people decide whether a source is trustworthy.\n\nOpen card sort — 9 participants (5 returning, 4 new) sorted 37 content cards into their own groups and labels in Lyssna, revealing the mental models behind how people expect the site to be organized.\n\nModerated usability testing — We tested our prototype across two rounds (4 participants at mid-fidelity, 5 at high-fidelity), each completing four to five task-based scenarios spanning events, resources, volunteering, discounts, and community planning.",
+      "image": "/images/projects/grcoa-journey-map.png"
+    },
+    "analysisResults": {
+      "body": "Synthesizing across methods, we defined four archetypes that captured the range of people the GRCOA serves — and designed for all of them:\n\n- The Value Seeker — wants high-quality, relevant information to make informed decisions about their future.\n- The Optimizer — time-poor and efficiency-driven; already leans on AI tools to find and summarize information.\n- The Socializer — motivated by connection, events, and community, and relies heavily on social media.\n- The Skeptic — needs the site to feel legitimate and professional before engaging.\n\nThe card sort exposed where people's mental models diverged from the existing structure, so we introduced a new information architecture — clearer labels and groupings, plus two new sections, Resources & Services and Community Planning — that cut clicks and made content easier to browse and search.\n\nUsability testing validated the direction: participants completed 100% of task scenarios, with an average score of 91.9% across confidence, ease of use, and success. Remaining friction — around event registration, volunteer applications, and the 'Community Planning' label — fed directly into our final iterations.",
+      "image": "/images/projects/grcoa-archetype.png",
+      "stats": [
+        { "value": "100%", "label": "of task scenarios completed in testing" },
+        { "value": "91.9%", "label": "avg. confidence, ease of use & success" }
+      ]
+    },
+    "wireframes": [],
+    "wireframesBody": ""
+  },
+  {
     "title": "Training Coordination Solutions",
     "slug": "training-coordination-solutions",
     "year": "2024",
@@ -10,8 +120,8 @@
       "Research"
     ],
     "tag": "GOVERNMENT \u00b7 INTERNAL",
-    "stat": "3",
-    "statLabel": "workflows",
+    "stat": "",
+    "statLabel": "",
     "meta": "2024 \u00b7 16 mo \u00b7 UX Design + Research",
     "bg": "tint",
     "description": "A 16-month co-op project with the Ministry of Transportation's Engagement and Advisory Branch \u2014 creating a digital registration and tracking system for employee training courses.",
@@ -25,12 +135,12 @@
     "tools": [
       {
         "name": "Figma",
-        "icon": "/images/tools/tool-figma-1778356938846.png",
+        "icon": "/images/tools/figma-app.svg",
         "colorKey": "purple"
       },
       {
         "name": "Word",
-        "icon": "/images/tools/excel.png",
+        "icon": "/images/tools/word.png",
         "colorKey": "green"
       },
       {
@@ -66,7 +176,7 @@
       }
     ],
     "extraSections": [],
-    "prevSlug": "illustrations",
+    "prevSlug": "grand-river-council-on-aging",
     "nextSlug": "highway-corridor-management-system",
     "prototypeLayout": "alternating",
     "pageLayout": "standard",
@@ -93,8 +203,8 @@
       "Systems"
     ],
     "tag": "GOVERNMENT \u00b7 SYSTEMS",
-    "stat": "9",
-    "statLabel": "screens shipped",
+    "stat": "",
+    "statLabel": "",
     "meta": "2025 \u00b7 4 mo \u00b7 UX Design",
     "bg": "plum",
     "description": "A live-phase contribution to the Ontario Ministry of Transportation's system for tracking and managing road work on or near highways across Ontario \u2014 May to August 2025.",
@@ -108,7 +218,7 @@
     "tools": [
       {
         "name": "Figma",
-        "icon": "/images/tools/figma.png",
+        "icon": "/images/tools/figma-app.svg",
         "colorKey": "purple"
       },
       {
@@ -176,8 +286,8 @@
       "Service Design"
     ],
     "tag": "SERVICE DESIGN",
-    "stat": "6",
-    "statLabel": "person team led",
+    "stat": "",
+    "statLabel": "",
     "meta": "2023 \u00b7 1 sem \u00b7 Service Design",
     "bg": "plum",
     "description": "A semester-long group project to redesign the Brantford Provincial Offences Court \u2014 improving its atmosphere, navigation, and accessibility as it relocated to a new building.",
@@ -394,7 +504,7 @@
     "tools": [
       {
         "name": "Word",
-        "icon": "/images/tools/figma.png",
+        "icon": "/images/tools/word.png",
         "colorKey": "green"
       }
     ],
@@ -452,12 +562,12 @@
     "tools": [
       {
         "name": "Photoshop",
-        "icon": "/images/tools/ps.png",
-        "colorKey": "orange"
+        "icon": "/images/tools/ps.svg",
+        "colorKey": "blue"
       },
       {
         "name": "Figma",
-        "icon": "/images/tools/figma.png",
+        "icon": "/images/tools/figma-app.svg",
         "colorKey": "purple"
       }
     ],
@@ -505,7 +615,7 @@
     "tools": [
       {
         "name": "Adobe Illustrator",
-        "icon": "/images/tools/ps.png",
+        "icon": "/images/tools/ai.svg",
         "colorKey": "orange"
       }
     ],
@@ -516,7 +626,7 @@
     "prototypes": [],
     "extraSections": [],
     "prevSlug": "logo-designs",
-    "nextSlug": "training-coordination-solutions",
+    "nextSlug": "grand-river-council-on-aging",
     "prototypeLayout": "alternating",
     "pageLayout": "standard",
     "designProcess": [],

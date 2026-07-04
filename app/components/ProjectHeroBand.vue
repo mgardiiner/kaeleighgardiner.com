@@ -3,6 +3,9 @@ defineProps<{
   title: string
   year?: string | number
   stripeColor?: string
+  badge?: string
+  chips?: string[]
+  capstone?: boolean
 }>()
 
 const stripeCount = 3
@@ -53,6 +56,26 @@ const scaleY = (W * 1.1) / 686
       >
         {{ title }}
       </h1>
+
+      <!-- Chip row: filled badge + outlined skill chips -->
+      <div
+        v-if="badge || chips?.length"
+        class="hero-enter d3 flex flex-wrap items-center gap-2.5 mt-7"
+      >
+        <span
+          v-if="badge"
+          class="inline-flex items-center gap-1.5 font-display font-bold text-white bg-plum-700 rounded-full"
+          style="font-size: 11px; letter-spacing: 0.14em; padding: 7px 15px;"
+        >
+          <span v-if="capstone" aria-hidden="true">★</span> {{ badge }}
+        </span>
+        <span
+          v-for="chip in chips?.slice(0, 3)"
+          :key="chip"
+          class="font-display font-semibold text-plum-700 rounded-full"
+          style="font-size: 12px; letter-spacing: 0.04em; padding: 7px 15px; border: 1px solid rgba(194,181,214,0.8);"
+        >{{ chip }}</span>
+      </div>
     </div>
   </section>
 </template>

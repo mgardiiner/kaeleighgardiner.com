@@ -11,6 +11,7 @@ const props = defineProps<{
     meta?: string
     bg?: string
     cardStyle?: string
+    capstone?: boolean
   }
   index: number
 }>()
@@ -23,6 +24,7 @@ const panelClass = computed(() => PANEL_PALETTE[props.index % PANEL_PALETTE.leng
   <NuxtLink
     :to="`/projects/${project.slug}`"
     class="block rounded-3xl overflow-hidden shadow-card-home hover:shadow-[0_16px_80px_rgba(112,144,176,0.18)] transition-all duration-200 group min-h-[400px] md:min-h-[524px]"
+    :class="project.capstone ? 'ring-2 ring-plum-400' : ''"
   >
     <div
       class="grid min-h-[400px] md:min-h-[524px]"
@@ -33,7 +35,14 @@ const panelClass = computed(() => PANEL_PALETTE[props.index % PANEL_PALETTE.leng
         class="flex flex-col justify-center bg-white order-2 p-6 md:p-10 lg:p-[56px]"
         :class="index % 2 === 0 ? 'md:order-1' : 'md:order-2'"
       >
-        <p v-if="project.tag" class="font-bold text-plum-700 mb-3.5" style="font-size: 11px; letter-spacing: 0.16em;">
+        <span
+          v-if="project.capstone"
+          class="inline-flex items-center gap-1.5 self-start font-display font-bold text-white bg-plum-700 rounded-full mb-3.5"
+          style="font-size: 11px; letter-spacing: 0.14em; padding: 6px 14px;"
+        >
+          <span aria-hidden="true">★</span> CAPSTONE PROJECT
+        </span>
+        <p v-else-if="project.tag" class="font-bold text-plum-700 mb-3.5" style="font-size: 11px; letter-spacing: 0.16em;">
           {{ project.tag }}
         </p>
         <h3 class="font-serif font-bold text-plum-900 mb-4" style="font-size: 36px; line-height: 1.2;">
@@ -43,11 +52,11 @@ const panelClass = computed(() => PANEL_PALETTE[props.index % PANEL_PALETTE.leng
           {{ project.description }}
         </p>
         <div
-          v-if="project.stat"
+          v-if="project.stat || project.meta"
           class="flex items-end gap-9 pt-5 mt-auto"
           style="border-top: 1px solid rgba(194,181,214,0.6);"
         >
-          <div>
+          <div v-if="project.stat">
             <p class="font-display font-extrabold text-plum-900 leading-none" style="font-size: 32px;">{{ project.stat }}</p>
             <p class="text-plum-700 mt-1" style="font-size: 12px;">{{ project.statLabel }}</p>
           </div>

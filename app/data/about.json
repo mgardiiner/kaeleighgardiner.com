@@ -2,7 +2,14 @@
   "heroEyebrow": "UX DESIGNER · TORONTO, CANADA · OPEN TO ROLES",
   "heroHeading": "Hi, I'm Kaeleigh.",
   "heroCopy": "Entry-level UX designer with 16 months of co-op at the Ontario Ministry of Transportation.",
-  "heroStatusLine": "Currently open to entry-level UX roles · 2026",
+  "heroStatusLine": "Open to entry-level UX roles · 2026",
+  "lookingFor": "Entry-level UX or product design roles · Toronto or hybrid · starting 2026",
+  "credibility": [
+    { "stat": "16 mo", "label": "Co-op at the Ministry of Transportation" },
+    { "stat": "8", "label": "Design projects" },
+    { "stat": "4.0", "label": "GPA · Wilfrid Laurier University" },
+    { "stat": "91.9%", "label": "Avg. usability score" }
+  ],
   "trustClients": [
     "Ontario Ministry of Transportation",
     "Brantford Court",
@@ -47,6 +54,44 @@
       "bg": "bg-cream"
     }
   ],
+  "skillsSection": [
+    {
+      "icon": "creative-thinking",
+      "title": "Creative Thinking",
+      "desc": "Approaches problems and challenges in unconventional ways, bringing originality and imaginative solutions.",
+      "bg": "bg-chip-purple"
+    },
+    {
+      "icon": "prototyping",
+      "title": "Prototyping",
+      "desc": "Created models and wireframes to test and refine ideas before final development.",
+      "bg": "bg-sky"
+    },
+    {
+      "icon": "tools",
+      "title": "Tools",
+      "desc": "Effectively use Figma, Adobe Illustrator, Word, PowerPoint, and Excel to produce reports, wireframes, and presentations.",
+      "bg": "bg-sage"
+    },
+    {
+      "icon": "creativity",
+      "title": "Creativity",
+      "desc": "Generating valuable ideas and solutions through imagination and original thinking.",
+      "bg": "bg-butter"
+    },
+    {
+      "icon": "collaboration",
+      "title": "Collaboration",
+      "desc": "Working together towards a common goal using diverse skills and perspectives.",
+      "bg": "bg-chip-orange"
+    },
+    {
+      "icon": "communication",
+      "title": "Communication",
+      "desc": "Exchange information, ideas, thoughts, and feelings between individuals and groups.",
+      "bg": "bg-cream"
+    }
+  ],
   "toolsList": [
     "Figma",
     "Adobe Illustrator",
@@ -54,7 +99,8 @@
     "Azure DevOps",
     "Miro",
     "Notion",
-    "Microsoft Suite"
+    "Microsoft Suite",
+    "Lyssna"
   ],
   "heroSkills": [
     "Figma",
@@ -84,9 +130,9 @@
   ],
   "photo": "/images/headshot-1778359850507.png",
   "bio": [
-    "I'm Kaeleigh, a UX Designer passionate about creating experiences that are both intuitive and meaningful. I believe great design starts with deeply understanding the people you're designing for.",
-    "My work spans government services, enterprise systems, and consumer products — with a consistent focus on clarity, accessibility, and human-centred thinking.",
-    "When I'm not designing, you'll find me illustrating, exploring new tools, or hunting for the perfect coffee shop."
+    "I'm Kaeleigh — a designer who's happiest when I'm learning something new. UX turned out to be the perfect fit, because every project starts with understanding people I've never met and untangling a problem I haven't solved yet.",
+    "Through my degree and a 16-month co-op with the Ontario Ministry of Transportation, I've designed websites, run user research, and shaped complex government and enterprise workflows into clear, accessible flows. That mix of research and hands-on making is where I do my best work.",
+    "What drives me is simple: making everyday tasks easier to navigate through thoughtful, human-centred design. And when I'm not designing, you'll find me illustrating, exploring new tools, or hunting for the perfect coffee shop."
   ],
   "location": "Toronto, Canada",
   "availability": "Open to entry roles",

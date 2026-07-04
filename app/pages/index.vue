@@ -2,35 +2,36 @@
 import projectsData from '~/data/projects.json'
 import aboutData from '~/data/about.json'
 
-const featured = projectsData.filter((p: any) => p.featured)
+const capstone = projectsData.find((p: any) => p.featured && p.capstone)
+const caseStudies = projectsData.filter((p: any) => p.featured && !p.capstone)
+const testimonial = aboutData.testimonials?.[0]
 </script>
 
 <template>
   <div>
 
     <!-- Hero -->
-    <section class="pt-[120px] md:pt-[160px] lg:pt-[180px] pb-16 md:pb-20 px-8 md:px-16 lg:px-32 bg-white relative overflow-hidden">
-      <!-- Purple ambient glow -->
+    <section class="pt-[120px] md:pt-[160px] lg:pt-[180px] pb-16 md:pb-24 px-8 md:px-16 lg:px-32 bg-white relative overflow-hidden">
+      <!-- Lavender ambient glow -->
       <div
         class="absolute pointer-events-none"
-        style="right: -120px; top: -80px; width: 720px; height: 720px; background: radial-gradient(ellipse at center, rgba(194,181,214,0.38) 0%, transparent 68%); z-index: 0;"
+        style="right: -120px; top: -80px; width: 720px; height: 720px; background: radial-gradient(ellipse at center, rgba(194,181,214,0.4) 0%, transparent 68%); z-index: 0;"
       ></div>
-      <p class="font-display font-bold text-plum-700 mb-6 uppercase relative z-10" style="font-size: 13px; letter-spacing: 0.18em;">
-        {{ aboutData.heroEyebrow }}
-      </p>
-      <div class="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-20 items-center relative z-10">
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1.35fr_1fr] gap-12 lg:gap-20 items-center relative z-10">
 
         <!-- Copy -->
         <div>
+          <!-- Availability pill -->
+          <AvailabilityPill :label="aboutData.heroStatusLine" class="mb-7" />
+
           <h1
-            class="font-display font-black text-plum-900 mb-7"
-            style="font-size: clamp(44px, 7.8vw, 112px); font-weight: 900; letter-spacing: -0.03em; line-height: 0.95;"
+            class="font-serif font-black text-plum-900 mb-9"
+            style="font-size: clamp(40px, 6.6vw, 76px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.03;"
           >
-            {{ aboutData.heroHeading }}
+            Hi, I'm Kaeleigh
+            <span class="italic text-plum-700 block">UX Designer</span>
           </h1>
-          <p class="text-plum-900/70 mb-9" style="font-size: clamp(16px, 2vw, 19px); line-height: 1.55; max-width: 560px;">
-            {{ aboutData.heroCopy }}
-          </p>
           <div class="flex flex-wrap gap-3.5">
             <NuxtLink
               to="/projects"
@@ -49,28 +50,19 @@ const featured = projectsData.filter((p: any) => p.featured)
               Download Résumé
             </a>
           </div>
-          <div class="flex items-center gap-2.5" style="margin-top: 40px;">
-            <span
-              class="inline-block rounded-full shrink-0"
-              style="width: 8px; height: 8px; background: #22C55E; box-shadow: 0 0 0 4px rgba(34,197,94,0.18);"
-            ></span>
-            <span class="font-display font-semibold text-plum-900" style="font-size: 13px; letter-spacing: 0.04em;">
-              {{ aboutData.heroStatusLine }}
-            </span>
-          </div>
         </div>
 
         <!-- Headshot -->
         <div class="flex justify-center lg:justify-end">
-          <div class="relative w-full" style="max-width: 380px; aspect-ratio: 380 / 480;">
+          <div class="relative w-full" style="max-width: 360px; aspect-ratio: 360 / 460;">
             <!-- Decorative polygon -->
             <div
               class="absolute inset-0 pointer-events-none hidden sm:block"
               style="
                 background: #533A71;
-                opacity: 0.15;
+                opacity: 0.14;
                 clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-                transform: translate(22px, 22px);
+                transform: translate(20px, 20px);
                 border-radius: 16px;
                 z-index: 0;
               "
@@ -91,42 +83,68 @@ const featured = projectsData.filter((p: any) => p.featured)
       </div>
     </section>
 
-    <!-- Trust strip -->
-    <div class="bg-plum-700 flex items-center justify-between flex-wrap gap-4 px-8 md:px-16 lg:px-32" style="padding-top: 18px; padding-bottom: 18px;">
-      <span
-        v-for="(client, i) in aboutData.trustClients"
-        :key="client"
-        :class="['font-display font-semibold text-plum-50 uppercase', i >= 2 ? 'hidden md:inline' : 'hidden sm:inline']"
-        style="font-size: 13px; letter-spacing: 0.12em;"
-      >{{ client }}</span>
-    </div>
+    <!-- Credibility bar -->
+    <section class="px-8 md:px-16 lg:px-32 bg-white">
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-px bg-plum-400/40 border-y"
+        style="border-color: rgba(194,181,214,0.4);"
+      >
+        <div
+          v-for="cell in aboutData.credibility"
+          :key="cell.label"
+          class="bg-white py-8 md:py-10 px-4 md:px-6"
+        >
+          <p class="font-serif font-bold text-plum-700 leading-none mb-2.5" style="font-size: 30px;">
+            {{ cell.stat }}
+          </p>
+          <p class="text-plum-900/60" style="font-size: 13px; line-height: 1.4;">
+            {{ cell.label }}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I do -->
+    <section class="px-8 md:px-16 lg:px-32 py-16 md:py-[100px] bg-white">
+      <p class="font-display font-bold text-plum-700 mb-8 uppercase" style="font-size: 13px; letter-spacing: 0.18em;">What I do</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div
+          v-for="skill in aboutData.whatIDo"
+          :key="skill.title"
+          :class="['rounded-2xl', skill.bg]"
+          style="padding: 30px;"
+        >
+          <h3 class="font-display font-bold text-plum-900 mb-3" style="font-size: 22px;">{{ skill.title }}</h3>
+          <p class="text-plum-900/70" style="font-size: 15px; line-height: 1.6;">{{ skill.desc }}</p>
+        </div>
+      </div>
+    </section>
 
     <!-- Selected work -->
-    <section class="px-8 md:px-16 lg:px-32 py-16 md:py-[120px] bg-white">
+    <section class="px-8 md:px-16 lg:px-32 pb-16 md:pb-[120px] bg-white">
       <div class="flex justify-between items-end mb-10 md:mb-14">
-        <div>
-          <p class="font-display font-bold text-plum-700 mb-3 uppercase" style="font-size: 13px; letter-spacing: 0.18em;">
-            SELECTED WORK · 2023–2025
-          </p>
-          <h2 class="font-serif font-bold text-plum-900" style="font-size: clamp(28px, 4.5vw, 56px);">Recent Projects</h2>
-        </div>
+        <h2 class="font-serif font-bold text-plum-900" style="font-size: clamp(28px, 4.5vw, 44px);">Selected work</h2>
         <NuxtLink to="/projects" class="text-plum-700 hover:text-plum-900 transition-colors font-medium shrink-0 ml-4" style="font-size: 14px;">
-          View all →
+          View all 8 projects →
         </NuxtLink>
       </div>
 
-      <div class="flex flex-col gap-8">
-        <ProjectCardHome
-          v-for="(project, i) in featured"
-          :key="project.slug"
-          :project="project"
-          :index="i"
+      <!-- Capstone hero card -->
+      <ProjectFeaturedCard v-if="capstone" :project="capstone" class="mb-8" />
+
+      <!-- Case-study grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <ProjectCard
+          v-for="p in caseStudies"
+          :key="p.slug"
+          :project="p"
+          variant="grid"
         />
       </div>
     </section>
 
     <!-- How I work -->
-    <section class="px-8 md:px-16 lg:px-32 py-16 md:py-[100px] bg-white">
+    <section class="px-8 md:px-16 lg:px-32 pb-16 md:pb-[100px] bg-white">
       <div class="bg-paper rounded-3xl p-8 md:p-16">
         <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 items-start">
 
@@ -151,6 +169,23 @@ const featured = projectsData.filter((p: any) => p.featured)
         </div>
       </div>
     </section>
+
+    <!-- Testimonial -->
+    <section v-if="testimonial" class="px-8 md:px-16 lg:px-32 pb-16 md:pb-[100px] bg-white">
+      <div class="max-w-[880px] mx-auto text-center">
+        <p class="font-serif italic text-plum-700" style="font-size: clamp(21px, 2.6vw, 26px); line-height: 1.5;">
+          “{{ testimonial.quote }}”
+        </p>
+        <p class="font-display font-bold text-plum-900 mt-8" style="font-size: 15px;">{{ testimonial.name }}</p>
+        <p class="text-plum-500 mt-1" style="font-size: 14px;">{{ testimonial.title }}</p>
+      </div>
+    </section>
+
+    <!-- CTA band -->
+    <CtaBand
+      heading="Looking for a research-led UX designer?"
+      subline="I'm open to entry-level UX and product design roles starting in 2026 — in Toronto or hybrid."
+    />
 
   </div>
 </template>

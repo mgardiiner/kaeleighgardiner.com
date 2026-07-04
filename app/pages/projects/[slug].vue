@@ -12,18 +12,39 @@ if (!project) {
 const heroImage = project.heroImage || project.thumbnail
 const gradientFrom = project.heroGradient?.from ?? '#A799B7'
 const gradientTo   = project.heroGradient?.to   ?? '#533A71'
-const stripeColor  = gradientTo
+
+// The hero stripe/accent is the darker of the two gradient stops
+const luminance = (hex: string) => {
+  const h = hex.replace('#', '')
+  const r = parseInt(h.slice(0, 2), 16)
+  const g = parseInt(h.slice(2, 4), 16)
+  const b = parseInt(h.slice(4, 6), 16)
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b
+}
+const stripeColor = luminance(gradientFrom) <= luminance(gradientTo) ? gradientFrom : gradientTo
 
 const isCaseStudy = project.pageLayout === 'case-study'
 
-const moreProjects = projectsData.filter((p: any) => p.slug !== project.slug).slice(0, 3)
+// Prefer other case studies (featured); fall back to any other project
+const moreProjects = (() => {
+  const others = projectsData.filter((p: any) => p.slug !== project.slug)
+  const studies = others.filter((p: any) => p.featured)
+  return (studies.length >= 3 ? studies : [...studies, ...others.filter((p: any) => !p.featured)]).slice(0, 3)
+})()
 </script>
 
 <template>
   <div>
 
     <!-- 1. Hero band -->
-    <ProjectHeroBand :title="project.title" :year="project.year" :stripe-color="stripeColor" />
+    <ProjectHeroBand
+      :title="project.title"
+      :year="project.year"
+      :stripe-color="stripeColor"
+      :badge="project.tag"
+      :chips="project.tags"
+      :capstone="project.capstone"
+    />
 
     <!-- 2. Gradient screenshot band -->
     <div
@@ -83,6 +104,7 @@ const moreProjects = projectsData.filter((p: any) => p.slug !== project.slug).sl
         heading="Analysis and Results"
         :body="project.analysisResults?.body ?? ''"
         :image="project.analysisResults?.image ?? ''"
+        :stats="project.analysisResults?.stats ?? []"
         :image-right="false"
         style="background: #fff;"
       />
@@ -95,6 +117,7 @@ const moreProjects = projectsData.filter((p: any) => p.slug !== project.slug).sl
         :prototypes="project.prototypes ?? []"
         :layout="project.prototypeLayout ?? 'grid'"
         heading="Final Prototype"
+        :prototype-url="project.prototypeUrl"
       />
 
     </template>
@@ -123,7 +146,7 @@ const moreProjects = projectsData.filter((p: any) => p.slug !== project.slug).sl
       </section>
 
       <!-- 7. Prototypes -->
-      <ProjectPrototypes :prototypes="project.prototypes ?? []" :layout="project.prototypeLayout ?? 'alternating'" />
+      <ProjectPrototypes :prototypes="project.prototypes ?? []" :layout="project.prototypeLayout ?? 'alternating'" :prototype-url="project.prototypeUrl" />
 
     </template>
 

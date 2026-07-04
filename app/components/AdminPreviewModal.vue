@@ -171,7 +171,7 @@ onUnmounted(() => { document.body.style.overflow = '' })
 
           <!-- Trust strip -->
           <div class="bg-plum-700 flex items-center justify-between flex-wrap gap-4 px-8 md:px-16 lg:px-32" style="padding-top: 18px; padding-bottom: 18px;">
-            <span v-for="client in about.trustClients" :key="client" class="font-display font-semibold text-plum-50 uppercase" style="font-size: 13px; letter-spacing: 0.12em;">{{ client }}</span>
+            <span v-for="skill in about.heroSkills" :key="skill" class="font-display font-semibold text-plum-50 uppercase" style="font-size: 13px; letter-spacing: 0.12em;">{{ skill }}</span>
           </div>
 
           <!-- Selected work -->

@@ -26,6 +26,14 @@ const menuOpen = ref(false)
           {{ link.label }}
         </NuxtLink>
         <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener"
+          class="text-[15px] font-bold px-[22px] py-[11px] rounded-full text-plum-900 border border-plum-400 hover:bg-plum-50 transition-colors"
+        >
+          Résumé
+        </a>
+        <a
           href="mailto:kaeleigh.gardiner@yahoo.ca"
           class="text-[15px] font-bold px-[26px] py-[13px] rounded-full bg-plum-700 text-white hover:bg-plum-900 transition-colors"
         >
@@ -53,6 +61,15 @@ const menuOpen = ref(false)
       >
         {{ link.label }}
       </NuxtLink>
+      <a
+        href="/resume.pdf"
+        target="_blank"
+        rel="noopener"
+        class="text-sm font-bold text-plum-900"
+        @click="menuOpen = false"
+      >
+        Résumé
+      </a>
       <a href="mailto:kaeleigh.gardiner@yahoo.ca" class="text-sm font-bold text-plum-700">
         kaeleigh.gardiner@yahoo.ca
       </a>
