@@ -76,16 +76,28 @@ const skills = aboutData.skills
       >
         <!-- Left -->
         <div>
-          <p class="font-display font-bold text-plum-900" style="font-size: 14px;">2021 – 2026</p>
+          <p class="font-display font-bold text-plum-900" style="font-size: 14px;">Sept 2021 – Apr 2026</p>
           <p class="text-plum-700 mt-1" style="font-size: 13px;">BDes · UX Design</p>
+          <p class="text-plum-900/60 mt-1" style="font-size: 13px;">Brantford, ON</p>
         </div>
 
         <!-- Right -->
         <div>
           <h3 class="font-serif font-bold text-plum-900" style="font-size: 26px; font-weight: 700;">Wilfrid Laurier University</h3>
+          <p class="font-display font-medium text-plum-700 mt-1.5" style="font-size: 16px;">Bachelor of Design, Co-op Option</p>
           <p class="text-plum-900/75 mt-3" style="font-size: 15px; line-height: 1.6; max-width: 640px;">
             User Experience Design — coursework in research methods, interaction design, accessibility, and design systems.
           </p>
+          <ul class="space-y-2 mt-4">
+            <li class="relative text-plum-900/80" style="font-size: 15px; line-height: 1.7; padding-left: 18px;">
+              <span class="absolute left-0 bg-plum-700" style="top: 11px; width: 8px; height: 1px;" />
+              Graduated with a 3.9 GPA
+            </li>
+            <li class="relative text-plum-900/80" style="font-size: 15px; line-height: 1.7; padding-left: 18px;">
+              <span class="absolute left-0 bg-plum-700" style="top: 11px; width: 8px; height: 1px;" />
+              Minor in Game Design and Development
+            </li>
+          </ul>
         </div>
       </div>
     </div>

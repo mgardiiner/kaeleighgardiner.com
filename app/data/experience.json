@@ -1,28 +1,43 @@
 {
   "roles": [
     {
-      "title": "User Experience Designer",
-      "company": "Ontario Ministry of Transportation",
+      "title": "UX Designer",
+      "company": "Ministry of Transportation, Ontario",
       "type": "Co-op",
       "startDate": "May 2024",
       "endDate": "Aug 2025",
       "location": "Toronto, ON · Hybrid",
       "bullets": [
-        "Designed and refined wireframes and interactive prototypes to support the development of user-centred digital solutions",
-        "Conducted and documented user testing sessions, synthesizing feedback to inform design improvements",
+        "Designed and refined wireframes and interactive prototypes to support the development of user-centred digital solutions through Figma design systems",
+        "Conducted and documented user testing sessions, including note-taking and synthesizing feedback to inform design improvements",
         "Collaborated as an active project team member, contributing ideas, design deliverables, and support across multiple projects",
-        "Supported AODA accessibility compliance, ensuring designs were inclusive and usable for diverse users"
+        "Supported compliance with AODA accessibility standards, ensuring designs were inclusive and usable for diverse users"
       ]
     },
     {
       "title": "Data Labeler",
       "company": "Proofpoint",
-      "type": "Contract Part-time",
+      "type": "Contract",
       "startDate": "Jun 2022",
       "endDate": "Dec 2023",
       "location": "Remote",
       "bullets": [
-        "Identified and labelled raw data to train machine learning models to recognise key information patterns"
+        "Identified raw data to teach machine learning models how to recognise key information",
+        "Engaged in collaborative efforts with diverse teams on multiple projects, contributing to the success of our own team",
+        "Completed documentation to display information alongside the labelled data"
+      ]
+    },
+    {
+      "title": "Gate Attendant / Administration Assistant",
+      "company": "Ontario Parks",
+      "type": "Seasonal",
+      "startDate": "May 2022",
+      "endDate": "Sep 2023",
+      "location": "Nobel, ON",
+      "bullets": [
+        "Delivered excellent customer service by welcoming visitors, issuing permits, addressing inquiries, and managing calls to ensure smooth operations",
+        "Oversaw financial processes including cash flow, scheduling, and preparation of expense claims",
+        "Collaborated with senior clerks to investigate discrepancies, revenue, and daily reports while maintaining accurate records, and supported onboarding for efficient team integration"
       ]
     }
   ]

@@ -34,12 +34,12 @@ defineProps<{
           </div>
         </div>
         <!-- Image -->
-        <div class="w-full md:w-1/2 rounded-2xl overflow-hidden shadow-card-proto shrink-0 min-h-[200px] md:min-h-[340px]">
+        <div class="w-full md:w-1/2 rounded-2xl overflow-hidden shadow-card-proto shrink-0 min-h-[200px] md:min-h-[340px] bg-plum-50 flex items-center justify-center p-4">
           <img
             v-if="image"
             :src="image"
             :alt="alt ?? heading"
-            class="w-full h-full object-cover min-h-[200px] md:min-h-[340px]"
+            class="w-full h-auto max-h-[520px] object-contain rounded-xl"
           />
           <div v-else class="w-full bg-slate-200 flex items-center justify-center min-h-[200px] md:min-h-[340px]">
             <span class="text-slate-400 text-sm font-medium">No image yet</span>

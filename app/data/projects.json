@@ -20,7 +20,8 @@
     "featured": true,
     "capstone": true,
     "cardStyle": "plum",
-    "thumbnail": "/images/projects/grcoa-desktop.png",
+    "thumbnail": "/images/projects/grcoa-overview.png",
+    "imageFit": "contain",
     "heroGradient": {
       "from": "#7FB8C9",
       "to": "#2E6B85"
@@ -45,7 +46,7 @@
       {
         "title": "Redesigned Website",
         "caption": "A clean, responsive redesign built on a new information architecture — reworked navigation, grouped content, full-site search, and clearer visual hierarchy across core pages like Resources & Services, Events, Volunteering, and Community Planning.",
-        "image": "/images/projects/grcoa-desktop.png"
+        "image": "/images/projects/grcoa-home.png"
       },
       {
         "title": "Responsive Mobile Web",
@@ -293,7 +294,7 @@
     "description": "A semester-long group project to redesign the Brantford Provincial Offences Court \u2014 improving its atmosphere, navigation, and accessibility as it relocated to a new building.",
     "featured": true,
     "cardStyle": "plum",
-    "thumbnail": "/images/projects/citizen-poa-court-experience-1778358597491.png",
+    "thumbnail": "/images/projects/court-courtroom.png",
     "heroGradient": {
       "from": "#FFF6D0",
       "to": "#FFD04E"
@@ -316,19 +317,14 @@
     "role": "\u200b\u200b\u200b\u200b\u200b\u200b\u200bResearch \u00a0- Created surveys to understand feeling and usability testing to understand the users journey \n\nDesign \u00a0- Created wireframes and the 3d model for the court space\n\nCommunication\u00a0- Lead communicator with users with sending out emails and setting up meetings",
     "prototypes": [
       {
-        "title": "First Time Courtroom Experience",
-        "caption": "Wireframe of the initial onboarding flow guiding citizens through what to expect on their first visit to a POA courtroom.",
-        "image": "/images/projects/citizen-poa-court-experience-1776452161987.png"
+        "title": "The Redesigned Courtroom",
+        "caption": "A 3D model of the proposed courtroom — warm-toned wood balanced with cooler blue accents to feel welcoming yet professional, with clearer sightlines and accessible seating.",
+        "image": "/images/projects/court-courtroom.png"
       },
       {
-        "title": "Last Time Courtroom Experience",
-        "caption": "Prototype showing the end-of-process flow, including resolution screens and next-step guidance for citizens completing their court experience.",
-        "image": "/images/projects/citizen-poa-court-experience-1778358597491.png"
-      },
-      {
-        "title": "Final Prototype",
-        "caption": "High-fidelity prototype consolidating research findings into a refined experience across all key citizen touchpoints.",
-        "image": "/images/projects/highway-corridor-management-system-proto1-1778358355544.png"
+        "title": "Lobby & Waiting Spaces",
+        "caption": "Redesigned public areas — comfortable, well-lit waiting and lobby spaces with clear wayfinding, designed to reduce the anxiety citizens feel when they first arrive.",
+        "image": "/images/projects/court-spaces.png"
       }
     ],
     "extraSections": [
@@ -369,38 +365,13 @@
     ],
     "researchMethods": {
       "body": "To understand the citizen experience, our team conducted surveys, contextual interviews, and observational studies at the existing courthouse. We engaged with both first-time and repeat visitors to identify common pain points, emotional responses, and navigational challenges.\n\nOur research revealed that citizens frequently felt lost, anxious, and unsupported upon entering the courthouse. Lack of clear wayfinding, limited seating, and an absence of visible support services were the primary drivers of a negative experience.",
-      "image": "/images/projects/citizen-poa-court-experience-1776452161987.png"
+      "image": "/images/projects/court-wireframe.png"
     },
     "analysisResults": {
-      "body": "Insights from our research were synthesized into personas and journey maps representing distinct citizen archetypes \u2014 the first-time offender, the repeat visitor, and the support-seeker.\n\nKey themes emerged around three areas: environmental anxiety driven by an unfamiliar and formal atmosphere, navigational confusion due to poor signage and layout, and a lack of access to legal and emotional support services.",
-      "image": "/images/projects/citizen-poa-court-experience-1778358597491.png"
+      "body": "Insights from our research were synthesized into personas and journey maps representing distinct citizen archetypes \u2014 the first-time offender, the repeat visitor, and the support-seeker.\n\nKey themes emerged around three areas: environmental anxiety driven by an unfamiliar and formal atmosphere, navigational confusion due to poor signage and layout, and a lack of access to legal and emotional support services. These fed a new spatial layout that zones the building by need \u2014 lobby, waiting, courtroom, and support services.",
+      "image": "/images/projects/court-floorplan.png"
     },
-    "wireframes": [
-      {
-        "title": "Entry and Reception",
-        "image": "/images/projects/citizen-poa-court-experience-1776452161987.png"
-      },
-      {
-        "title": "Waiting Area",
-        "image": "/images/projects/citizen-poa-court-experience-1778358597491.png"
-      },
-      {
-        "title": "Courtroom Layout",
-        "image": "/images/projects/highway-corridor-management-system-proto1-1778358355544.png"
-      },
-      {
-        "title": "Support Services Zone",
-        "image": "/images/projects/highway-corridor-management-system-proto2-1778358361115.png"
-      },
-      {
-        "title": "Wayfinding System",
-        "image": "/images/projects/highway-corridor-management-system-proto3-1778358365922.png"
-      },
-      {
-        "title": "Signage and Navigation",
-        "image": "/images/projects/citizen-poa-court-experience-1776452161987.png"
-      }
-    ],
+    "wireframes": [],
     "wireframesBody": ""
   },
   {
@@ -466,66 +437,9 @@
       }
     ],
     "prevSlug": "citizen-poa-court-experience",
-    "nextSlug": "one-guard",
-    "prototypeLayout": "alternating",
-    "pageLayout": "standard",
-    "designProcess": [],
-    "researchMethods": {
-      "body": "",
-      "image": ""
-    },
-    "analysisResults": {
-      "body": "",
-      "image": ""
-    },
-    "wireframes": [],
-    "wireframesBody": ""
-  },
-  {
-    "title": "One Guard",
-    "slug": "one-guard",
-    "year": "2022",
-    "dateRange": "Sept 2022 \u2014 Dec 2022",
-    "company": "Wilfrid Laurier University",
-    "tags": [
-      "UX Design",
-      "Accessibility"
-    ],
-    "tag": "ACCESSIBILITY",
-    "bg": "plum",
-    "description": "A physical keyboard guard designed to help people with physical or cognitive disabilities learn and use the keyboard \u2014 making the experience comfortable for everyone.",
-    "featured": false,
-    "cardStyle": "white",
-    "thumbnail": "/images/projects/one-guard-1778360698457.png",
-    "heroGradient": {
-      "from": "#A799B7",
-      "to": "#533A71"
-    },
-    "tools": [
-      {
-        "name": "Word",
-        "icon": "/images/tools/word.png",
-        "colorKey": "green"
-      }
-    ],
-    "challenge": "",
-    "backgroundInfo": "The One Guard is a way for people to easily use the keyboard. Whether you have a physical, cognitive, or no disability \u2014 the One Guard is meant to make your experience with the keyboard nice and easy.",
-    "insights": "",
-    "role": "",
-    "prototypes": [],
-    "extraSections": [
-      {
-        "heading": "Design Process",
-        "body": "The team initially used cardboard for prototyping but found it wasn't accurate and was too flimsy to be practical. They pivoted to hot glue as the primary structural material, with additional components to improve accessibility and usability.\n\nMaterials:\n- Hot glue \u2014 primary structural material\n- Zip ties \u2014 to attach the guard to the keyboard\n- Zip lock bags \u2014 to help attach the braille elements\n- Little gems \u2014 used as braille indicators\n- Stickers \u2014 to add colour coding to the keys"
-      },
-      {
-        "heading": "Reflection",
-        "body": "In the end, the team was proud of what was accomplished. This project helped illustrate what it's like to work in a group where everyone brings their own skills toward a common goal \u2014 particularly when that goal centres around meaningful accessibility outcomes."
-      }
-    ],
-    "prevSlug": "maker-lab-ii",
     "nextSlug": "logo-designs",
     "prototypeLayout": "alternating",
+    "imageFit": "contain",
     "pageLayout": "standard",
     "designProcess": [],
     "researchMethods": {
@@ -542,8 +456,8 @@
   {
     "title": "Logo Designs",
     "slug": "logo-designs",
-    "year": "2023",
-    "dateRange": "2023",
+    "year": "2026",
+    "dateRange": "2019 \u2013 2026",
     "company": "",
     "tags": [
       "Branding",
@@ -551,35 +465,72 @@
     ],
     "tag": "BRANDING",
     "bg": "plum",
-    "description": "A collection of logo and brand identity work across school projects, commissioned clients, and competitions \u2014 spanning 2023.",
+    "description": "A collection of logo and brand identity work across school projects, commissioned clients, and competitions \u2014 spanning 2019\u20132026.",
     "featured": false,
     "cardStyle": "plum",
-    "thumbnail": "/images/projects/logo-designs-1776452183824.png",
+    "thumbnail": "/images/projects/logo-uxdsa.png",
+    "imageFit": "contain",
     "heroGradient": {
       "from": "#A799B7",
       "to": "#533A71"
     },
     "tools": [
       {
-        "name": "Photoshop",
-        "icon": "/images/tools/ps.svg",
-        "colorKey": "blue"
+        "name": "Adobe Illustrator",
+        "icon": "/images/tools/ai.svg",
+        "colorKey": "orange"
       },
       {
-        "name": "Figma",
-        "icon": "/images/tools/figma-app.svg",
-        "colorKey": "purple"
+        "name": "Procreate",
+        "icon": "/images/tools/procreate.svg",
+        "colorKey": "#1A1A1A"
       }
     ],
     "challenge": "",
-    "backgroundInfo": "UXDSA Sticker Design Competition \u2014 Winning design submitted to the UXDSA Sticker Design Competition.\n\nOh Baby \u2014 A commissioned logo design created for a client.\n\n@Island_of_jumanji \u2014 Instagram logo created for the account @Island_of_jumanji.\n\nThe 4 Elements \u2014 A logo design created for a school project.\n\nUnited Cafe \u2014 Logo created for a school project in high school.\n\nJessie's Teaching Corner \u2014 Logo design for Jessie's Teaching Corner.\n\nKillbear Provincial Park \u2014 Three sweater designs created for Killbear Provincial Park.",
+    "backgroundInfo": "A collection of logo and brand identity work spanning school projects, commissioned clients, and competitions from 2019 to 2026.\n\n- UX Design \u2014 winning entry for the UXDSA Sticker Design Competition.\n- Oh Baby \u2014 a commissioned hand-lettered logo.\n- Island of Jumanji \u2014 an Instagram brand mark for @island_of_jumanji.\n- United Cafe \u2014 a logo created for a school branding project.\n- Killbear Provincial Park \u2014 three staff apparel designs created for the park in 2023.",
     "insights": "",
     "role": "",
-    "prototypes": [],
+    "prototypes": [
+      {
+        "title": "UX Design \u2014 UXDSA Competition",
+        "caption": "Winning entry for the UXDSA Sticker Design Competition.",
+        "image": "/images/projects/logo-uxdsa.png"
+      },
+      {
+        "title": "Oh Baby",
+        "caption": "Commissioned hand-lettered logo.",
+        "image": "/images/projects/logo-oh-baby.png"
+      },
+      {
+        "title": "Island of Jumanji",
+        "caption": "Brand mark for the @island_of_jumanji Instagram account.",
+        "image": "/images/projects/logo-island-of-jumanji.png"
+      },
+      {
+        "title": "United Cafe",
+        "caption": "Logo mark created for a school branding project.",
+        "image": "/images/projects/logo-united-cafe.png"
+      },
+      {
+        "title": "Killbear Staff \u2014 Bear",
+        "caption": "Staff apparel design for Killbear Provincial Park, 2023.",
+        "image": "/images/projects/logo-killbear-bear.jpg"
+      },
+      {
+        "title": "Killbear Staff \u2014 Campfire",
+        "caption": "Staff apparel design for Killbear Provincial Park, 2023.",
+        "image": "/images/projects/logo-killbear-campfire.jpg"
+      },
+      {
+        "title": "Killbear Staff \u2014 Snake",
+        "caption": "Staff apparel design for Killbear Provincial Park, 2023.",
+        "image": "/images/projects/logo-killbear-snake.jpg"
+      }
+    ],
     "extraSections": [],
-    "prevSlug": "one-guard",
+    "prevSlug": "maker-lab-ii",
     "nextSlug": "illustrations",
-    "prototypeLayout": "alternating",
+    "prototypeLayout": "grid",
     "pageLayout": "standard",
     "designProcess": [],
     "researchMethods": {
@@ -604,10 +555,11 @@
     ],
     "tag": "ILLUSTRATION",
     "bg": "tint",
-    "description": "A collection of personal and commissioned illustration work from 2023.",
+    "description": "A collection of personal and commissioned illustration work.",
     "featured": false,
     "cardStyle": "white",
-    "thumbnail": "/images/projects/illustrations-1778360979465.png",
+    "thumbnail": "/images/projects/illustration-moose.png",
+    "imageFit": "contain",
     "heroGradient": {
       "from": "#A799B7",
       "to": "#533A71"
@@ -623,11 +575,27 @@
     "backgroundInfo": "A selection of personal and commissioned illustrations. More work available on request.",
     "insights": "",
     "role": "",
-    "prototypes": [],
+    "prototypes": [
+      {
+        "title": "Funko Pop Portrait",
+        "caption": "A commissioned Funko Pop-style character portrait.",
+        "image": "/images/projects/illustration-funko-pop.png"
+      },
+      {
+        "title": "Moose",
+        "caption": "A custom pet illustration.",
+        "image": "/images/projects/illustration-moose.png"
+      },
+      {
+        "title": "Burger Chef",
+        "caption": "A playful mascot logo illustration.",
+        "image": "/images/projects/illustration-burger-chef.png"
+      }
+    ],
     "extraSections": [],
     "prevSlug": "logo-designs",
     "nextSlug": "grand-river-council-on-aging",
-    "prototypeLayout": "alternating",
+    "prototypeLayout": "grid",
     "pageLayout": "standard",
     "designProcess": [],
     "researchMethods": {

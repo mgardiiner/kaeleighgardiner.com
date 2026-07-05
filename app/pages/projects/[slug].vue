@@ -118,6 +118,7 @@ const moreProjects = (() => {
         :layout="project.prototypeLayout ?? 'grid'"
         heading="Final Prototype"
         :prototype-url="project.prototypeUrl"
+        :image-fit="project.imageFit"
       />
 
     </template>
@@ -146,7 +147,7 @@ const moreProjects = (() => {
       </section>
 
       <!-- 7. Prototypes -->
-      <ProjectPrototypes :prototypes="project.prototypes ?? []" :layout="project.prototypeLayout ?? 'alternating'" :prototype-url="project.prototypeUrl" />
+      <ProjectPrototypes :prototypes="project.prototypes ?? []" :layout="project.prototypeLayout ?? 'alternating'" :prototype-url="project.prototypeUrl" :image-fit="project.imageFit" />
 
     </template>
 

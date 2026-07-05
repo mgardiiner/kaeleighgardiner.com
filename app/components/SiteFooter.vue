@@ -9,7 +9,7 @@
         <a href="mailto:kaeleigh.gardiner@yahoo.ca" class="hover:text-plum-50 transition-colors">
           kaeleigh.gardiner@yahoo.ca
         </a>
-        <a href="https://www.linkedin.com/in/kaeleighgardiner" target="_blank" rel="noopener" class="hover:text-plum-50 transition-colors">
+        <a href="https://www.linkedin.com/in/kaeleigh-gardiner/" target="_blank" rel="noopener" class="hover:text-plum-50 transition-colors">
           LinkedIn
         </a>
         <a href="/resume.pdf" target="_blank" rel="noopener" class="hover:text-plum-50 transition-colors">

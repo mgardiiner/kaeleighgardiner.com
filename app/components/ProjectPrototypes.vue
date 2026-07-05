@@ -10,11 +10,13 @@ const props = defineProps<{
   layout?: 'alternating' | 'grid' | 'stacked'
   heading?: string
   prototypeUrl?: string
+  imageFit?: 'cover' | 'contain'
 }>()
 
 import { renderHtml } from '~/utils/renderHtml'
-const items = computed(() => props.prototypes.slice(0, 3))
+const items = computed(() => props.prototypes)
 const layout = computed(() => props.layout ?? 'alternating')
+const fit = computed(() => props.imageFit ?? 'cover')
 const sectionHeading = computed(() => props.heading ?? 'Prototypes')
 const lightboxSrc = ref<string | null>(null)
 </script>
@@ -47,8 +49,18 @@ const lightboxSrc = ref<string | null>(null)
           :key="i"
           :class="['flex flex-col md:flex-row items-center gap-10', i % 2 === 1 ? 'md:flex-row-reverse' : '']"
         >
-          <div class="w-full md:w-3/5 shrink-0 rounded-2xl overflow-hidden shadow-card-proto min-h-[200px] md:min-h-[320px]">
-            <img v-if="proto.image" :src="proto.image" :alt="proto.title" class="w-full h-full object-cover min-h-[200px] md:min-h-[320px]" />
+          <div
+            class="w-full md:w-3/5 shrink-0 rounded-2xl overflow-hidden shadow-card-proto min-h-[200px] md:min-h-[320px]"
+            :class="fit === 'contain' ? 'bg-plum-50 flex items-center justify-center p-4 md:p-6' : ''"
+          >
+            <img
+              v-if="proto.image"
+              :src="proto.image"
+              :alt="proto.title"
+              :class="fit === 'contain'
+                ? 'max-h-[560px] w-auto max-w-full object-contain rounded-xl'
+                : 'w-full h-full object-cover min-h-[200px] md:min-h-[320px]'"
+            />
             <div v-else class="w-full bg-plum-50 flex items-center justify-center min-h-[200px] md:min-h-[320px]">
               <span class="text-plum-500 text-sm font-medium">screenshot</span>
             </div>
@@ -65,9 +77,17 @@ const lightboxSrc = ref<string | null>(null)
         <div v-for="(proto, i) in items" :key="i">
           <div
             class="rounded-2xl overflow-hidden shadow-card-proto mb-5 cursor-zoom-in group relative h-[200px] md:h-[280px]"
+            :class="fit === 'contain' ? 'bg-plum-50 flex items-center justify-center p-4' : ''"
             @click="proto.image && (lightboxSrc = proto.image)"
           >
-            <img v-if="proto.image" :src="proto.image" :alt="proto.title" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" />
+            <img
+              v-if="proto.image"
+              :src="proto.image"
+              :alt="proto.title"
+              :class="fit === 'contain'
+                ? 'max-h-full max-w-full object-contain group-hover:scale-[1.03] transition-transform duration-300'
+                : 'w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300'"
+            />
             <div v-else class="w-full h-full bg-plum-50 flex items-center justify-center">
               <span class="text-plum-500 text-sm font-medium">screenshot</span>
             </div>

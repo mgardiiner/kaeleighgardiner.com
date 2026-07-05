@@ -125,7 +125,7 @@ const testimonial = aboutData.testimonials?.[0]
       <div class="flex justify-between items-end mb-10 md:mb-14">
         <h2 class="font-serif font-bold text-plum-900" style="font-size: clamp(28px, 4.5vw, 44px);">Selected work</h2>
         <NuxtLink to="/projects" class="text-plum-700 hover:text-plum-900 transition-colors font-medium shrink-0 ml-4" style="font-size: 14px;">
-          View all 8 projects →
+          View all projects →
         </NuxtLink>
       </div>
 
