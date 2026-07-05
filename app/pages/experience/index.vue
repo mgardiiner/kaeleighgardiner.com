@@ -91,7 +91,7 @@ const skills = aboutData.skills
           <ul class="space-y-2 mt-4">
             <li class="relative text-plum-900/80" style="font-size: 15px; line-height: 1.7; padding-left: 18px;">
               <span class="absolute left-0 bg-plum-700" style="top: 11px; width: 8px; height: 1px;" />
-              Graduated with a 3.9 GPA
+              Graduated with a 3.9/4.0 GPA
             </li>
             <li class="relative text-plum-900/80" style="font-size: 15px; line-height: 1.7; padding-left: 18px;">
               <span class="absolute left-0 bg-plum-700" style="top: 11px; width: 8px; height: 1px;" />
