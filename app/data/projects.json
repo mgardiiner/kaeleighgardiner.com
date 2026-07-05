@@ -21,6 +21,7 @@
     "capstone": true,
     "cardStyle": "plum",
     "thumbnail": "/images/projects/grcoa-overview.png",
+    "heroImage": "/images/projects/grcoa-hero.png",
     "imageFit": "contain",
     "heroGradient": {
       "from": "#7FB8C9",
@@ -46,7 +47,7 @@
       {
         "title": "Redesigned Website",
         "caption": "A clean, responsive redesign built on a new information architecture — reworked navigation, grouped content, full-site search, and clearer visual hierarchy across core pages like Resources & Services, Events, Volunteering, and Community Planning.",
-        "image": "/images/projects/grcoa-home.png"
+        "image": "/images/projects/grcoa-overview.png"
       },
       {
         "title": "Responsive Mobile Web",
@@ -482,12 +483,12 @@
       },
       {
         "name": "Procreate",
-        "icon": "/images/tools/procreate.svg",
+        "icon": "/images/tools/procreate.webp",
         "colorKey": "#1A1A1A"
       }
     ],
     "challenge": "",
-    "backgroundInfo": "A collection of logo and brand identity work spanning school projects, commissioned clients, and competitions from 2019 to 2026.\n\n- UX Design \u2014 winning entry for the UXDSA Sticker Design Competition.\n- Oh Baby \u2014 a commissioned hand-lettered logo.\n- Island of Jumanji \u2014 an Instagram brand mark for @island_of_jumanji.\n- United Cafe \u2014 a logo created for a school branding project.\n- Killbear Provincial Park \u2014 three staff apparel designs created for the park in 2023.",
+    "backgroundInfo": "",
     "insights": "",
     "role": "",
     "prototypes": [
