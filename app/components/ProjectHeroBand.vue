@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   title: string
   year?: string | number
   stripeColor?: string
@@ -7,6 +7,14 @@ defineProps<{
   chips?: string[]
   capstone?: boolean
 }>()
+
+// Never show a chip that just repeats the badge (e.g. badge "PRODUCT DESIGN"
+// + chip "Product Design"). Compared case- and punctuation-insensitively.
+const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '')
+const displayChips = computed(() => {
+  const badgeKey = props.badge ? norm(props.badge) : ''
+  return (props.chips ?? []).filter(c => norm(c) !== badgeKey).slice(0, 3)
+})
 
 const stripeCount = 3
 const W = 1917
@@ -59,7 +67,7 @@ const scaleY = (W * 1.1) / 686
 
       <!-- Chip row: filled badge + outlined skill chips -->
       <div
-        v-if="badge || chips?.length"
+        v-if="badge || displayChips.length"
         class="hero-enter d3 flex flex-wrap items-center gap-2.5 mt-7"
       >
         <span
@@ -70,7 +78,7 @@ const scaleY = (W * 1.1) / 686
           <span v-if="capstone" aria-hidden="true">★</span> {{ badge }}
         </span>
         <span
-          v-for="chip in chips?.slice(0, 3)"
+          v-for="chip in displayChips"
           :key="chip"
           class="font-display font-semibold text-plum-700 rounded-full"
           style="font-size: 12px; letter-spacing: 0.04em; padding: 7px 15px; border: 1px solid rgba(194,181,214,0.8);"
