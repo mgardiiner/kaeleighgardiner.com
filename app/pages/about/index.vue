@@ -1,5 +1,16 @@
 <script setup lang="ts">
 import aboutData from '~/data/about.json'
+
+// Kept short on purpose — search engines truncate past ~160 characters.
+const description =
+  'UX designer in Toronto, recently graduated from Wilfrid Laurier University with a BDes, focused on thoughtful, accessible digital experiences.'
+
+useSeoMeta({
+  title: 'About · Kaeleigh Gardiner',
+  description,
+  ogTitle: 'About · Kaeleigh Gardiner',
+  ogDescription: description,
+})
 </script>
 
 <template>

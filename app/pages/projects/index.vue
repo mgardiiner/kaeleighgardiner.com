@@ -3,6 +3,16 @@ import projectsData from '~/data/projects.json'
 
 const all = projectsData as any[]
 
+const description =
+  'UX case studies in service design, research and accessible interfaces — from a capstone redesign to work at the Ontario Ministry of Transportation.'
+
+useSeoMeta({
+  title: 'Projects · Kaeleigh Gardiner',
+  description,
+  ogTitle: 'Projects · Kaeleigh Gardiner',
+  ogDescription: description,
+})
+
 // Capstone (GRCOA) shown as the featured hero card
 const capstone = all.find(p => p.featured && p.capstone)
 // The remaining case studies (Training, Highway, Court) fill the 2-col grid

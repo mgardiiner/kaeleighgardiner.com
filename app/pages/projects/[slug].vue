@@ -9,6 +9,20 @@ if (!project) {
   throw createError({ statusCode: 404, statusMessage: 'Project not found' })
 }
 
+// Search engines truncate past ~160 characters, so cut on a word boundary.
+const metaDescription = (() => {
+  const raw = String(project.description ?? '').replace(/\s+/g, ' ').trim()
+  if (raw.length <= 160) return raw
+  return `${raw.slice(0, 157).replace(/\s+\S*$/, '')}…`
+})()
+
+useSeoMeta({
+  title: `${project.title} · Kaeleigh Gardiner`,
+  description: metaDescription,
+  ogTitle: `${project.title} · Kaeleigh Gardiner`,
+  ogDescription: metaDescription,
+})
+
 const heroImage = project.heroImage || project.thumbnail
 const gradientFrom = project.heroGradient?.from ?? '#A799B7'
 const gradientTo   = project.heroGradient?.to   ?? '#533A71'

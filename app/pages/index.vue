@@ -2,6 +2,13 @@
 import projectsData from '~/data/projects.json'
 import aboutData from '~/data/about.json'
 
+useSeoMeta({
+  title: 'Kaeleigh Gardiner — UX Designer',
+  description: aboutData.heroCopy,
+  ogTitle: 'Kaeleigh Gardiner — UX Designer',
+  ogDescription: aboutData.heroCopy,
+})
+
 const capstone = projectsData.find((p: any) => p.featured && p.capstone)
 const caseStudies = projectsData.filter((p: any) => p.featured && !p.capstone)
 const testimonial = aboutData.testimonials?.[0]

@@ -4,6 +4,16 @@ import aboutData from '~/data/about.json'
 
 const { roles } = experienceData
 const skills = aboutData.skills
+
+const description =
+  'Design roles, co-op placements and the research, prototyping and accessibility skills Kaeleigh Gardiner brings to a UX team.'
+
+useSeoMeta({
+  title: 'Experience · Kaeleigh Gardiner',
+  description,
+  ogTitle: 'Experience · Kaeleigh Gardiner',
+  ogDescription: description,
+})
 </script>
 
 <template>
