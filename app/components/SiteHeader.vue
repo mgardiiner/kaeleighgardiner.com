@@ -1,78 +1,63 @@
 <script setup lang="ts">
-const links = [
-  { label: 'Work',       to: '/projects' },
-  { label: 'Experience', to: '/experience' },
-  { label: 'About',      to: '/about' },
-]
+import aboutData from '~/data/about.json'
 
-const menuOpen = ref(false)
+// Floating nav capsule. `home` shows the section links; `case` shows a back
+// link plus "<project label> • <current section>".
+withDefaults(defineProps<{
+  variant?: 'home' | 'case'
+  projectLabel?: string
+  sectionLabel?: string
+}>(), { variant: 'home', projectLabel: '', sectionLabel: 'Intro' })
+
+const links = [
+  { label: 'Work', href: '#work' },
+  { label: 'Process', href: '#process' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Contact', href: '#contact' },
+]
 </script>
 
 <template>
-  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur">
-    <div class="px-8 md:px-16 h-20 flex items-center justify-between max-w-[1440px] mx-auto">
-      <NuxtLink to="/" class="font-script text-[30px] leading-none text-plum-900">
-        Kaeleigh Gardiner
-      </NuxtLink>
+  <header class="pointer-events-none fixed inset-x-0 top-[14px] z-[60] flex justify-center px-[14px]">
+    <nav
+      class="pointer-events-auto relative flex w-full max-w-[1180px] items-center justify-between gap-4 overflow-hidden rounded-2xl border border-white/10 p-[9px] text-white backdrop-blur-[14px]"
+      :class="variant === 'home' ? 'bg-ink/80 pl-[14px]' : 'bg-ink/[0.84] pl-[10px]'"
+      aria-label="Main"
+    >
+      <template v-if="variant === 'home'">
+        <a href="#top" class="flex items-center gap-[10px] text-white">
+          <img :src="aboutData.photo" alt="" class="h-[34px] w-[34px] rounded-full border-2 border-lavender object-cover object-[center_28%]">
+          <!-- Scales down under ~450px so name + "Email me" fit one line on phones. -->
+          <span class="whitespace-nowrap pt-1 font-script text-[clamp(22px,6vw,27px)] leading-none">Kaeleigh Gardiner</span>
+        </a>
+        <div class="hidden items-center gap-[2px] nav:flex">
+          <a
+            v-for="link in links"
+            :key="link.href"
+            :href="link.href"
+            class="rounded-[10px] px-[14px] py-[9px] text-[14px] font-medium text-on-dark transition-colors hover:bg-white/[0.08] hover:text-white"
+          >{{ link.label }}</a>
+        </div>
+        <div class="flex items-center gap-[6px]">
+          <a href="/resume.pdf" target="_blank" rel="noopener" class="hidden rounded-[10px] px-[14px] py-[10px] text-[14px] font-semibold text-white transition-colors hover:bg-white/[0.08] nav:inline-block">Résumé</a>
+          <a :href="`mailto:${aboutData.email}`" class="whitespace-nowrap rounded-[10px] bg-lavender px-4 py-[10px] text-[14px] font-semibold text-ink transition-colors hover:bg-lavender-hover">Email me</a>
+        </div>
+      </template>
 
-      <nav class="hidden md:flex items-center gap-8">
-        <NuxtLink
-          v-for="link in links"
-          :key="link.to"
-          :to="link.to"
-          class="text-[15px] font-bold text-plum-900 hover:text-plum-700 transition-colors"
-          active-class="text-plum-700"
-        >
-          {{ link.label }}
+      <template v-else>
+        <NuxtLink to="/#work" class="flex items-center gap-[10px] rounded-[10px] py-[5px] pl-[5px] pr-3 text-white transition-colors hover:bg-white/[0.08]">
+          <img :src="aboutData.photo" alt="" class="h-8 w-8 rounded-full border-2 border-lavender object-cover object-[center_28%]">
+          <span class="text-[14px] font-semibold">← All work</span>
         </NuxtLink>
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener"
-          class="text-[15px] font-bold px-[22px] py-[11px] rounded-full text-plum-900 border border-plum-400 hover:bg-plum-50 transition-colors"
-        >
-          Résumé
-        </a>
-        <a
-          href="mailto:kaeleigh.gardiner@yahoo.ca"
-          class="text-[15px] font-bold px-[26px] py-[13px] rounded-full bg-plum-700 text-white hover:bg-plum-900 transition-colors"
-        >
-          Get in Touch
-        </a>
-      </nav>
+        <div class="mono-label hidden items-center gap-[10px] tracking-[0.06em] text-on-dark-muted toc:flex">
+          <span>{{ projectLabel }}</span>
+          <span class="h-1 w-1 rounded-full bg-muted" aria-hidden="true" />
+          <span class="text-lavender">{{ sectionLabel }}</span>
+        </div>
+        <a :href="`mailto:${aboutData.email}`" class="whitespace-nowrap rounded-[10px] bg-lavender px-4 py-[10px] text-[14px] font-semibold text-ink transition-colors hover:bg-lavender-hover">Email me</a>
+      </template>
 
-      <button class="md:hidden p-2 text-plum-900" @click="menuOpen = !menuOpen" aria-label="Toggle menu">
-        <svg v-if="!menuOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg v-else class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-
-    <div v-if="menuOpen" class="md:hidden px-8 py-4 flex flex-col gap-4 bg-white border-t border-plum-400/30">
-      <NuxtLink
-        v-for="link in links"
-        :key="link.to"
-        :to="link.to"
-        class="text-sm font-bold text-plum-900 hover:text-plum-700 transition-colors"
-        @click="menuOpen = false"
-      >
-        {{ link.label }}
-      </NuxtLink>
-      <a
-        href="/resume.pdf"
-        target="_blank"
-        rel="noopener"
-        class="text-sm font-bold text-plum-900"
-        @click="menuOpen = false"
-      >
-        Résumé
-      </a>
-      <a href="mailto:kaeleigh.gardiner@yahoo.ca" class="text-sm font-bold text-plum-700">
-        kaeleigh.gardiner@yahoo.ca
-      </a>
-    </div>
+      <span data-page-progress class="absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 bg-lavender" aria-hidden="true" />
+    </nav>
   </header>
 </template>

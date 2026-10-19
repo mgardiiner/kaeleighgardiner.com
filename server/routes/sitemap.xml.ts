@@ -4,7 +4,9 @@ import projectsData from '../../app/data/projects.json'
 
 const SITE = 'https://kaeleighgardiner.com'
 
-const staticPaths = ['/', '/about', '/experience', '/projects']
+// /about, /experience and /projects now redirect to sections of the home page
+// (routeRules in nuxt.config.ts), so they're left out.
+const staticPaths = ['/']
 
 export default defineEventHandler((event) => {
   const projectPaths = (projectsData as { slug?: string }[])

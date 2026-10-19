@@ -5,10 +5,24 @@
   "heroStatusLine": "Open to new opportunities",
   "lookingFor": "Entry-level UX or product design roles · Toronto or hybrid · starting 2026",
   "credibility": [
-    { "stat": "16 mo", "label": "Co-op at the Ministry of Transportation" },
-    { "stat": "4 yrs", "label": "Of design projects" },
-    { "stat": "3.9/4.0", "label": "GPA · Wilfrid Laurier University" },
-    { "stat": "91.9%", "label": "Avg. usability score" }
+    {
+      "stat": "16 mo",
+      "label": "UX co-op at the Ontario Ministry of Transportation"
+    },
+    {
+      "stat": "100%",
+      "label": "of capstone usability tasks completed",
+      "basis": "Moderated hi-fi test · 5 participants · 4–5 tasks each"
+    },
+    {
+      "stat": "91.9%",
+      "label": "avg. confidence, ease of use and success",
+      "basis": "Same capstone test, averaged across all three"
+    },
+    {
+      "stat": "3.9 /4.0",
+      "label": "GPA, BDes at Wilfrid Laurier University"
+    }
   ],
   "trustClients": [
     "Ontario Ministry of Transportation",
@@ -16,22 +30,31 @@
     "Wilfrid Laurier University",
     "Proofpoint"
   ],
-  "howIWorkHeadline": "Research first.\nIterate from feedback.",
+  "howIWorkHeadline": "Research first.\nThen make, test, repeat.",
   "howIWorkSteps": [
     {
       "n": "01",
       "title": "Listen",
-      "desc": "Talk to users and stakeholders. Understand the problem before sketching anything."
+      "desc": "See the real workflow before sketching anything.",
+      "methods": "Contextual inquiry · Interviews · Stakeholder workshops"
     },
     {
       "n": "02",
-      "title": "Make",
-      "desc": "Wireframes to prototypes. Test early and often, with real people."
+      "title": "Structure",
+      "desc": "Turn what I heard into a structure people recognise.",
+      "methods": "Archetypes · Journey maps · Card sorting · IA"
     },
     {
       "n": "03",
-      "title": "Refine",
-      "desc": "Synthesize feedback into design decisions backed by evidence."
+      "title": "Make & test",
+      "desc": "Prototype in Figma, test with real users, repeat.",
+      "methods": "Figma · Moderated testing · Lyssna"
+    },
+    {
+      "n": "04",
+      "title": "Hand off",
+      "desc": "Annotated, accessible specs developers can build from.",
+      "methods": "Annotations · Azure DevOps · AODA / WCAG"
     }
   ],
   "aboutHeadline": "Designer, researcher, learner.",
@@ -40,17 +63,17 @@
   "whatIDo": [
     {
       "title": "Research",
-      "desc": "Semi-structured interviews, usability testing, contextual inquiry, synthesis.",
+      "desc": "Interviews, card sorts, usability testing.",
       "bg": "bg-sage"
     },
     {
-      "title": "Interaction Design",
-      "desc": "Wireframes, flows, prototypes — desktop and mobile, accessible by default.",
+      "title": "Interaction design",
+      "desc": "Flows, wireframes, hi-fi prototypes.",
       "bg": "bg-sky"
     },
     {
-      "title": "Service & Systems",
-      "desc": "Mapping the human side of complex workflows in government and enterprise.",
+      "title": "Service & systems",
+      "desc": "Complex workflows in government.",
       "bg": "bg-cream"
     }
   ],
@@ -137,9 +160,11 @@
   "location": "Toronto, Canada",
   "availability": "Open to entry roles",
   "education": {
-    "degree": "UX Design",
-    "institution": "Wilfred Laurier University",
-    "years": "2021 – 2026"
+    "degree": "BDes, UX Design",
+    "institution": "Wilfrid Laurier University",
+    "years": "2021 – 2026",
+    "gpa": "3.9/4.0",
+    "location": "Brantford, ON"
   },
   "email": "kaeleigh.gardiner@yahoo.ca",
   "linkedin": "https://www.linkedin.com/in/kaeleigh-gardiner/",
@@ -162,5 +187,106 @@
       "name": "Mike Jones",
       "title": "Associate Professor of Computer Science, Brigham Young University"
     }
-  ]
+  ],
+  "home": {
+    "hero": {
+      "greeting": "Hi, I'm Kaeleigh",
+      "status": "UX Designer · Toronto · Open to roles",
+      "headline": [
+        "Websites and",
+        "tools people",
+        "can actually use."
+      ],
+      "copy": "Government tools, non-profit sites and civic spaces, tested with the people who use them.",
+      "deck": [
+        {
+          "slug": "highway-corridor-management-system",
+          "label": "MTO · HCMS · 2025"
+        },
+        {
+          "slug": "training-coordination-solutions",
+          "label": "MTO · Training · 2024"
+        },
+        {
+          "slug": "grand-river-council-on-aging",
+          "label": "Capstone · GRCOA · 2026"
+        }
+      ]
+    },
+    "marquee": [
+      {
+        "text": "User research"
+      },
+      {
+        "text": "Usability testing",
+        "accent": true
+      },
+      {
+        "text": "Information architecture"
+      },
+      {
+        "text": "Journey mapping",
+        "accent": true
+      },
+      {
+        "text": "Prototyping in Figma"
+      },
+      {
+        "text": "Accessibility · AODA · WCAG"
+      },
+      {
+        "text": "Service design",
+        "accent": true
+      },
+      {
+        "text": "Design systems"
+      }
+    ],
+    "about": "I'm happiest learning something new. UX gives me that on every project: new people, new problems. Off the clock, I'm illustrating or hunting for the perfect coffee shop.",
+    "offClock": {
+      "subheading": "Illustration and logo work.",
+      "tiles": [
+        {
+          "image": "/images/projects/logo-uxdsa.png",
+          "alt": "UX Design sticker",
+          "title": "UXDSA sticker competition",
+          "caption": "Winning entry"
+        },
+        {
+          "image": "/images/projects/logo-oh-baby.png",
+          "alt": "Oh Baby logo",
+          "title": "Oh Baby",
+          "caption": "Commissioned hand-lettered logo"
+        },
+        {
+          "image": "/images/projects/illustration-moose.png",
+          "alt": "Moose illustration",
+          "title": "Moose",
+          "caption": "Custom pet illustration"
+        },
+        {
+          "image": "/images/projects/logo-killbear-bear.jpg",
+          "alt": "Killbear staff apparel design",
+          "title": "Killbear Provincial Park",
+          "caption": "Staff apparel, 2023"
+        },
+        {
+          "image": "/images/projects/illustration-funko-pop.png",
+          "alt": "Funko Pop-style portrait",
+          "title": "Funko Pop-style portrait",
+          "caption": "Commission"
+        },
+        {
+          "image": "/images/projects/logo-island-of-jumanji.png",
+          "alt": "Island of Jumanji logo",
+          "title": "Island of Jumanji",
+          "caption": "Instagram brand mark"
+        }
+      ]
+    },
+    "contact": {
+      "status": "Available for 2026 roles",
+      "line": "Open to entry-level UX roles in Toronto or hybrid."
+    }
+  }
 }

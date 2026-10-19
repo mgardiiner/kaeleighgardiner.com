@@ -11,21 +11,32 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Roboto', system-ui, sans-serif;
+  font-family: 'Figtree', system-ui, sans-serif;
 }
 
 body {
   overflow-x: hidden;
+  background: #FBF6FD;
+  color: #24163A;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #D4C1F4;
+  color: #24163A;
 }
 
 #vue-tracer-overlay {
   position: fixed !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', system-ui, sans-serif;
-}
+/* Until useScrollFx sets each element's start state (see nuxt.config head script). */
+.fx-pending [data-reveal] { opacity: 0; }
 
+/* Shared redesign patterns (container-x, mono-label, marker, mask-line,
+   scroll-fill, tape) live in tailwind.config.js so utilities can override them. */
+
+/* Legacy classes, still used by the admin preview components */
 @media (prefers-reduced-motion: no-preference) {
   .fade-up {
     opacity: 0;

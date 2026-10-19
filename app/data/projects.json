@@ -104,29 +104,532 @@
       "body": "Synthesizing across methods, we defined four archetypes that captured the range of people the GRCOA serves — and designed for all of them:\n\n- The Value Seeker — wants high-quality, relevant information to make informed decisions about their future.\n- The Optimizer — time-poor and efficiency-driven; already leans on AI tools to find and summarize information.\n- The Socializer — motivated by connection, events, and community, and relies heavily on social media.\n- The Skeptic — needs the site to feel legitimate and professional before engaging.\n\nThe card sort exposed where people's mental models diverged from the existing structure, so we introduced a new information architecture — clearer labels and groupings, plus two new sections, Resources & Services and Community Planning — that cut clicks and made content easier to browse and search.\n\nUsability testing validated the direction: participants completed 100% of task scenarios, with an average score of 91.9% across confidence, ease of use, and success. Remaining friction — around event registration, volunteer applications, and the 'Community Planning' label — fed directly into our final iterations.",
       "image": "/images/projects/grcoa-archetype.png",
       "stats": [
-        { "value": "100%", "label": "of task scenarios completed in testing" },
-        { "value": "91.9%", "label": "avg. confidence, ease of use & success" }
+        {
+          "value": "100%",
+          "label": "of task scenarios completed in testing"
+        },
+        {
+          "value": "91.9%",
+          "label": "avg. confidence, ease of use & success"
+        }
       ]
     },
     "wireframes": [],
-    "wireframesBody": ""
+    "wireframesBody": "",
+    "homeCard": {
+      "kicker": "★ Capstone · 2025–26",
+      "blurb": "A website redesign helping adults 45+ find age-friendly resources.",
+      "chips": [
+        "Research",
+        "IA",
+        "Accessibility",
+        "Client lead"
+      ],
+      "stats": [
+        {
+          "value": "100",
+          "suffix": "%",
+          "label": "task completion",
+          "count": true
+        },
+        {
+          "value": "91.9",
+          "suffix": "%",
+          "label": "avg. usability score",
+          "count": true,
+          "decimals": 1
+        }
+      ],
+      "statsBasis": "Moderated hi-fi usability test · 5 participants · 4–5 task scenarios each",
+      "gradient": [
+        "#7FB8C9",
+        "#2E6B85"
+      ],
+      "image": "/images/projects/grcoa-hero.png",
+      "alt": "GRCOA redesign on a laptop"
+    },
+    "caseStudy": {
+      "label": "GRCOA case study",
+      "crumbs": [
+        "Capstone",
+        "Sept 2025 – Apr 2026"
+      ],
+      "badge": "★ Capstone project",
+      "title": [
+        "Grand River Council",
+        "on Aging"
+      ],
+      "note": "my capstone!",
+      "lede": "Redesigning a non-profit's website so adults planning for their future can find, trust and act on local resources.",
+      "byline": "UX designer & lead client communicator",
+      "gradient": [
+        "#9FD0DD",
+        "#2E6B85"
+      ],
+      "hero": {
+        "image": "/images/projects/grcoa-hero.png",
+        "alt": "Redesigned GRCOA homepage on a laptop",
+        "style": "laptop"
+      },
+      "sticker": {
+        "value": "100%",
+        "label": [
+          "task",
+          "completion"
+        ]
+      },
+      "meta": [
+        {
+          "label": "Role",
+          "value": "UX designer & client lead"
+        },
+        {
+          "label": "Team",
+          "value": "10 designers"
+        },
+        {
+          "label": "Timeline",
+          "value": "Sept 2025 – Apr 2026"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Figma",
+          "icon": "/images/tools/figma-app.svg"
+        },
+        {
+          "name": "Lyssna",
+          "icon": "/images/tools/lyssna.svg"
+        }
+      ],
+      "teaser": {
+        "kicker": "Next case study · Capstone",
+        "image": "/images/projects/grcoa-hero.png",
+        "style": "laptop"
+      },
+      "sections": [
+        {
+          "id": "summary",
+          "label": "Summary",
+          "title": "The 30-second version",
+          "tldr": "For anyone short on time.",
+          "blocks": [
+            {
+              "type": "notes",
+              "size": "lg",
+              "items": [
+                {
+                  "label": "Problem",
+                  "text": "Useful supports went unused because people didn't know they existed."
+                },
+                {
+                  "label": "What I did",
+                  "text": "Research, IA, screen design, and lead client communication."
+                },
+                {
+                  "label": "Outcome",
+                  "dark": true,
+                  "count": "100",
+                  "suffix": "%",
+                  "text": "task completion in moderated hi-fi testing: 5 participants, 4–5 tasks each, with a 91.9% average score."
+                },
+                {
+                  "label": "Delivered",
+                  "text": "Hi-fi screens, a design system, an accessibility audit and a roadmap."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "challenge",
+          "label": "Challenge",
+          "title": "The brief",
+          "tldr": "Design for today's 45-year-olds, and scale with them for 20 years.",
+          "blocks": [
+            {
+              "type": "challenge",
+              "text": "“How might we design an intuitive, scalable digital solution that meets the needs of today's 45-year-olds while evolving to support them, and their community, in crafting an age-friendly future over the next 20 years?”"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "label": "Context",
+          "title": "Resources existed. People just couldn't find them.",
+          "tldr": "The problem was awareness, not supply.",
+          "blocks": [
+            {
+              "type": "notes",
+              "size": "md",
+              "offset": 1,
+              "items": [
+                {
+                  "label": "Who",
+                  "text": "A non-profit building age-friendly communities across Brantford and Brant County, around eight pillars like transportation and social participation."
+                },
+                {
+                  "label": "Primary users",
+                  "text": "Adults 45–55+ who are starting to plan for their future."
+                },
+                {
+                  "label": "Secondary users",
+                  "text": "20–40 year-olds who will age into these systems next."
+                }
+              ]
+            },
+            {
+              "type": "chips",
+              "issue": true,
+              "label": "What the old site got wrong",
+              "items": [
+                "Confusing navigation",
+                "Text-heavy pages",
+                "No search",
+                "Scattered content"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "role",
+          "label": "My role",
+          "title": "Ten designers. Here's what I owned.",
+          "tldr": "Research, IA, design, accessibility, and lead client contact.",
+          "blocks": [
+            {
+              "type": "rows",
+              "marker": "number",
+              "items": [
+                {
+                  "title": "Research",
+                  "text": "Planned and ran contextual inquiries and moderated usability tests, then synthesized archetypes and journey maps."
+                },
+                {
+                  "title": "Information architecture",
+                  "text": "Card-sort analysis, the new site structure, labels and navigation."
+                },
+                {
+                  "title": "Interaction & visual design",
+                  "text": "Diverged and iterated wireframes and hi-fi screens in our shared prototype."
+                },
+                {
+                  "title": "Accessibility",
+                  "text": "Applied accessible standards throughout and helped audit the final designs."
+                },
+                {
+                  "title": "Client communication",
+                  "lead": true,
+                  "text": "Main contact with the GRCOA: coordinated meetings and kept the client aligned."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "process",
+          "label": "Process",
+          "title": "Eight months, four phases.",
+          "tldr": "Discover → Synthesize → Design & test → Hand off.",
+          "blocks": [
+            {
+              "type": "process",
+              "steps": [
+                {
+                  "name": "Discover",
+                  "text": "Contextual inquiries, an open card sort and a competitive scan to learn how people 45+ find and trust community resources.",
+                  "methods": "20 inquiries · 37-card sort · Competitive scan"
+                },
+                {
+                  "name": "Synthesize",
+                  "text": "Four archetypes, journey maps and a new information architecture grounded in users' mental models.",
+                  "methods": "Archetypes · Journey maps · New IA"
+                },
+                {
+                  "name": "Design & test",
+                  "text": "Diverged wireframes, converged on a shared prototype, and tested it in two moderated rounds.",
+                  "methods": "Mid-fi: 4 participants · Hi-fi: 5 participants"
+                },
+                {
+                  "name": "Hand off",
+                  "text": "Annotated hi-fi screens, a design system, an accessibility audit and a roadmap for scaling.",
+                  "methods": "Annotations · Design system · Audit · Roadmap"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "research",
+          "label": "Research",
+          "title": "Every decision traced back to people aged 40–55+.",
+          "tldr": "20 contextual inquiries, a 37-card sort and 2 rounds of testing.",
+          "blocks": [
+            {
+              "type": "statNotes",
+              "items": [
+                {
+                  "count": "20",
+                  "unit": "",
+                  "label": "Contextual inquiries",
+                  "text": "Hour-long think-aloud sessions on the live site, covering how people judge whether a resource is trustworthy."
+                },
+                {
+                  "count": "37",
+                  "unit": " cards",
+                  "label": "Open card sort · 9 people",
+                  "text": "Five returning and four new participants grouped content in Lyssna, revealing their mental models."
+                },
+                {
+                  "count": "2",
+                  "unit": " rounds",
+                  "label": "Moderated usability tests",
+                  "text": "4 participants at mid-fi and 5 at hi-fi, each completing 4–5 task scenarios."
+                }
+              ]
+            },
+            {
+              "type": "figure",
+              "src": "/images/projects/grcoa-journey-map.png",
+              "alt": "User journey map for The Value Seeker",
+              "caption": "the Value Seeker's journey",
+              "tilt": 0.6
+            }
+          ]
+        },
+        {
+          "id": "archetypes",
+          "label": "Archetypes",
+          "title": "Four archetypes, one site for all of them.",
+          "tldr": "Each archetype shaped a specific part of the design.",
+          "blocks": [
+            {
+              "type": "archetypes",
+              "items": [
+                {
+                  "title": "The Value Seeker",
+                  "tone": "butter",
+                  "text": "Wants high-quality, relevant information to make informed decisions.",
+                  "designed": "Topic-based categories and a Resources & Services hub."
+                },
+                {
+                  "title": "The Optimizer",
+                  "tone": "lavender-bg",
+                  "text": "Time-poor and efficiency-driven. Already uses AI tools to find information.",
+                  "designed": "Full-site search, plus AI-assisted search in the app concept."
+                },
+                {
+                  "title": "The Socializer",
+                  "tone": "sky",
+                  "text": "Motivated by connection and events. Relies on social media.",
+                  "designed": "An events calendar, clear volunteer paths and a social playbook."
+                },
+                {
+                  "title": "The Skeptic",
+                  "tone": "sage",
+                  "text": "Needs the site to feel legitimate before engaging.",
+                  "designed": "A consistent design system and a clear statement of GRCOA's mission."
+                }
+              ]
+            },
+            {
+              "type": "figure",
+              "src": "/images/projects/grcoa-archetype.png",
+              "alt": "Archetype profile for The Value Seeker",
+              "caption": "one of our four archetype profiles",
+              "tilt": -0.6
+            }
+          ]
+        },
+        {
+          "id": "ia",
+          "label": "IA",
+          "title": "The card sort rewrote the navigation.",
+          "tldr": "Clearer labels, plus two new sections that cut clicks.",
+          "blocks": [
+            {
+              "type": "navChips",
+              "label": "New global navigation",
+              "aside": "+ search · saved items · account",
+              "items": [
+                {
+                  "label": "Home"
+                },
+                {
+                  "label": "About Us"
+                },
+                {
+                  "label": "Events ▾"
+                },
+                {
+                  "label": "Volunteer"
+                },
+                {
+                  "label": "Resources & Services ▾",
+                  "isNew": true
+                },
+                {
+                  "label": "Community Planning ▾",
+                  "isNew": true
+                },
+                {
+                  "label": "Contact Us"
+                }
+              ]
+            },
+            {
+              "type": "script",
+              "size": "md",
+              "text": "two brand-new sections, straight from the card sort"
+            }
+          ]
+        },
+        {
+          "id": "design",
+          "label": "Final design",
+          "title": "A responsive site, plus a blue-sky app.",
+          "tldr": "The same components from desktop to phone.",
+          "blocks": [
+            {
+              "type": "figures",
+              "spacing": "lg",
+              "items": [
+                {
+                  "src": "/images/projects/grcoa-overview.png",
+                  "alt": "Four redesigned GRCOA desktop pages",
+                  "caption": "redesigned website",
+                  "text": "A clean, responsive redesign on the new IA: reworked navigation, grouped content, full-site search and clearer hierarchy."
+                },
+                {
+                  "src": "/images/projects/grcoa-mobile-web.png",
+                  "alt": "Three responsive mobile web screens",
+                  "caption": "responsive mobile web",
+                  "text": "The same components scaled to phones, without the scaling and navigation issues of the original site."
+                },
+                {
+                  "src": "/images/projects/grcoa-mobile-app.png",
+                  "alt": "Three native app concept screens",
+                  "caption": "native app · blue-sky concept",
+                  "text": "Saved collections, personalized recommendations, AI-assisted search and social features around events."
+                }
+              ]
+            },
+            {
+              "type": "cta",
+              "label": "Open the Figma prototype ↗",
+              "href": "https://www.figma.com/proto/KKJXZsTwNPtrhQVLMbnU7k/Final-Design?node-id=1-13238&starting-point-node-id=1%3A13238&scaling=contain&content-scaling=responsive"
+            }
+          ]
+        },
+        {
+          "id": "results",
+          "label": "Results",
+          "title": "Testing validated the direction.",
+          "tldr": "Participants completed every task scenario.",
+          "blocks": [
+            {
+              "type": "results",
+              "items": [
+                {
+                  "count": "100",
+                  "suffix": "%",
+                  "label": "of task scenarios completed",
+                  "basis": "Moderated hi-fi test · 5 participants · 4–5 task scenarios each"
+                },
+                {
+                  "count": "91.9",
+                  "decimals": 1,
+                  "suffix": "%",
+                  "label": "avg. confidence, ease of use & success",
+                  "basis": "Same hi-fi round, averaged across all three measures"
+                },
+                {
+                  "count": "94",
+                  "suffix": "%",
+                  "label": "content score in our accessibility audit",
+                  "basis": "Scored with a teammate-built heuristic tool combining AODA, WCAG, NN/g and senior-friendly guidelines"
+                }
+              ],
+              "after": "Remaining friction around event registration, volunteer applications and the “Community Planning” label fed straight into our final iterations."
+            }
+          ]
+        },
+        {
+          "id": "accessibility",
+          "label": "Accessibility",
+          "title": "Accessibility was a goal from day one.",
+          "tldr": "Audited against AODA, WCAG, NN/g and senior-friendly standards.",
+          "blocks": [
+            {
+              "type": "standards",
+              "items": [
+                "AODA",
+                "WCAG",
+                "NN/g heuristics",
+                "Senior-friendly design"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "We audited the final designs with a heuristic tool built by a teammate. They scored well across general accessibility, visuals, typography, copy, inclusion and motion."
+            },
+            {
+              "type": "checklist",
+              "label": "Next fixes from the audit",
+              "items": [
+                "A review step before submitting the volunteer application",
+                "A clearer label than “Community Planning”",
+                "Contextual help for the events calendar",
+                "Saving progress mid-form"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "label": "What's next",
+          "title": "We handed off a roadmap, not just screens.",
+          "tldr": "Three ways GRCOA can keep growing.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "offset": 2,
+              "items": [
+                {
+                  "title": "Social & skills exchange",
+                  "text": "Mentorship matching and skills-exchange events that turn visitors into a community."
+                },
+                {
+                  "title": "Social media playbook",
+                  "text": "Post cadence, engagement tactics and reusable post, story and reel concepts."
+                },
+                {
+                  "title": "Developer-ready handoff",
+                  "text": "Annotated screens and a documented design system for a future build team."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "title": "Training Coordination Solutions",
     "slug": "training-coordination-solutions",
     "year": "2024",
-    "dateRange": "May 2024 \u2013 Oct 2024",
+    "dateRange": "May 2024 – Oct 2024",
     "company": "Ontario Ministry of Transportation",
     "tags": [
       "UX Design",
       "Research"
     ],
-    "tag": "GOVERNMENT \u00b7 INTERNAL",
+    "tag": "GOVERNMENT · INTERNAL",
     "stat": "",
     "statLabel": "",
-    "meta": "2024 \u00b7 16 mo \u00b7 UX Design + Research",
+    "meta": "2024 · 16 mo · UX Design + Research",
     "bg": "tint",
-    "description": "A 16-month co-op project with the Ministry of Transportation's Engagement and Advisory Branch \u2014 creating a digital registration and tracking system for employee training courses.",
+    "description": "A 16-month co-op project with the Ministry of Transportation's Engagement and Advisory Branch — creating a digital registration and tracking system for employee training courses.",
     "featured": true,
     "cardStyle": "plum",
     "thumbnail": "/images/projects/training-coordination-solutions-1778356869136.png",
@@ -157,13 +660,13 @@
       }
     ],
     "challenge": "How might we help training coordinators by reducing the time-consuming, complex, and manual nature of their current workflow?",
-    "backgroundInfo": "The Training Coordination Solutions project was developed to address the growing complexity of managing employee training across the Ontario Ministry of Transportation's Engagement and Advisory Branch. Training coordinators were responsible for organizing, registering, and tracking dozens of courses across the branch \u2014 all while managing multiple disconnected systems and fielding requests through email.\n\nThe ministry's existing process placed coordinators at the centre of every action: employees couldn't register themselves, managers had to relay requests, and there was no single source of truth for tracking who was enrolled in what. This created a significant administrative burden and introduced frequent errors and delays.\n\nThe goal of this project was to design a digital system that would streamline the end-to-end training workflow \u2014 empowering employees to self-register, reducing the coordinator's manual workload, and giving managers clear visibility into their team's training progress.",
-    "insights": "During the discovery phase, we conducted workshops and semi-structured interviews with the three core user groups: Business Service Analysts (BSAs) acting as training coordinators, managers who relay training requests, and employees who attend courses.\n\nKey insights that shaped the design direction:\n\nCoordinators spent a disproportionate amount of time on manual data entry and status chasing \u2014 tasks that could be automated or delegated. Employees had no direct visibility into what courses were available or when they were offered. Managers acted as unnecessary middlemen, forwarding requests they had no capacity to track. LearnON, the existing platform, was poorly adopted because it didn't reflect the branch's actual workflow.\n\nThese findings led us to redesign the registration model around employee self-service, with coordinators shifting into an oversight role rather than an operational one.",
-    "role": "User Research \u2014 Led discovery workshops and interviews with Business Service Analysts (BSAs), managers, and employees.\n\nUX Design \u2014 Designed prototypes for three distinct user types: training coordinator, employee, and manager.\n\nUsability Testing \u2014 Facilitated three testing phases with BSAs and managers, iterating on feedback each round.\n\nProcess Improvement \u2014 Co-created a streamlined, employee-driven registration model to reduce coordinator workload.",
+    "backgroundInfo": "The Training Coordination Solutions project was developed to address the growing complexity of managing employee training across the Ontario Ministry of Transportation's Engagement and Advisory Branch. Training coordinators were responsible for organizing, registering, and tracking dozens of courses across the branch — all while managing multiple disconnected systems and fielding requests through email.\n\nThe ministry's existing process placed coordinators at the centre of every action: employees couldn't register themselves, managers had to relay requests, and there was no single source of truth for tracking who was enrolled in what. This created a significant administrative burden and introduced frequent errors and delays.\n\nThe goal of this project was to design a digital system that would streamline the end-to-end training workflow — empowering employees to self-register, reducing the coordinator's manual workload, and giving managers clear visibility into their team's training progress.",
+    "insights": "During the discovery phase, we conducted workshops and semi-structured interviews with the three core user groups: Business Service Analysts (BSAs) acting as training coordinators, managers who relay training requests, and employees who attend courses.\n\nKey insights that shaped the design direction:\n\nCoordinators spent a disproportionate amount of time on manual data entry and status chasing — tasks that could be automated or delegated. Employees had no direct visibility into what courses were available or when they were offered. Managers acted as unnecessary middlemen, forwarding requests they had no capacity to track. LearnON, the existing platform, was poorly adopted because it didn't reflect the branch's actual workflow.\n\nThese findings led us to redesign the registration model around employee self-service, with coordinators shifting into an oversight role rather than an operational one.",
+    "role": "User Research — Led discovery workshops and interviews with Business Service Analysts (BSAs), managers, and employees.\n\nUX Design — Designed prototypes for three distinct user types: training coordinator, employee, and manager.\n\nUsability Testing — Facilitated three testing phases with BSAs and managers, iterating on feedback each round.\n\nProcess Improvement — Co-created a streamlined, employee-driven registration model to reduce coordinator workload.",
     "prototypes": [
       {
         "title": "Manage Courses (Training Coordinator View)",
-        "caption": "A dashboard allowing coordinators to create, manage, and track training courses across the branch. Coordinators can view enrollment numbers, manage waitlists, and export records \u2014 all from a single interface.",
+        "caption": "A dashboard allowing coordinators to create, manage, and track training courses across the branch. Coordinators can view enrollment numbers, manage waitlists, and export records — all from a single interface.",
         "image": "/images/projects/training-coordination-solutions-proto1-1777496676356.png"
       },
       {
@@ -173,7 +676,7 @@
       },
       {
         "title": "View Employee Training (Manager View)",
-        "caption": "A read-only reporting view that gives managers clear visibility into their team's training progress, upcoming sessions, and completion records \u2014 without becoming a bottleneck in the registration process.",
+        "caption": "A read-only reporting view that gives managers clear visibility into their team's training progress, upcoming sessions, and completion records — without becoming a bottleneck in the registration process.",
         "image": "/images/projects/training-coordination-solutions-proto3-1777496691668.png"
       }
     ],
@@ -192,24 +695,296 @@
       "image": ""
     },
     "wireframes": [],
-    "wireframesBody": ""
+    "wireframesBody": "",
+    "homeCard": {
+      "kicker": "Ontario MTO · Co-op 2024",
+      "blurb": "Self-serve course registration that replaced email and spreadsheets.",
+      "chips": [
+        "Discovery workshops",
+        "Prototyping",
+        "Usability testing"
+      ],
+      "stats": [
+        {
+          "value": "3",
+          "label": "user roles designed for"
+        },
+        {
+          "value": "3",
+          "label": "rounds of usability testing"
+        }
+      ],
+      "gradient": [
+        "#A799B7",
+        "#533A71"
+      ],
+      "image": "/images/projects/training-coordination-solutions-1778356869136.png",
+      "alt": "Training Coordination dashboard on a laptop"
+    },
+    "caseStudy": {
+      "label": "Training case study",
+      "crumbs": [
+        "Ontario MTO",
+        "May 2024 – Oct 2024"
+      ],
+      "badge": "Co-op project",
+      "title": [
+        "Training",
+        "Coordi­nation Solutions"
+      ],
+      "note": "my co-op!",
+      "lede": "A digital registration and tracking system for employee training at the Ministry of Transportation's Engagement and Advisory Branch.",
+      "byline": "UX designer & researcher",
+      "gradient": [
+        "#A799B7",
+        "#533A71"
+      ],
+      "hero": {
+        "image": "/images/projects/training-coordination-solutions-1778356869136.png",
+        "alt": "Training management dashboard on a laptop",
+        "style": "laptop"
+      },
+      "sticker": {
+        "value": "3",
+        "label": [
+          "user",
+          "roles"
+        ]
+      },
+      "meta": [
+        {
+          "label": "Role",
+          "value": "UX designer & researcher"
+        },
+        {
+          "label": "Client",
+          "value": "Ontario Ministry of Transportation"
+        },
+        {
+          "label": "Timeline",
+          "value": "May 2024 – Oct 2024"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Figma",
+          "icon": "/images/tools/figma-app.svg"
+        },
+        {
+          "name": "Word",
+          "icon": "/images/tools/word.png"
+        },
+        {
+          "name": "Slack",
+          "icon": "/images/tools/slack.png"
+        },
+        {
+          "name": "Teams",
+          "icon": "/images/tools/teams.png"
+        }
+      ],
+      "teaser": {
+        "kicker": "Next case study · Ontario MTO",
+        "image": "/images/projects/training-coordination-solutions-1778356869136.png",
+        "style": "laptop"
+      },
+      "sections": [
+        {
+          "id": "summary",
+          "label": "Summary",
+          "title": "The 30-second version",
+          "tldr": "For anyone short on time.",
+          "blocks": [
+            {
+              "type": "notes",
+              "size": "lg",
+              "items": [
+                {
+                  "label": "Problem",
+                  "text": "Coordinators were the bottleneck for every enrolment, juggling email and disconnected systems."
+                },
+                {
+                  "label": "What I did",
+                  "text": "Led discovery research, designed for three user types, and ran three rounds of testing."
+                },
+                {
+                  "label": "Outcome",
+                  "text": "A self-serve registration model that moves coordinators into an oversight role."
+                },
+                {
+                  "label": "Delivered",
+                  "text": "Prototypes for the coordinator, employee and manager views."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "challenge",
+          "label": "Challenge",
+          "title": "The brief",
+          "tldr": "Take the manual work off coordinators.",
+          "blocks": [
+            {
+              "type": "challenge",
+              "text": "“How might we help training coordinators by reducing the time-consuming, complex, and manual nature of their current workflow?”"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "label": "Context",
+          "title": "Every request went through one person.",
+          "tldr": "No self-registration and no single source of truth.",
+          "blocks": [
+            {
+              "type": "notes",
+              "size": "md",
+              "offset": 1,
+              "items": [
+                {
+                  "label": "The branch",
+                  "text": "Coordinators organized, registered and tracked dozens of courses across the Engagement and Advisory Branch."
+                },
+                {
+                  "label": "The old process",
+                  "text": "Employees couldn't register themselves, and managers had to relay every request by email."
+                },
+                {
+                  "label": "The goal",
+                  "text": "Let employees self-register, cut manual work, and give managers clear visibility."
+                }
+              ]
+            },
+            {
+              "type": "chips",
+              "issue": true,
+              "label": "What wasn't working",
+              "items": [
+                "Manual data entry",
+                "Requests by email",
+                "No single source of truth",
+                "Frequent errors and delays"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "discovery",
+          "label": "Discovery",
+          "title": "Workshops and interviews with three user groups.",
+          "tldr": "Coordinators were doing work that could be automated or delegated.",
+          "blocks": [
+            {
+              "type": "rows",
+              "marker": "arrow",
+              "items": [
+                {
+                  "title": "Coordinators",
+                  "text": "Spent a disproportionate amount of time on manual data entry and chasing statuses."
+                },
+                {
+                  "title": "Employees",
+                  "text": "Had no direct visibility into which courses were available or when."
+                },
+                {
+                  "title": "Managers",
+                  "text": "Acted as middlemen, forwarding requests they had no capacity to track."
+                },
+                {
+                  "title": "LearnON",
+                  "text": "The existing platform was poorly adopted because it didn't match the branch's real workflow."
+                }
+              ]
+            },
+            {
+              "type": "script",
+              "size": "lg",
+              "text": "so we rebuilt registration around employee self-service"
+            }
+          ]
+        },
+        {
+          "id": "role",
+          "label": "My role",
+          "title": "What I owned.",
+          "tldr": "Research, design, testing and process improvement.",
+          "blocks": [
+            {
+              "type": "rows",
+              "marker": "number",
+              "items": [
+                {
+                  "title": "User research",
+                  "lead": true,
+                  "text": "Led discovery workshops and interviews with Business Service Analysts, managers and employees."
+                },
+                {
+                  "title": "UX design",
+                  "text": "Designed prototypes for three user types: coordinator, employee and manager."
+                },
+                {
+                  "title": "Usability testing",
+                  "text": "Facilitated three testing phases with BSAs and managers, iterating after each round."
+                },
+                {
+                  "title": "Process improvement",
+                  "text": "Co-created a streamlined, employee-driven registration model to reduce coordinator workload."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "design",
+          "label": "Final design",
+          "title": "One system, three views.",
+          "tldr": "Each user type gets exactly what they need.",
+          "blocks": [
+            {
+              "type": "figures",
+              "items": [
+                {
+                  "src": "/images/projects/training-coordination-solutions-proto1-1777496676356.png",
+                  "alt": "Coordinator course management dashboard",
+                  "caption": "coordinator view · manage courses",
+                  "text": "Create, manage and track courses across the branch: enrolment numbers, waitlists and exports in one place."
+                },
+                {
+                  "src": "/images/projects/training-coordination-solutions-proto2-1777496685287.png",
+                  "alt": "Employee course catalogue",
+                  "caption": "employee view · find & register",
+                  "text": "Browse sessions, view details and self-register without a manager or coordinator. Status updates in real time."
+                },
+                {
+                  "src": "/images/projects/training-coordination-solutions-proto3-1777496691668.png",
+                  "alt": "Manager training report view",
+                  "caption": "manager view · team training",
+                  "text": "A read-only view of the team's progress, upcoming sessions and completions, without becoming a bottleneck."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "title": "Highway Corridor Management System",
     "slug": "highway-corridor-management-system",
     "year": "2025",
-    "dateRange": "May 2025 \u2013 Aug 2025",
+    "dateRange": "May 2025 – Aug 2025",
     "company": "Ontario Ministry of Transportation",
     "tags": [
       "UX Design",
       "Systems"
     ],
-    "tag": "GOVERNMENT \u00b7 SYSTEMS",
+    "tag": "GOVERNMENT · SYSTEMS",
     "stat": "",
     "statLabel": "",
-    "meta": "2025 \u00b7 4 mo \u00b7 UX Design",
+    "meta": "2025 · 4 mo · UX Design",
     "bg": "plum",
-    "description": "A live-phase contribution to the Ontario Ministry of Transportation's system for tracking and managing road work on or near highways across Ontario \u2014 May to August 2025.",
+    "description": "A live-phase contribution to the Ontario Ministry of Transportation's system for tracking and managing road work on or near highways across Ontario — May to August 2025.",
     "featured": true,
     "cardStyle": "plum",
     "thumbnail": "/images/projects/highway-corridor-management-system-1778356224478.png",
@@ -240,9 +1015,9 @@
       }
     ],
     "challenge": "",
-    "backgroundInfo": "The Highway Corridor Management System (HCMS) was built to make it easier for the Ontario Ministry of Transportation to manage construction and development near highways. Before HCMS, applications and reviews were handled across emails, spreadsheets, and separate systems \u2014 causing confusion and delays.\n\nThe new system brings everything into one place, making the process smoother, faster, and easier to track. It also helps ensure that all projects comply with safety standards and planning requirements.",
+    "backgroundInfo": "The Highway Corridor Management System (HCMS) was built to make it easier for the Ontario Ministry of Transportation to manage construction and development near highways. Before HCMS, applications and reviews were handled across emails, spreadsheets, and separate systems — causing confusion and delays.\n\nThe new system brings everything into one place, making the process smoother, faster, and easier to track. It also helps ensure that all projects comply with safety standards and planning requirements.",
     "insights": "",
-    "role": "Wireframes \u2014 Designed and updated screens based on client feedback across both desktop and mobile views.\n\nWorkshops \u2014 Presented ideas and walked developers and clients through designs in collaborative working sessions.\n\nUser Stories \u2014 Worked through DevOps to gather and post information onto wireframes to support development handoff.",
+    "role": "Wireframes — Designed and updated screens based on client feedback across both desktop and mobile views.\n\nWorkshops — Presented ideas and walked developers and clients through designs in collaborative working sessions.\n\nUser Stories — Worked through DevOps to gather and post information onto wireframes to support development handoff.",
     "prototypes": [
       {
         "title": "Update a Submission",
@@ -275,13 +1050,222 @@
       "image": ""
     },
     "wireframes": [],
-    "wireframesBody": ""
+    "wireframesBody": "",
+    "homeCard": {
+      "kicker": "Ontario MTO · 2025",
+      "blurb": "Screens for a live permit system tracking road work near highways.",
+      "chips": [
+        "Wireframes",
+        "Dev workshops",
+        "User stories · DevOps"
+      ],
+      "stats": [
+        {
+          "value": "9",
+          "label": "screens in the submission flow"
+        },
+        {
+          "value": "2",
+          "label": "viewports, desktop + mobile"
+        }
+      ],
+      "gradient": [
+        "#F8DCDD",
+        "#B96668"
+      ],
+      "image": "/images/projects/highway-corridor-management-system-1778356224478.png",
+      "alt": "Highway Corridor Management System on a laptop"
+    },
+    "caseStudy": {
+      "label": "HCMS case study",
+      "crumbs": [
+        "Ontario MTO",
+        "May 2025 – Aug 2025"
+      ],
+      "badge": "Live system",
+      "title": [
+        "Highway Corridor",
+        "Management System"
+      ],
+      "lede": "Designing screens for the Ministry of Transportation's system for managing road work on or near Ontario highways.",
+      "byline": "UX designer",
+      "gradient": [
+        "#F8DCDD",
+        "#B96668"
+      ],
+      "hero": {
+        "image": "/images/projects/highway-corridor-management-system-1778356224478.png",
+        "alt": "Highway Corridor Management System on a laptop",
+        "style": "laptop"
+      },
+      "sticker": {
+        "value": "9",
+        "label": [
+          "screens in",
+          "one flow"
+        ]
+      },
+      "meta": [
+        {
+          "label": "Role",
+          "value": "UX designer"
+        },
+        {
+          "label": "Client",
+          "value": "Ontario Ministry of Transportation"
+        },
+        {
+          "label": "Timeline",
+          "value": "May 2025 – Aug 2025"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Figma",
+          "icon": "/images/tools/figma-app.svg"
+        },
+        {
+          "name": "DevOps",
+          "icon": "/images/tools/devops.png"
+        },
+        {
+          "name": "Teams",
+          "icon": "/images/tools/teams.png"
+        },
+        {
+          "name": "Slack",
+          "icon": "/images/tools/slack.png"
+        }
+      ],
+      "teaser": {
+        "kicker": "Next case study · Ontario MTO",
+        "image": "/images/projects/highway-corridor-management-system-1778356224478.png",
+        "style": "laptop"
+      },
+      "sections": [
+        {
+          "id": "summary",
+          "label": "Summary",
+          "title": "The 30-second version",
+          "tldr": "For anyone short on time.",
+          "blocks": [
+            {
+              "type": "notes",
+              "size": "lg",
+              "items": [
+                {
+                  "label": "Problem",
+                  "text": "Applications and reviews were spread across email, spreadsheets and separate systems."
+                },
+                {
+                  "label": "What I did",
+                  "text": "Designed and updated desktop and mobile screens, ran design walkthroughs, and wrote user stories."
+                },
+                {
+                  "label": "Outcome",
+                  "text": "Contributed to a live system that brings permits into one trackable place."
+                },
+                {
+                  "label": "Delivered",
+                  "text": "Wireframes annotated with user stories for development handoff."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "label": "Context",
+          "title": "Permits lived in too many places.",
+          "tldr": "HCMS brings everything into one system.",
+          "blocks": [
+            {
+              "type": "notes",
+              "size": "md",
+              "offset": 1,
+              "items": [
+                {
+                  "label": "Before",
+                  "text": "Applications and reviews were handled across emails, spreadsheets and separate systems, causing confusion and delays."
+                },
+                {
+                  "label": "After",
+                  "text": "One place to submit, review and track permits, making the process faster and easier to follow."
+                },
+                {
+                  "label": "Why it matters",
+                  "text": "Helps ensure projects near highways meet safety standards and planning requirements."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "role",
+          "label": "My role",
+          "title": "What I owned.",
+          "tldr": "Screens, walkthroughs and handoff.",
+          "blocks": [
+            {
+              "type": "rows",
+              "marker": "number",
+              "items": [
+                {
+                  "title": "Wireframes",
+                  "text": "Designed and updated desktop and mobile screens based on client feedback."
+                },
+                {
+                  "title": "Workshops",
+                  "text": "Presented ideas and walked developers and clients through designs in working sessions."
+                },
+                {
+                  "title": "User stories",
+                  "text": "Gathered requirements in Azure DevOps and posted them onto wireframes for handoff."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "design",
+          "label": "Final design",
+          "title": "From submission to payment.",
+          "tldr": "Three key screens from the permit flow.",
+          "blocks": [
+            {
+              "type": "figures",
+              "maxWidth": 620,
+              "items": [
+                {
+                  "src": "/images/projects/highway-corridor-management-system-proto1-1778358355544.png",
+                  "alt": "Update a submission screen",
+                  "caption": "update a submission",
+                  "text": "One of 9 screens for updating and tracking a submission. Upload permit files; every permit has a unique tracking number."
+                },
+                {
+                  "src": "/images/projects/highway-corridor-management-system-proto2-1778358361115.png",
+                  "alt": "Application database screen",
+                  "caption": "application database",
+                  "text": "A master view of every permit and its details. Click an application number to open the full permit."
+                },
+                {
+                  "src": "/images/projects/highway-corridor-management-system-proto3-1778358365922.png",
+                  "alt": "Permit payment receipt screen",
+                  "caption": "manage payment of permits",
+                  "text": "A receipt page after a permit transaction, showing every detail and the total paid. Names are blurred and other details are placeholders."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "title": "The Citizen POA Court Experience",
     "slug": "citizen-poa-court-experience",
     "year": "2023",
-    "dateRange": "Jan 2023 \u2014 Apr 2023",
+    "dateRange": "Jan 2023 — Apr 2023",
     "company": "Brantford Provincial Offences Court",
     "tags": [
       "UX Design",
@@ -290,9 +1274,9 @@
     "tag": "SERVICE DESIGN",
     "stat": "",
     "statLabel": "",
-    "meta": "2023 \u00b7 1 sem \u00b7 Service Design",
+    "meta": "2023 · 1 sem · Service Design",
     "bg": "plum",
-    "description": "A semester-long group project to redesign the Brantford Provincial Offences Court \u2014 improving its atmosphere, navigation, and accessibility as it relocated to a new building.",
+    "description": "A semester-long group project to redesign the Brantford Provincial Offences Court — improving its atmosphere, navigation, and accessibility as it relocated to a new building.",
     "featured": true,
     "cardStyle": "plum",
     "thumbnail": "/images/projects/citizen-poa-court-experience-1778358597491.png",
@@ -313,9 +1297,9 @@
       }
     ],
     "challenge": "How might we redesign the courthouse experience to create a more welcoming, accessible, and supportive environment that reduces confusion, frustration, and anxiety for first-time and returning visitors?",
-    "backgroundInfo": "Our team partnered with the City of Brantford to redesign the citizen\u2019s courthouse experience. Our design proposal aims to create a space which is more welcoming, intuitive, and accessible to citizens, both new to the system and repeated visitors. Our objective was to help provide a more comfortable and understandable experience while providing the support systems needed to help citizens reach a successful outcome from their court experience. Over 4 months, we researched, designed, and tested the space used by experienced courthouse visitors. The project consisted of several design iterations, research, and testing deliverables to keep the process on track and gain feedback.",
+    "backgroundInfo": "Our team partnered with the City of Brantford to redesign the citizen’s courthouse experience. Our design proposal aims to create a space which is more welcoming, intuitive, and accessible to citizens, both new to the system and repeated visitors. Our objective was to help provide a more comfortable and understandable experience while providing the support systems needed to help citizens reach a successful outcome from their court experience. Over 4 months, we researched, designed, and tested the space used by experienced courthouse visitors. The project consisted of several design iterations, research, and testing deliverables to keep the process on track and gain feedback.",
     "insights": "",
-    "role": "\u200b\u200b\u200b\u200b\u200b\u200b\u200bResearch \u00a0- Created surveys to understand feeling and usability testing to understand the users journey \n\nDesign \u00a0- Created wireframes and the 3d model for the court space\n\nCommunication\u00a0- Lead communicator with users with sending out emails and setting up meetings",
+    "role": "​​​​​​​Research  - Created surveys to understand feeling and usability testing to understand the users journey \n\nDesign  - Created wireframes and the 3d model for the court space\n\nCommunication - Lead communicator with users with sending out emails and setting up meetings",
     "prototypes": [
       {
         "title": "The Redesigned Courtroom",
@@ -331,7 +1315,7 @@
     "extraSections": [
       {
         "heading": "Final Design",
-        "body": "Atmosphere \u2014 Warm-toned wood for walls and furniture, with cooler blue accents for balance \u2014 combining welcome with professionalism.\n\nNavigation & Wayfinding \u2014 Clear signage and information boards throughout, with a logical linear layout guiding citizens from entry to courtroom.\n\nAccessibility \u2014 Improved seating accessibility throughout the space, with accessible bathrooms positioned near the lobby.\n\nProposed Services \u2014 Mediation services, legal assistance, and victim support \u2014 though full exploration was limited by delays in receiving client documentation."
+        "body": "Atmosphere — Warm-toned wood for walls and furniture, with cooler blue accents for balance — combining welcome with professionalism.\n\nNavigation & Wayfinding — Clear signage and information boards throughout, with a logical linear layout guiding citizens from entry to courtroom.\n\nAccessibility — Improved seating accessibility throughout the space, with accessible bathrooms positioned near the lobby.\n\nProposed Services — Mediation services, legal assistance, and victim support — though full exploration was limited by delays in receiving client documentation."
       },
       {
         "heading": "Reflection",
@@ -369,17 +1353,371 @@
       "image": "/images/projects/court-wireframe.png"
     },
     "analysisResults": {
-      "body": "Insights from our research were synthesized into personas and journey maps representing distinct citizen archetypes \u2014 the first-time offender, the repeat visitor, and the support-seeker.\n\nKey themes emerged around three areas: environmental anxiety driven by an unfamiliar and formal atmosphere, navigational confusion due to poor signage and layout, and a lack of access to legal and emotional support services. These fed a new spatial layout that zones the building by need \u2014 lobby, waiting, courtroom, and support services.",
+      "body": "Insights from our research were synthesized into personas and journey maps representing distinct citizen archetypes — the first-time offender, the repeat visitor, and the support-seeker.\n\nKey themes emerged around three areas: environmental anxiety driven by an unfamiliar and formal atmosphere, navigational confusion due to poor signage and layout, and a lack of access to legal and emotional support services. These fed a new spatial layout that zones the building by need — lobby, waiting, courtroom, and support services.",
       "image": "/images/projects/court-floorplan.png"
     },
     "wireframes": [],
-    "wireframesBody": ""
+    "wireframesBody": "",
+    "homeCard": {
+      "kicker": "Service design · 2023",
+      "blurb": "A calmer, easier-to-navigate courthouse for anxious first-time visitors.",
+      "chips": [
+        "Surveys",
+        "Journey maps",
+        "3D spatial model"
+      ],
+      "stats": [
+        {
+          "value": "4 mo",
+          "label": "research, design and testing"
+        },
+        {
+          "value": "3",
+          "label": "visitor archetypes mapped"
+        }
+      ],
+      "gradient": [
+        "#FFF6D0",
+        "#FFD04E"
+      ],
+      "image": "/images/projects/citizen-poa-court-experience-1778358597491.png",
+      "alt": "Citizen POA Court Experience on a laptop"
+    },
+    "caseStudy": {
+      "label": "Court case study",
+      "crumbs": [
+        "Service design",
+        "Jan 2023 – Apr 2023"
+      ],
+      "badge": "Group project",
+      "title": [
+        "The Citizen POA",
+        "Court Experience"
+      ],
+      "lede": "Redesigning the Brantford Provincial Offences Court's atmosphere, wayfinding and accessibility as it moved into a new building.",
+      "byline": "Researcher, designer & lead communicator",
+      "gradient": [
+        "#FFF6D0",
+        "#FFD04E"
+      ],
+      "hero": {
+        "image": "/images/projects/court-courtroom.png",
+        "alt": "3D model of the redesigned courtroom",
+        "style": "flat"
+      },
+      "sticker": {
+        "value": "4",
+        "label": [
+          "months",
+          "start to",
+          "finish"
+        ]
+      },
+      "meta": [
+        {
+          "label": "Role",
+          "value": "Research, design & communication"
+        },
+        {
+          "label": "Client",
+          "value": "Brantford Provincial Offences Court"
+        },
+        {
+          "label": "Timeline",
+          "value": "Jan 2023 – Apr 2023"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Teams",
+          "icon": "/images/tools/teams.png"
+        },
+        {
+          "name": "Word",
+          "icon": "/images/tools/word.png"
+        }
+      ],
+      "teaser": {
+        "kicker": "Next case study · Service design",
+        "image": "/images/projects/court-courtroom.png",
+        "style": "flat"
+      },
+      "sections": [
+        {
+          "id": "summary",
+          "label": "Summary",
+          "title": "The 30-second version",
+          "tldr": "For anyone short on time.",
+          "blocks": [
+            {
+              "type": "notes",
+              "size": "lg",
+              "items": [
+                {
+                  "label": "Problem",
+                  "text": "Visitors felt lost, anxious and unsupported the moment they walked in."
+                },
+                {
+                  "label": "What I did",
+                  "text": "Surveys, usability testing, wireframes, the 3D model, and lead communication with users."
+                },
+                {
+                  "label": "Outcome",
+                  "text": "A calmer, clearer courthouse, zoned by what visitors need."
+                },
+                {
+                  "label": "Delivered",
+                  "text": "Spatial layouts, a 3D model and a proposal for new support services."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "challenge",
+          "label": "Challenge",
+          "title": "The brief",
+          "tldr": "Make the courthouse less stressful for everyone.",
+          "blocks": [
+            {
+              "type": "challenge",
+              "text": "“How might we redesign the courthouse experience to create a more welcoming, accessible, and supportive environment that reduces confusion, frustration, and anxiety for first-time and returning visitors?”"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "label": "Context",
+          "title": "A new building was a chance to start over.",
+          "tldr": "Designed for first-time and returning visitors.",
+          "blocks": [
+            {
+              "type": "notes",
+              "size": "md",
+              "offset": 1,
+              "items": [
+                {
+                  "label": "Partner",
+                  "text": "The City of Brantford, as the Provincial Offences Court relocated to a new building."
+                },
+                {
+                  "label": "Goal",
+                  "text": "A more comfortable, understandable experience, with the support people need to reach a successful outcome."
+                },
+                {
+                  "label": "Scope",
+                  "text": "Four months of research, design iterations and testing."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "role",
+          "label": "My role",
+          "title": "What I owned.",
+          "tldr": "Research, design and communication with users.",
+          "blocks": [
+            {
+              "type": "rows",
+              "marker": "number",
+              "items": [
+                {
+                  "title": "Research",
+                  "text": "Created surveys to understand how visitors felt, and ran usability testing to map their journey."
+                },
+                {
+                  "title": "Design",
+                  "text": "Created the wireframes and the 3D model of the court space."
+                },
+                {
+                  "title": "Communication",
+                  "lead": true,
+                  "text": "Lead communicator with users: sent emails and set up meetings."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "process",
+          "label": "Process",
+          "title": "Four months, four phases.",
+          "tldr": "Research → Analysis → Design → Testing.",
+          "blocks": [
+            {
+              "type": "process",
+              "steps": [
+                {
+                  "name": "Research",
+                  "text": "Surveys, interviews and observational studies with first-time and repeat courthouse visitors.",
+                  "methods": "Surveys · Interviews · Observation"
+                },
+                {
+                  "name": "Analysis",
+                  "text": "Synthesized findings into personas, journey maps and key insight themes.",
+                  "methods": "Personas · Journey maps · Themes"
+                },
+                {
+                  "name": "Design",
+                  "text": "Wireframes, spatial layouts and a 3D model of the proposed courthouse.",
+                  "methods": "Wireframes · Spatial layouts · 3D model"
+                },
+                {
+                  "name": "Testing",
+                  "text": "Usability testing sessions, with the design iterated on structured feedback.",
+                  "methods": "Usability testing · Iteration"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "research",
+          "label": "Research",
+          "title": "Visitors felt lost before they reached a courtroom.",
+          "tldr": "Poor wayfinding, limited seating and no visible support.",
+          "blocks": [
+            {
+              "type": "rows",
+              "marker": "arrow",
+              "items": [
+                {
+                  "title": "Methods",
+                  "text": "Surveys, contextual interviews and observation at the existing courthouse."
+                },
+                {
+                  "title": "Who we heard from",
+                  "text": "First-time and repeat visitors, asked about pain points, emotions and navigation."
+                },
+                {
+                  "title": "What we found",
+                  "text": "Unclear wayfinding, limited seating and no visible support services drove a negative experience."
+                }
+              ]
+            },
+            {
+              "type": "figure",
+              "src": "/images/projects/court-wireframe.png",
+              "alt": "Early wireframe of the new courthouse layout",
+              "caption": "early wireframes of the new layout",
+              "tilt": -0.6,
+              "compact": true
+            }
+          ]
+        },
+        {
+          "id": "analysis",
+          "label": "Analysis",
+          "title": "Three archetypes, three themes.",
+          "tldr": "We zoned the building by what visitors need.",
+          "blocks": [
+            {
+              "type": "rows",
+              "marker": "arrow",
+              "items": [
+                {
+                  "title": "Environmental anxiety",
+                  "text": "An unfamiliar, formal atmosphere."
+                },
+                {
+                  "title": "Navigational confusion",
+                  "text": "Poor signage and layout."
+                },
+                {
+                  "title": "Lack of support",
+                  "text": "Little access to legal and emotional support services."
+                }
+              ]
+            },
+            {
+              "type": "chips",
+              "label": "Visitor archetypes",
+              "items": [
+                "The first-time offender",
+                "The repeat visitor",
+                "The support-seeker"
+              ]
+            },
+            {
+              "type": "figure",
+              "src": "/images/projects/court-floorplan.png",
+              "alt": "Floor plan zoned into lobby, waiting, courtroom and support services",
+              "caption": "lobby · waiting · courtroom · support",
+              "tilt": 0.6,
+              "compact": true,
+              "maxWidth": 520
+            }
+          ]
+        },
+        {
+          "id": "design",
+          "label": "Final design",
+          "title": "Warm, clear and accessible.",
+          "tldr": "Wood and blue tones, linear wayfinding, accessible seating.",
+          "blocks": [
+            {
+              "type": "figures",
+              "items": [
+                {
+                  "src": "/images/projects/court-courtroom.png",
+                  "alt": "3D model of the redesigned courtroom",
+                  "caption": "the redesigned courtroom",
+                  "text": "Warm-toned wood balanced with cooler blue accents to feel welcoming yet professional, with clearer sightlines and accessible seating."
+                },
+                {
+                  "src": "/images/projects/court-spaces.png",
+                  "alt": "Redesigned lobby and waiting spaces",
+                  "caption": "lobby & waiting spaces",
+                  "text": "Comfortable, well-lit waiting areas with clear wayfinding, designed to ease the anxiety visitors feel when they arrive."
+                }
+              ]
+            },
+            {
+              "type": "rows",
+              "marker": "arrow",
+              "items": [
+                {
+                  "title": "Atmosphere",
+                  "text": "Warm wood for walls and furniture, with cooler blue accents for balance."
+                },
+                {
+                  "title": "Navigation & wayfinding",
+                  "text": "Clear signage and information boards, with a linear layout from entry to courtroom."
+                },
+                {
+                  "title": "Accessibility",
+                  "text": "Improved seating accessibility, with accessible bathrooms near the lobby."
+                },
+                {
+                  "title": "Proposed services",
+                  "text": "Mediation, legal assistance and victim support."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "label": "Reflection",
+          "title": "What this project taught me.",
+          "tldr": "Get access to constraints early.",
+          "blocks": [
+            {
+              "type": "noteCard",
+              "heading": "Looking back",
+              "text": "Delays in receiving client documentation meant we couldn't fully explore new services for visitors. It reinforced how important it is to set up clear lines of communication, and access to project constraints, early in the process."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
-    "title": "Maker Lab II \u2013 SDP2.2",
+    "title": "Maker Lab II – SDP2.2",
     "slug": "maker-lab-ii",
     "year": "2023",
-    "dateRange": "Jan 2023 \u2014 Apr 2023",
+    "dateRange": "Jan 2023 — Apr 2023",
     "company": "Wilfrid Laurier University",
     "tags": [
       "Product Design"
@@ -407,7 +1745,7 @@
       }
     ],
     "challenge": "",
-    "backgroundInfo": "The project addresses accessibility for deaf and hard-of-hearing individuals by creating a wearable alert device. The bracelet provides visual, auditory, and haptic (vibration) feedback when an alarm sounds \u2014 giving users the freedom to move around their home without worrying about missing something important.\n\nThe prototype successfully produced a sound with a light vibration when something was within a certain distance, though it didn't fully integrate all intended features due to challenges with component integration and finding the appropriate code.",
+    "backgroundInfo": "The project addresses accessibility for deaf and hard-of-hearing individuals by creating a wearable alert device. The bracelet provides visual, auditory, and haptic (vibration) feedback when an alarm sounds — giving users the freedom to move around their home without worrying about missing something important.\n\nThe prototype successfully produced a sound with a light vibration when something was within a certain distance, though it didn't fully integrate all intended features due to challenges with component integration and finding the appropriate code.",
     "insights": "",
     "role": "",
     "prototypes": [
@@ -430,11 +1768,11 @@
     "extraSections": [
       {
         "heading": "Design & Build",
-        "body": "Components used: Arduino Uno, breadboard, LED, wires, resistors, sensors, and a sound machine. The team encountered challenges in finding appropriate code for all components and struggled with integration between hardware elements.\n\nAlert Feedback Modes:\n- Visual \u2014 LED light response\n- Auditory \u2014 sound output\n- Haptic \u2014 vibration feedback"
+        "body": "Components used: Arduino Uno, breadboard, LED, wires, resistors, sensors, and a sound machine. The team encountered challenges in finding appropriate code for all components and struggled with integration between hardware elements.\n\nAlert Feedback Modes:\n- Visual — LED light response\n- Auditory — sound output\n- Haptic — vibration feedback"
       },
       {
         "heading": "Future Vision",
-        "body": "An interactive app that allows users to connect their devices \u2014 such as their fire alarm and doorbell \u2014 to the customized bracelet. Despite the unmet initial goals, the project was a valued learning experience in hardware prototyping, accessibility design, and collaborative iteration."
+        "body": "An interactive app that allows users to connect their devices — such as their fire alarm and doorbell — to the customized bracelet. Despite the unmet initial goals, the project was a valued learning experience in hardware prototyping, accessibility design, and collaborative iteration."
       }
     ],
     "prevSlug": "citizen-poa-court-experience",
@@ -452,13 +1790,201 @@
       "image": ""
     },
     "wireframes": [],
-    "wireframesBody": ""
+    "wireframesBody": "",
+    "caseStudy": {
+      "label": "Maker Lab II",
+      "crumbs": [
+        "Product design",
+        "SDP2.2",
+        "Jan 2023 – Apr 2023"
+      ],
+      "badge": "Hardware prototype",
+      "title": [
+        "Maker Lab II",
+        "a wearable alert"
+      ],
+      "lede": "A bracelet that gives deaf and hard-of-hearing people the freedom to move around their home without missing an important alarm.",
+      "byline": "Product design, Wilfrid Laurier University",
+      "gradient": [
+        "#C2B5D6",
+        "#533A71"
+      ],
+      "hero": {
+        "image": "/images/projects/maker-lab-ii-1776452167527.png",
+        "alt": "Maker Lab II bracelet concept",
+        "style": "flat"
+      },
+      "sticker": {
+        "value": "3",
+        "label": [
+          "feedback",
+          "modes"
+        ]
+      },
+      "meta": [
+        {
+          "label": "Type",
+          "value": "Product design"
+        },
+        {
+          "label": "School",
+          "value": "Wilfrid Laurier University"
+        },
+        {
+          "label": "Timeline",
+          "value": "Jan 2023 – Apr 2023"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Word",
+          "icon": "/images/tools/word.png"
+        },
+        {
+          "name": "Arduino",
+          "icon": "/images/tools/tool-arduino-1778360237082.png"
+        }
+      ],
+      "teaser": {
+        "kicker": "Next project · Product design",
+        "title": "Maker Lab II",
+        "image": "/images/projects/maker-lab-ii-1776452167527.png",
+        "style": "flat"
+      },
+      "sections": [
+        {
+          "id": "summary",
+          "label": "Summary",
+          "title": "The 30-second version",
+          "tldr": "For anyone short on time.",
+          "blocks": [
+            {
+              "type": "notes",
+              "size": "lg",
+              "items": [
+                {
+                  "label": "Problem",
+                  "text": "Deaf and hard-of-hearing people can miss alarms when they're away from a visual alert."
+                },
+                {
+                  "label": "Idea",
+                  "text": "A bracelet with visual, auditory and haptic feedback when an alarm sounds."
+                },
+                {
+                  "label": "Result",
+                  "text": "The prototype produced sound and a light vibration when something came within range."
+                },
+                {
+                  "label": "Learned",
+                  "text": "Hardware prototyping, accessibility design and collaborative iteration."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "concept",
+          "label": "Concept",
+          "title": "Alerts that follow you around the house.",
+          "tldr": "Three feedback modes in one wearable.",
+          "blocks": [
+            {
+              "type": "notes",
+              "size": "md",
+              "offset": 1,
+              "items": [
+                {
+                  "label": "Visual",
+                  "text": "LED light response."
+                },
+                {
+                  "label": "Auditory",
+                  "text": "Sound output."
+                },
+                {
+                  "label": "Haptic",
+                  "text": "Vibration feedback."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "build",
+          "label": "Design & build",
+          "title": "Built on an Arduino Uno.",
+          "tldr": "Not every feature made it in, and that taught us a lot.",
+          "blocks": [
+            {
+              "type": "rows",
+              "marker": "number",
+              "items": [
+                {
+                  "title": "Components",
+                  "text": "Arduino Uno, breadboard, LED, wires, resistors, sensors and a sound machine."
+                },
+                {
+                  "title": "Challenges",
+                  "text": "Finding the right code for every component, and integrating the hardware elements."
+                },
+                {
+                  "title": "Result",
+                  "text": "Sound with a light vibration when something was within range. Not every intended feature was integrated."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "design",
+          "label": "Prototypes",
+          "title": "App, bracelet and testing.",
+          "tldr": "From concept screens to a working circuit.",
+          "blocks": [
+            {
+              "type": "figures",
+              "maxWidth": 440,
+              "items": [
+                {
+                  "src": "/images/projects/maker-lab-ii-proto1-1778360405555.png",
+                  "alt": "Companion app design",
+                  "caption": "app design"
+                },
+                {
+                  "src": "/images/projects/maker-lab-ii-proto2-1778360440662.png",
+                  "alt": "Bracelet design sketch",
+                  "caption": "bracelet design"
+                },
+                {
+                  "src": "/images/projects/maker-lab-ii-proto3-1778360461794.png",
+                  "alt": "Arduino circuit testing",
+                  "caption": "arduino testing"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "future",
+          "label": "Future vision",
+          "title": "Where it could go next.",
+          "tldr": "Connect home devices to the bracelet.",
+          "blocks": [
+            {
+              "type": "noteCard",
+              "heading": "If we kept going",
+              "text": "An interactive app that lets people connect devices like their fire alarm and doorbell to a customized bracelet. Despite the unmet goals, the project was a valued learning experience in hardware prototyping, accessibility design and collaborative iteration."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "title": "Logo Designs",
     "slug": "logo-designs",
     "year": "2026",
-    "dateRange": "2019 \u2013 2026",
+    "dateRange": "2019 – 2026",
     "company": "",
     "tags": [
       "Branding",
@@ -466,7 +1992,7 @@
     ],
     "tag": "BRANDING",
     "bg": "plum",
-    "description": "A collection of logo and brand identity work across school projects, commissioned clients, and competitions \u2014 spanning 2019\u20132026.",
+    "description": "A collection of logo and brand identity work across school projects, commissioned clients, and competitions — spanning 2019–2026.",
     "featured": false,
     "cardStyle": "plum",
     "thumbnail": "/images/projects/logo-uxdsa.png",
@@ -493,7 +2019,7 @@
     "role": "",
     "prototypes": [
       {
-        "title": "UX Design \u2014 UXDSA Competition",
+        "title": "UX Design — UXDSA Competition",
         "caption": "Winning entry for the UXDSA Sticker Design Competition.",
         "image": "/images/projects/logo-uxdsa.png"
       },
@@ -513,17 +2039,17 @@
         "image": "/images/projects/logo-united-cafe.png"
       },
       {
-        "title": "Killbear Staff \u2014 Bear",
+        "title": "Killbear Staff — Bear",
         "caption": "Staff apparel design for Killbear Provincial Park, 2023.",
         "image": "/images/projects/logo-killbear-bear.jpg"
       },
       {
-        "title": "Killbear Staff \u2014 Campfire",
+        "title": "Killbear Staff — Campfire",
         "caption": "Staff apparel design for Killbear Provincial Park, 2023.",
         "image": "/images/projects/logo-killbear-campfire.jpg"
       },
       {
-        "title": "Killbear Staff \u2014 Snake",
+        "title": "Killbear Staff — Snake",
         "caption": "Staff apparel design for Killbear Provincial Park, 2023.",
         "image": "/images/projects/logo-killbear-snake.jpg"
       }
@@ -543,7 +2069,121 @@
       "image": ""
     },
     "wireframes": [],
-    "wireframesBody": ""
+    "wireframesBody": "",
+    "caseStudy": {
+      "label": "Logo designs",
+      "crumbs": [
+        "Branding",
+        "2019 – 2026"
+      ],
+      "badge": "Visual design",
+      "title": [
+        "Logo",
+        "Designs"
+      ],
+      "note": "contest winner inside!",
+      "lede": "Logo and brand identity work across school projects, commissioned clients and competitions.",
+      "byline": "Designer & illustrator",
+      "gradient": [
+        "#E6DAFA",
+        "#A799B7"
+      ],
+      "hero": {
+        "collage": [
+          "/images/projects/logo-uxdsa.png",
+          "/images/projects/logo-oh-baby.png",
+          "/images/projects/logo-killbear-bear.jpg"
+        ]
+      },
+      "meta": [
+        {
+          "label": "Type",
+          "value": "Branding & visual design"
+        },
+        {
+          "label": "Timeline",
+          "value": "2019 – 2026"
+        },
+        {
+          "label": "Pieces",
+          "value": "7 marks"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Illustrator",
+          "icon": "/images/tools/ai.svg"
+        },
+        {
+          "name": "Procreate",
+          "icon": "/images/tools/procreate.webp"
+        }
+      ],
+      "teaser": {
+        "kicker": "Next project · Branding",
+        "image": "/images/projects/logo-uxdsa.png",
+        "style": "flat"
+      },
+      "sections": [
+        {
+          "id": "gallery",
+          "label": "Gallery",
+          "title": "Seven marks, four kinds of client.",
+          "tldr": "Competitions, commissions, school projects and staff apparel.",
+          "blocks": [
+            {
+              "type": "gallery",
+              "min": 260,
+              "items": [
+                {
+                  "src": "/images/projects/logo-uxdsa.png",
+                  "alt": "UX Design · UXDSA",
+                  "title": "UX Design · UXDSA",
+                  "text": "Winning entry for the UXDSA Sticker Design Competition.",
+                  "chip": "Winner"
+                },
+                {
+                  "src": "/images/projects/logo-oh-baby.png",
+                  "alt": "Oh Baby",
+                  "title": "Oh Baby",
+                  "text": "Commissioned hand-lettered logo."
+                },
+                {
+                  "src": "/images/projects/logo-island-of-jumanji.png",
+                  "alt": "Island of Jumanji",
+                  "title": "Island of Jumanji",
+                  "text": "Brand mark for the @island_of_jumanji Instagram account."
+                },
+                {
+                  "src": "/images/projects/logo-united-cafe.png",
+                  "alt": "United Cafe",
+                  "title": "United Cafe",
+                  "text": "Logo mark for a school branding project."
+                },
+                {
+                  "src": "/images/projects/logo-killbear-bear.jpg",
+                  "alt": "Killbear Staff · Bear",
+                  "title": "Killbear Staff · Bear",
+                  "text": "Staff apparel design for Killbear Provincial Park, 2023."
+                },
+                {
+                  "src": "/images/projects/logo-killbear-campfire.jpg",
+                  "alt": "Killbear Staff · Campfire",
+                  "title": "Killbear Staff · Campfire",
+                  "text": "Staff apparel design for Killbear Provincial Park, 2023."
+                },
+                {
+                  "src": "/images/projects/logo-killbear-snake.jpg",
+                  "alt": "Killbear Staff · Snake",
+                  "title": "Killbear Staff · Snake",
+                  "text": "Staff apparel design for Killbear Provincial Park, 2023."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "title": "Illustrations",
@@ -608,6 +2248,90 @@
       "image": ""
     },
     "wireframes": [],
-    "wireframesBody": ""
+    "wireframesBody": "",
+    "caseStudy": {
+      "label": "Illustrations",
+      "crumbs": [
+        "Illustration",
+        "2023"
+      ],
+      "badge": "Personal & commissioned",
+      "title": [
+        "Illus­trations"
+      ],
+      "lede": "A selection of personal and commissioned illustration work. More is available on request.",
+      "byline": "Illustrator on weekends",
+      "gradient": [
+        "#FFF6D0",
+        "#E8C76A"
+      ],
+      "hero": {
+        "collage": [
+          "/images/projects/illustration-funko-pop.png",
+          "/images/projects/illustration-moose.png",
+          "/images/projects/illustration-burger-chef.png"
+        ]
+      },
+      "meta": [
+        {
+          "label": "Type",
+          "value": "Illustration"
+        },
+        {
+          "label": "Timeline",
+          "value": "2023"
+        },
+        {
+          "label": "Pieces",
+          "value": "3 illustrations"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Illustrator",
+          "icon": "/images/tools/ai.svg"
+        }
+      ],
+      "teaser": {
+        "kicker": "Next project · Illustration",
+        "image": "/images/projects/illustration-moose.png",
+        "style": "flat"
+      },
+      "sections": [
+        {
+          "id": "gallery",
+          "label": "Gallery",
+          "title": "Characters, pets and mascots.",
+          "tldr": "Personal and commissioned work.",
+          "blocks": [
+            {
+              "type": "gallery",
+              "min": 300,
+              "items": [
+                {
+                  "src": "/images/projects/illustration-funko-pop.png",
+                  "alt": "Funko Pop portrait",
+                  "title": "Funko Pop portrait",
+                  "text": "A commissioned Funko Pop-style character portrait.",
+                  "chip": "Commission"
+                },
+                {
+                  "src": "/images/projects/illustration-moose.png",
+                  "alt": "Moose",
+                  "title": "Moose",
+                  "text": "A custom pet illustration."
+                },
+                {
+                  "src": "/images/projects/illustration-burger-chef.png",
+                  "alt": "Burger Chef",
+                  "title": "Burger Chef",
+                  "text": "A playful mascot logo illustration."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   }
 ]

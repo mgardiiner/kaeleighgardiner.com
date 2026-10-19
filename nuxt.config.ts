@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     preset: 'github-pages',
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/404.html', '/sitemap.xml', '/admin'],
+      // The old standalone pages are listed so their redirect stubs get written.
+      routes: ['/', '/404.html', '/sitemap.xml', '/admin', '/about', '/experience', '/projects'],
       failOnError: true,
     },
   },
@@ -15,6 +16,10 @@ export default defineNuxtConfig({
     // The editor is browser-only (localStorage + GitHub API from the client).
     '/admin': { ssr: false, index: false },
     '/admin/**': { ssr: false, index: false },
+    // About, Experience and the project index now live as sections on Home.
+    '/about': { redirect: '/#about' },
+    '/experience': { redirect: '/#experience' },
+    '/projects': { redirect: '/#work' },
   },
   compatibilityDate: '2025-07-15',
   app: {
@@ -40,7 +45,17 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Arizonia&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700;1,900&family=Roboto:wght@300;400;500;700;900&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,500;1,700;1,900&family=Arizonia&display=swap',
+        },
+      ],
+      script: [
+        {
+          // Hide [data-reveal] elements until useScrollFx has set their start
+          // state, so prerendered content doesn't flash before animating in.
+          // The timeout is a safety net if the app never hydrates.
+          innerHTML:
+            "(function(){var d=document.documentElement;if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('fx-pending');setTimeout(function(){d.classList.remove('fx-pending')},3000)})()",
+          tagPosition: 'head',
         },
       ],
     },

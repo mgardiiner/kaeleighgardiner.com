@@ -2,7 +2,7 @@
   "roles": [
     {
       "title": "UX Designer",
-      "company": "Ministry of Transportation, Ontario",
+      "company": "Ontario Ministry of Transportation",
       "type": "Co-op",
       "startDate": "May 2024",
       "endDate": "Aug 2025",
@@ -12,6 +12,11 @@
         "Conducted and documented user testing sessions, including note-taking and synthesizing feedback to inform design improvements",
         "Collaborated as an active project team member, contributing ideas, design deliverables, and support across multiple projects",
         "Supported compliance with AODA accessibility standards, ensuring designs were inclusive and usable for diverse users"
+      ],
+      "summary": [
+        "Wireframes and prototypes for internal government tools",
+        "Ran user testing and turned findings into design changes",
+        "AODA accessibility compliance"
       ]
     },
     {
@@ -29,7 +34,7 @@
       ]
     },
     {
-      "title": "Gate Attendant / Administration Assistant",
+      "title": "Gate Attendant / Admin Assistant",
       "company": "Ontario Parks",
       "type": "Seasonal",
       "startDate": "May 2022",
